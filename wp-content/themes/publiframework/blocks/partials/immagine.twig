@@ -1,0 +1,18 @@
+{% if fields.dimensione_immagine=='full' or fields.elementi=='prodotti' %}
+    {% if tipo=='loop' %}
+        {% set img = immagine.src %}
+    {% else %}
+        {% set img = immagine.url %}
+    {% endif %}
+    {% set width = immagine.width %}
+    {% set height = immagine.height %}
+{% else %}
+    {% if tipo=='loop' %}
+        {% set img = immagine.src(fields.dimensione_immagine) %}
+    {% else %}
+        {% set img = immagine.sizes[fields.dimensione_immagine] %}
+    {% endif %}
+    {% set width = TimberImage(immagine.ID).sizes[fields.dimensione_immagine].width %}
+    {% set height = TimberImage(immagine.ID).sizes[fields.dimensione_immagine].height %}
+{% endif %}
+<img src="{{ img|towebp }}" width="{{ width }}" height="{{ height }}" alt="{{ immagine.alt }}" />

@@ -1,0 +1,170 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+}
+
+#login,
+.login {
+  h1 {
+    a {
+      height: auto;
+      width: 100%;
+      background-repeat: no-repeat;
+      padding-bottom: 30px;
+      background-size: contain;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+#login {
+  width: 90vw;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6% 15px 15px;
+  flex: 1 1 auto !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.72);
+
+  @media (min-width: 768px) {
+    width: 25vw;
+    padding: 7% 15px 15px;
+  }
+}
+
+.login {
+  form {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+  }
+
+  label {
+    color: #000;
+  }
+
+  .privacy-policy-page-link {
+    margin: 0em 0 2em;
+  }
+
+  &_footer {
+    width: 90vw;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 15px 3%;
+    flex: 1 1 auto !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.72);
+
+    @media (min-width: 768px) {
+      width: 25vw;
+    }
+  }
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #ffffff;
+  border-radius: 0;
+
+  &:focus {
+    border-color: #fff;
+    box-shadow: none;
+  }
+}
+
+input[type="checkbox"] {
+  border-radius: 0;
+}
+
+.wp-core-ui {
+  .button-primary {
+    text-decoration: none;
+    text-shadow: none;
+  }
+}
+
+.logo-evidenzio {
+  max-width: 9rem;
+  display: block;
+  margin: 20px auto;
+}
+
+.privacy-policy-link {
+  display: none;
+}
+
+#wp-submit {
+  width: 100%;
+  margin-top: 10px;
+  height: 2.5rem;
+  background: #333;
+  border-color: #000;
+  border-radius: 0;
+}
+
+p.submit input {
+  font-size: 18px !important;
+}
+
+#assistenza {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.72);
+  border-radius: 10px 0 0 0;
+  transform: translate(87%, 69%);
+
+  .titolo {
+    .open {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+      svg {
+        width: 20px;
+      }
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+  }
+}
+
+.blocco_assistenza {
+  padding: 5px 0;
+  position: relative;
+  height: 2.5rem;
+  text-align: center;
+  line-height: 2.5rem;
+
+  &.scuro {
+    background-color: rgb(22, 22, 22);
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}
+
+.titolo {
+  svg {
+    width: 15px;
+    height: auto;
+  }
+}

@@ -1,0 +1,38 @@
+{% extends "blocks/partials/base.twig" %}
+
+{% block fascia %}
+    <div class="row{% if fields.posizione_orizzontale_immagine=='start' %} flex-row-reverse{% endif %}">
+        {% if fields.immagine_interna and fields.posizione_orizzontale_immagine=='sopra' %}
+            <div class="col-12">
+                <img src="{{ fields.immagine_interna.sizes[fields.dimensione_immagine]|towebp }}" width="{{TimberImage(fields.immagine_interna.ID).sizes[fields.dimensione_immagine].width }}" height="{{TimberImage(fields.immagine_interna.ID).sizes[fields.dimensione_immagine].height }}" alt="{{ fields.immagine_interna.alt }}" />
+            </div>
+        {% endif %}
+        <div class="col-12{% if fields.immagine_interna and (fields.posizione_orizzontale_immagine=='start' or fields.posizione_orizzontale_immagine=='end') %} col-lg-{{12-fields.colonne_larghezza_immagine}}{% endif %}">
+            {% if fields.title %}
+                <div class="titolo w-100 mb-2">
+                    {{tags_titolo.tag_apertura_titolo}}{{fields.title}}{% if fields.includi_pre_titolo and fields.sottotitolo %}<span class="d-block sottotitolo">{{fields.sottotitolo}}</span>{% endif %}</{{tags_titolo.tag_titolo}}>
+                </div>
+            {% endif %}
+            {% if not fields.includi_pre_titolo and fields.sottotitolo %}
+                <div class="sottotitolo w-100">
+                    {{tags_sottotitolo.tag_apertura_titolo}}{{fields.sottotitolo}}</{{tags_sottotitolo.tag_titolo}}>
+                </div>
+            {% endif %}
+            {% if fields.testo %}
+                <div class="testo w-100">
+                    {{fields.testo}}
+                </div>
+            {% endif %}
+            {% if fields.testo_bottone!='' %}
+                <div class="cta w-100">
+                    {% include 'blocks/bottone-singolo.twig' %}            
+                </div>
+            {% endif %}
+        </div>
+        {% if fields.immagine_interna and fields.posizione_orizzontale_immagine!='sopra' %}
+            <div class="col-12{% if fields.posizione_orizzontale_immagine=='start' or fields.posizione_orizzontale_immagine=='end' %} col-lg-{{fields.colonne_larghezza_immagine}}{% endif %}">
+                <img src="{{ fields.immagine_interna.sizes[fields.dimensione_immagine]|towebp }}" width="{{TimberImage(fields.immagine_interna.ID).sizes[fields.dimensione_immagine].width }}" height="{{TimberImage(fields.immagine_interna.ID).sizes[fields.dimensione_immagine].height }}" alt="{{ fields.immagine_interna.alt }}" />
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

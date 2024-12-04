@@ -1,0 +1,10 @@
+{% if menu %}
+	<ul class="dropdown-menu d-none" aria-labelledby="menu-item-{{parent}}">
+	{% for item in items %}
+		<li class="{{ item.classes | join(' ') }}">
+			<a id="menu-item-{{item.post_name}}" class="nav-link{% if item.children %} dropdown-toggle{% endif %}" {% if item.children %}data-bs-toggle="dropdown" aria-expanded="false" {% endif %}target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% if item.children %}{% include "submenu.twig" with {'items': item.children} %}{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

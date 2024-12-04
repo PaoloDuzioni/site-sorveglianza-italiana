@@ -1,0 +1,21 @@
+<div class="slider_banner swiper">
+    <div class="swiper-wrapper">
+        {% for slide in fields.slide_banner %}
+            <div class="swiper-slide">
+                <img src="{{slide.immagine.url}}" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="wrapper-testi">
+                                <p class="h1">{{slide.titolo}}</p>
+                                <div class="descrizione mb-3">{{slide.descrizione}}</div>
+                                <a class="btn btn-success" href="{{slide.link.url}}">{{slide.link.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+</div>

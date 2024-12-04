@@ -1,0 +1,21 @@
+{% extends "blocks/partials/base.twig" %}
+
+{% block fascia %}
+    <div class="row">
+        <div class="col-12">
+            {% if fields.title %}
+                <div class="titolo w-100 mb-2">
+                    {{tags_titolo.tag_apertura_titolo}}{{fields.title}}{% if fields.includi_pre_titolo and fields.sottotitolo %}<span class="d-block sottotitolo">{{fields.sottotitolo}}</span>{% endif %}</{{tags_titolo.tag_titolo}}>
+                </div>
+            {% endif %}
+            {% if not fields.includi_pre_titolo and fields.sottotitolo %}
+                <div class="sottotitolo w-100">
+                    {{tags_sottotitolo.tag_apertura_titolo}}{{fields.sottotitolo}}</{{tags_sottotitolo.tag_titolo}}>
+                </div>
+            {% endif %}
+            <div class="row w-100 colonne">
+                {% include 'blocks/partials/colonne.twig' %}    
+            </div>
+        </div>
+    </div>
+{% endblock %}

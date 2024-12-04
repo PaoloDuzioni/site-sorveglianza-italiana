@@ -1,0 +1,65 @@
+{% extends "templates/layout/base.twig" %}
+
+{% block content %}
+    {% do action('woocommerce_before_single_product') %}
+
+    <div class="container">
+
+        <article itemscope itemtype="http://schema.org/Product" class="row single-product-details {{ post.class }}">
+            <div id="product-slider" class="col-lg-6 entry-images">
+                {% do action('woocommerce_before_single_product_summary') %}
+                <div class="row">
+                    <div class="col-10">
+                        <div class="swiper-container product-slider-big">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{{ post.thumbnail.src('prodotti')|towebp }}" width="{{ post.thumbnail.sizes.prodotti.width }}" height="{{ post.thumbnail.sizes.prodotti.height }}" alt="{{ post.thumbnail.alt }}" />
+                                </div>
+                                {% for id_image in product_gallery %}
+                                    <div class="swiper-slide">
+                                        {% set image = Image(id_image) %}
+                                        <img src="{{ image.src('prodotti')|towebp }}" width="{{ image.sizes.prodotti.width }}" height="{{ image.sizes.prodotti.height }}" alt="{{ image.alt }}" />
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>                
+                    </div>
+                    <div class="col-2">
+                        <div thumbsSlider="" class="swiper-container product-slider-thumb">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{{ post.thumbnail.src('thumbnail')|towebp }}" width="{{ post.thumbnail.sizes.thumbnail.width }}" height="{{ post.thumbnail.sizes.thumbnail.height }}" alt="{{ post.thumbnail.alt }}" />
+                                </div>
+                                {% for id_image in product_gallery %}
+                                    <div class="swiper-slide">
+                                        {% set image = Image(id_image) %}
+                                        <img src="{{ image.src('thumbnail')|towebp }}" width="{{ image.sizes.thumbnail.width }}" height="{{ image.sizes.thumbnail.height }}" alt="{{ image.alt }}" />
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 summary entry-summary">
+                {% do action('woocommerce_single_product_summary') %}
+            </div>
+
+            {% do action('woocommerce_after_single_product_summary') %}
+
+            <meta itemprop="url" content="{{ post.link }}" />
+
+        </article>
+
+        <div class="row">
+            {% include ["woocommerce/partials/tease-product.twig"] with { products: related_products } %}
+        </div>
+
+        {% do action('woocommerce_after_single_product') %}
+    
+    </div>
+
+{% endblock  %}

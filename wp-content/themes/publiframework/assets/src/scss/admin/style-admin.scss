@@ -1,0 +1,125 @@
+#poststuff {
+  .carbon-separator {
+    h3 {
+      font-size: 20px;
+      margin: 30px 0 0 0;
+    }
+  }
+}
+
+#edittag,
+.wp-editor-wrap {
+  max-width: 1076px;
+}
+
+.wp-block {
+  max-width: 100%;
+
+  &[data-align="left"] > *,
+  &[data-align="center"] > *,
+  &[data-align="right"] > * {
+    width: 100% !important;
+  }
+}
+
+.edit-post-layout {
+  &.is-sidebar-opened {
+    .edit-post-layout__content {
+      @media (min-width: 782px) {
+        margin-right: 380px;
+      }
+    }
+
+    .edit-post-plugin-sidebar__sidebar-layout,
+    .edit-post-sidebar {
+      @media (min-width: 782px) {
+        width: 380px;
+      }
+    }
+  }
+}
+
+.acf-field-message {
+  .acf-label {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.block-editor-block-list__layout {
+  .block-editor-block-list__block {
+    &:before {
+      border-color: rgba(66, 88, 99, 0.4);
+    }
+
+    &.is-selected {
+      &:before {
+        border-color: rgba(66, 88, 99, 1);
+      }
+    }
+  }
+}
+
+.selettore_colore_preset {
+  padding: 3px;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  display: block;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  opacity: 0.5;
+}
+
+.acf-field[data-name="colore_testo_preset"] {
+  input[type="radio"] {
+    opacity: 0;
+  }
+}
+
+.acf-field[data-name="colore_sfondo_preset"],
+.acf-field[data-name="colore_sfondo_banner_preset"] {
+  input[type="radio"] {
+    opacity: 0;
+  }
+
+  .acf-radio-list {
+    display: flex;
+
+    li {
+      width: 3rem;
+    }
+  }
+}
+
+input[type="radio"]:checked + span {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+li {
+  &.toplevel_page_crb_carbon_fields_container_opzioni {
+    &_admin,
+    &_tema {
+      & > a {
+        pointer-events: none;
+      }
+
+      .wp-submenu {
+        .wp-first-item {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+.cf-separator,
+.cf-container-carbon_fields_container_shortcode {
+  h3 {
+    margin-bottom: 0;
+  }
+}

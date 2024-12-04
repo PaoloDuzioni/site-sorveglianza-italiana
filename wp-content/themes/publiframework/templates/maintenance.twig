@@ -1,0 +1,13 @@
+{% extends "layout/empty.twig" %}
+
+{% block content %}
+	<div id="post-{{post.ID}}" class="maintenance_page content-wrapper post-type-{{post.post_type}}">
+		{{post.content}}
+	</div>
+	<script>
+		document.addEventListener( 'wpcf7mailsent', function( event ) {
+			$('<div class="frase_ringraziamento"><p class="titolo">Grazie per il tuo interesse</p><p>La tua richiesta è stata inviata correttamente</p></div>').insertAfter('.blocco_contactform');
+			$('.blocco_contactform').remove();
+		}, false );
+	</script>
+{% endblock %}

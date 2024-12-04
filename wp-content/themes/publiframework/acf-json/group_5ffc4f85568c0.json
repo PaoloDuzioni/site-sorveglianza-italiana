@@ -1,0 +1,261 @@
+{
+    "key": "group_5ffc4f85568c0",
+    "title": "EV Gutenberg - Modale",
+    "fields": [
+        {
+            "key": "field_5ffc50dcfa517",
+            "label": "Modale - Pop-Up",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5ffc5322cb9a0",
+            "label": "Testo bottone",
+            "name": "testo_azione",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Il testo che apparirà per aprire il Pop Up",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 3,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ffc56ed83914",
+            "label": "Slide",
+            "name": "slide",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 3,
+            "collapsed": "field_5ffc572f83918",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Aggiungi slide",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5ffc572f83918",
+                    "label": "elemento",
+                    "name": "elemento",
+                    "aria-label": "",
+                    "type": "flexible_content",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 3,
+                    "layouts": {
+                        "layout_601e77da510b6": {
+                            "key": "layout_601e77da510b6",
+                            "name": "bloccotesto",
+                            "label": "BloccoTesto",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_62855df6e963b",
+                                    "label": "Titolo",
+                                    "name": "titolo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 3,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_601e77e6510b7",
+                                    "label": "Testo",
+                                    "name": "testo",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_601e7806510ba": {
+                            "key": "layout_601e7806510ba",
+                            "name": "shortcode",
+                            "label": "Shortcode",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ffc57838391d",
+                                    "label": "Short code",
+                                    "name": "short_code",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 3,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_62855e06e963c",
+                                    "label": "Titolo",
+                                    "name": "titolo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 3,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        }
+                    },
+                    "button_label": "Aggiungi elemento",
+                    "min": "",
+                    "max": "",
+                    "parent_repeater": "field_5ffc56ed83914"
+                },
+                {
+                    "key": "field_601e700667d42",
+                    "label": "Testo bottone Next",
+                    "name": "testo_bottone_next",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 2,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5ffc56ed83914"
+                },
+                {
+                    "key": "field_601e73caf49fa",
+                    "label": "Testo bottone Prev",
+                    "name": "testo_bottone_prev",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 2,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5ffc56ed83914"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1733310349,
+    "local_file": "\/Users\/masbovi\/www\/iw_framework\/wp-content\/themes\/evidenzio-fw\/acf-json\/group_5ffc4f85568c0.json",
+    "acfml_field_group_mode": "advanced"
+}

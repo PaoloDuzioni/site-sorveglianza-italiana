@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "evidenzio/ev-title",
+	"version": "0.1.0",
+	"title": "Pb Title",
+	"category": "evblocks",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": true,
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"text": true
+			}
+		}
+	},
+	"attributes": {
+		"titolo": {
+			"type": "string"
+		},
+		"uppercase": {
+			"type": "boolean",
+			"default": false
+		},
+		"tag_html": {
+			"type": "string",
+			"default": "h"
+		},
+		"tipo_heading": {
+			"type": "string",
+			"default": "1"
+		},
+		"dimensione": {
+			"type": "string",
+			"default": "1"
+		},
+		"alignment": {
+			"type": "string"
+		}
+	},
+	"textdomain": "ev-title",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

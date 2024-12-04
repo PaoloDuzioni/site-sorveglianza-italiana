@@ -1,0 +1,80 @@
+{% extends "layout/base.twig" %}
+
+{% block titolo %}{% endblock %}
+
+{% block content %}
+
+	<div class="article_header">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 mb-2">
+          <h1 class="article-h1 text-center">{{title}}</h1>
+          {% if content %}<div class="content">{{content}}</div>{% endif %}
+				</div>
+			</div>			
+		</div>	
+    <div class="container">
+      <section id="banner_evidenza"{% if latest_posts[0].thumbnail %} style="background-image: url('{{ latest_posts[0].thumbnail.src|resize(1500, 600, 'center') }}')"{% endif %}>
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="data_post small">{{latest_posts[0].date}} | 
+              {% for cat in latest_posts[0].post_categories %}
+                <a href="{{cat.link}}">{{cat.nome}}</a>{% if not loop.last %} -{% endif %}
+              {% endfor %}
+            </p>
+
+            <h1 class="mb-2">{{latest_posts[0].title}}</h1>
+            <p>{{latest_posts[0].preview.read_more(false)}}</p>
+            <p><a href="{{latest_posts[0].link}}" class="btn btn-success">{{__('Read more', theme_slug)}}</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+	</div>
+
+
+
+<section id="news_home" class="pt-2 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          {% for post in posts %}
+            {% include ['partial/tease-'~post.post_type~'.twig', 'partial/tease.twig'] %}
+          {% endfor %}                
+        </div>
+        {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}      
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if descrizione_aggiuntiva %}
+  <section id="descrizione_aggiuntiva">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          {{descrizione_aggiuntiva}}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<section id="blog_cats" class="py-5">
+  <div class="container">
+    <div class="row">
+      <span class="h1 mb-3 d-block text-center">{{__('Browse the categories', theme_slug)}}</span>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center flex-wrap">
+        {% for cat in blog_categories %}
+          <a class="btn btn-primary mx-1 mb-1" href="{{cat.link}}">{{cat.name}} <span class="icon-right"></span></a>
+        {% endfor %}      
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

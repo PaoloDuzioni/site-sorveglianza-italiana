@@ -1,0 +1,7 @@
+{% for colonna in fields.colonne_interne %}
+    <div class="col-6 col-lg{% if fields.larghezza_colonne!='auto' %}-{{fields.larghezza_colonne}}{% endif %}">
+        {% if colonna.immagine %}{% include 'blocks/partials/immagine.twig' with {'immagine': colonna.immagine, 'tipo': 'acf'} %}{% endif %}
+        <div class="titolo">{{colonna.tags_tit_col.tag_apertura_titolo}}{{colonna.titolo_colonna}}</{{colonna.tags_tit_col.tag_titolo}}></div>
+        <div class="testo">{{colonna.testo_colonna}}</div>
+    </div>
+{% endfor %}

@@ -1,0 +1,32 @@
+
+.img_background, .video_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%!important;
+    height: 100%!important;
+    object-position: center;
+}
+.wp-block-publifarm-columns {
+	position: relative;
+	>div {
+		position: relative;
+		z-index: 1;
+	}
+}
+.wp-block-button__link {
+    border-radius: 4px;
+    background-color: #3BAB65;
+    border-color: #3BAB65;
+    transition: all .2s;
+    &:hover {
+        background-color: darken(#3BAB65, 5%);
+    }
+}
+.justify-content-right {
+    justify-content: flex-end;
+}
+.justify-content-left {
+    justify-content: flex-start;
+}

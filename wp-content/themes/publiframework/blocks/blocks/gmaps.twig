@@ -1,0 +1,228 @@
+<div id="mappa">
+</div>
+
+<script>
+    function initMap() {
+
+    {% set img_marker = Image(immagine_marker) %}
+    const contentString = '<img src="{{img_marker.src}}" class="d-block" /><a href="https://www.google.com/maps/dir/?api=1&dir_action=navigate&travelmode=driving&destination={{fields.localizzazione.lat}},{{fields.localizzazione.lng}}">{{fields.testo_info_stradali}}</a>';
+    const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        position: { lat: {{fields.localizzazione.lat}}, lng: {{fields.localizzazione.lng}} },
+        maxWidth: 210
+    });
+
+
+    map = new google.maps.Map(document.getElementById("mappa"), {
+        center: { lat: {{fields.localizzazione.lat}}, lng: {{fields.localizzazione.lng}} },
+        zoom: 11,
+        styles: [
+            {
+                "featureType": "administrative",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "hue": "#ff0300"
+                    },
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "lightness": 129.33333333333334
+                    },
+                    {
+                        "gamma": 1
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "hue": "#abff00"
+                    },
+                    {
+                        "saturation": 61.80000000000001
+                    },
+                    {
+                        "lightness": 13.800000000000011
+                    },
+                    {
+                        "gamma": 1
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    },
+                    {
+                        "color": "#1fa661"
+                    },
+                    {
+                        "weight": "0.55"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "hue": "#00b7ff"
+                    },
+                    {
+                        "saturation": -31.19999999999996
+                    },
+                    {
+                        "lightness": 2.1803921568627374
+                    },
+                    {
+                        "gamma": 1
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "hue": "#00B5FF"
+                    },
+                    {
+                        "saturation": -33.33333333333343
+                    },
+                    {
+                        "lightness": 27.294117647058826
+                    },
+                    {
+                        "gamma": 1
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station.airport",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station.bus",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "hue": "#00B7FF"
+                    },
+                    {
+                        "saturation": 8.400000000000006
+                    },
+                    {
+                        "lightness": 36.400000000000006
+                    },
+                    {
+                        "gamma": 1
+                    }
+                ]
+            }
+        ]
+    });
+        infowindow.open({
+            map,
+            shouldFocus: true,
+        });
+
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&v=weekly" async></script>

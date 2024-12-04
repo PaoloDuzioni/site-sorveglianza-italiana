@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/******************************************************
+    BOOTSTRAP
+ ******************************************************/
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .5,
+  2: $spacer * 1,
+  3: $spacer * 2,
+  4: $spacer * 3,
+  5: $spacer * 4,
+  6: $spacer * 5,
+  7: $spacer * 6,
+  8: $spacer * 7,
+  9: $spacer * 8,
+  10: $spacer * 10
+) !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  //xxxl: 1600px
+) !default;
+// scss-docs-end grid-breakpoints
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+  //xxxl: 1520px
+) !default;
+// scss-docs-end container-max-widths
+
+$input-btn-focus-box-shadow:    none !default;
+$input-focus-border-color: #000 !default;
+
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
+$cornflower-blue: #86C8E6 !default;
+$lochmara: #0188BE !default;
+$resolution-blue: #032186 !default;
+$downriver: #0C1F4D !default;
+$blue3: #00196A !default;
+
+
+@mixin boxshadow {
+  box-shadow: 0px 3px 6px #00000029;
+}
+@mixin gradiente_blu {
+  background: transparent linear-gradient(109deg, #000000 0%, #0C1F4D 34%, #183C96 54%, #86C8E6 100%) 0% 0% no-repeat padding-box;
+}
+
+/******************************************************
+    THEME SETTINGS
+ ******************************************************/
+
+//COLORS
+$white: #fff;
+$black: #000;
+$font-col: #333;
+$back-col: $white;
+$primary: dodgerblue;
+$secondary: orange;
+
+// TYPOGRAPHY
+$main-font: 'Roboto', sans-serif;
+// for easy rem to px conversions (1rem -> 10px) and flexible for poor vision change on browser
+$base-font: 62.5%;
+$font-regular: 400;
+$font-bold: 700;
+
+// Dynamic values
+:root {
+  --body-font-size: 1.6rem; // 16px
+}

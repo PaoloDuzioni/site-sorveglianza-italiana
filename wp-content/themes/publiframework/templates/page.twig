@@ -1,0 +1,13 @@
+{% extends "layout/base.twig" %}
+
+{% block breadcrumb %}
+	{% if post.meta('visualizza_breadcrumb') %}
+    	{{ parent() }}
+	{% endif %}
+{% endblock breadcrumb %}
+
+{% block content %}
+	<div id="post-{{post.ID}}" class="content-wrapper post-type-{{post.post_type}}">
+		{{post.content}}
+	</div>
+{% endblock %}

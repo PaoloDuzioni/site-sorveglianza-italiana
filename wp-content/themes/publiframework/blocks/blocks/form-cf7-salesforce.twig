@@ -1,0 +1,13 @@
+<div class="form_salesforce">    
+    <input type="hidden" name="tipi_di_form" value="{{sf_tipo_di_form_txt}}" id="tipi_di_form" />
+    <input type="hidden" name="aree_di_interesse_crm" value="{{sf_area_di_interesse_txt}}" id="aree_di_interesse_crm" />
+    {% filter shortcodes %}[contact-form-7 id="{{fields.form_cf7}}"]{% endfilter %}
+</div>
+{% if pdf_allegato!='' %}
+    <script>
+    document.addEventListener( 'wpcf7mailsent', function( event ) {
+        var urlcatalogo = "{{pdf_allegato}}";
+        location = urlcatalogo;
+    }, false );
+    </script>
+{% endif %}

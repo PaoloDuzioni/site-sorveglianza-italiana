@@ -1,0 +1,12 @@
+{% for docente in fields.docenti %}
+    <div class="row mb-2">
+        <div class="col-3 col-lg-1">
+            {% if docente.foto_docente %}<img class="foto_docente" src="{{ docente.foto_docente.url|resize(80,80, 'center') }}" width="80" height="80" alt="{{ docente.foto_docente.alt }}" />{% endif %}
+        </div>
+        <div class="col-9 col-lg-4 col-xl-3">
+            <span class="h3 d-block">{{docente.nome_docente}}</span>
+            <span class="h4 d-block">{{docente.titolo_docente}}</span>
+        </div>
+        <div class="mt-2 mt-lg-0 col-12 col-lg-7 col-xl-8">{{docente.descrizione_docente}}</div>
+    </div>
+{% endfor %}

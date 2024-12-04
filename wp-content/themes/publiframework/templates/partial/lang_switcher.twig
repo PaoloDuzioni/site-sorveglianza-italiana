@@ -1,0 +1,18 @@
+{% if lang_switcher %}
+<div class="dropdown lang_switcher">
+    {% for lang in lang_switcher %}
+        {% if lang.active %}
+            <button class="btn btn-link dropdown-toggle d-flex" type="button" id="dropdownMenuLanguage">
+                <span>{{lang.native_name}}</span>
+            </button>
+        {% endif %}
+    {% endfor %}
+    <ul class="dropdown-menu d-none" aria-labelledby="dropdownMenuLanguage">
+        {% for lang in lang_switcher %}
+            {% if not lang.active %}
+                <li><a class="dropdown-item" href="{{lang.url}}"><span>{{lang.native_name}}</span></a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

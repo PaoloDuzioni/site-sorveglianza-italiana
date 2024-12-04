@@ -1,0 +1,30 @@
+<div class="blocco_elenco_pagine elenco_cpt_{{fields.cpt}}">
+    <div class="{% if fields.tipo=='slider' %}gallery_slider{% if fields.template_listato=='informazione' %}_informazione{% endif %}{% if fields.slider_fullpage %} slider_fullpage{% endif %}{% else %}row justify-content-center{% endif %}">
+        {% for elemento in elementi %}
+            {% if fields.cpt=='page' %}
+                {% include 'blocks/blocks/partials/tease-'~fields.template_listato~'.twig' %}
+            {% else %}
+                {% include 'blocks/blocks/partials/tease-'~fields.cpt~'.twig' %}
+            {% endif %}
+        {% endfor %}
+        {% if fields.aggiungi_link_vedi_tutti %}
+            {% if fields.tipo=='gallery' %}
+                <div class="col-6 col-lg-4 mb-3 d-flex justify-content-center align-items-center">
+                    <a class="scopri_tutti text-center d-block" href="{{fields.link_vedi_tutti.url}}">
+                        <img class="mx-auto mb-2" src="{{img_dir}}/freccia_veditutti.svg" alt="">
+                        <span class="h4">{{fields.link_vedi_tutti.title}}</span>
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+    {% if fields.aggiungi_link_vedi_tutti and fields.tipo=='slider' %}
+        <div class="container py-0">
+            <div class="d-flex justify-content-end has-custom-font-size has-medium-font-size">
+                <a class="wp-block-button__link has-gradiente-bottoni-gradient-background has-background" href="{{fields.link_vedi_tutti.url}}">
+                    <span class="">{{fields.link_vedi_tutti.title}}</span>
+                </a>
+            </div>        
+        </div>
+    {% endif %}
+</div>

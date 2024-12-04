@@ -1,0 +1,74 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-create-block-boilerplate {
+  background-color: #21759b;
+  color: #fff;
+  padding: 2px;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/ev-columns/style.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+.img_background, .video_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.wp-block-evidenzio-columns {
+  position: relative;
+}
+.wp-block-evidenzio-columns > div {
+  position: relative;
+  z-index: 1;
+}
+
+.wp-block-button__link {
+  border-radius: 4px;
+  background-color: #3BAB65;
+  border-color: #3BAB65;
+  transition: all 0.2s;
+}
+.wp-block-button__link:hover {
+  background-color: #34985a;
+}
+
+.justify-content-right {
+  justify-content: flex-end;
+}
+
+.justify-content-left {
+  justify-content: flex-start;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/ev-column/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+.is-vertically-aligned-top {
+  align-self: flex-start;
+}
+
+.is-vertically-aligned-center {
+  align-self: center;
+}
+
+.is-vertically-aligned-bottom {
+  align-self: flex-end;
+}
+
+.wp-block-image {
+  margin: 0;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

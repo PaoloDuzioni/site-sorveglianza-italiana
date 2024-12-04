@@ -1,0 +1,9 @@
+{% filter shortcodes %}{{fields.shortcode_form}}{% endfilter %}
+{% if pdf_allegato!='' %}
+    <script>
+    document.addEventListener( 'wpcf7mailsent', function( event ) {
+        var urlcatalogo = "{{pdf_allegato}}";
+        location = urlcatalogo;
+    }, false );
+    </script>
+{% endif %}

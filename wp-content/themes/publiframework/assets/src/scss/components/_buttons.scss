@@ -1,0 +1,42 @@
+/***************************************************
+    BUTTONS
+ ***************************************************/
+
+.button {
+    display: inline-block;
+    min-width: 120px;
+    padding: 0.6rem 2rem;
+    font-family: $main-font;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    color: $white;
+    background: $primary;
+    border: none;
+    border-radius: 0;
+    transition: background 0.3s, transform 0.3s;
+    outline: none;
+
+    &:hover,
+    &:focus {
+        color: $white;
+        background: rgba($primary, 0.6);
+        transform: translateY(-4px);
+    }
+
+    &.white {
+        color: white;
+        background: transparent;
+        border: 1px solid currentColor;
+        &:hover,
+        &:focus {
+            background: rgba($white, 0.3);
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: rgba($primary, 0.6);
+        transform: none;
+    }
+}

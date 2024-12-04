@@ -1,0 +1,32 @@
+{% if fields.domande|length %}
+    {% if fields.modalita=='accordion' %}
+        <div class="accordion accordion-flush" id="accordionFaqs_{{block.id}}">
+            {% for domanda in fields.domande %}
+                <div class="accordion-item">
+                    <div class="accordion-header" id="flush-heading{{loop.index}}">
+                        <button class="accordion-button{% if loop.index > 1 %} collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{loop.index}}" aria-expanded="{% if loop.index == 1 %}true{% else %}false{% endif %}" aria-controls="flush-collapse{{loop.index}}">
+                            {{domanda.domanda}}
+                        </button>
+                    </div>
+                    <div id="flush-collapse{{loop.index}}" class="accordion-collapse collapse{% if loop.index == 1 %} show{% endif %}" aria-labelledby="flush-heading{{loop.index}}" data-bs-parent="#accordionFaqs_{{block.id}}">            
+                        <div class="accordion-body">{{domanda.risposta}}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <ul class="nav nav-pills" id="pills_tab_{{block.id}}" role="tablist">
+            {% for domanda in fields.domande %}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link{% if loop.index == 1 %} active{% endif %}" id="pills-{{loop.index}}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{loop.index}}" type="button" role="tab" aria-controls="pills-{{loop.index}}" aria-selected="true">{{domanda.domanda}}</button>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            {% for domanda in fields.domande %}
+                <div class="tab-pane fade{% if loop.index == 1 %} show active{% endif %}" id="pills-{{loop.index}}" role="tabpanel" aria-labelledby="pills-{{loop.index}}-tab" tabindex="0">{{domanda.risposta}}</div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+{% endif %}

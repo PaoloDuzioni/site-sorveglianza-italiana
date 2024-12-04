@@ -1,0 +1,15 @@
+{% if fields.dimensione_immagine=='full' %}
+    {% set img = fields.immagine_interna.url %}
+    {% set width = fields.immagine_interna.width %}
+    {% set height = fields.immagine_interna.height %}
+{% else %}
+    {% set img = fields.immagine_interna.sizes[fields.dimensione_immagine] %}
+    {% set width = TimberImage(fields.immagine_interna.ID).sizes[fields.dimensione_immagine].width %}
+    {% set height = TimberImage(fields.immagine_interna.ID).sizes[fields.dimensione_immagine].height %}
+{% endif %}
+{% if block.align %}
+    {% if block.align=='left' %}{% set align = 'start' %}{% elseif block.align=='center' %}{% set align = 'center' %}{% elseif block.align=='right' %}{% set align = 'end' %}{% endif %}
+    <div class="image_wrapper d-flex justify-content-{{align}}">
+{% endif %}
+    <img src="{{ img|towebp }}" width="{{ width }}" height="{{ height }}" alt="{{ fields.immagine_interna.alt }}" />
+{% if block.align %}</div>{% endif %}

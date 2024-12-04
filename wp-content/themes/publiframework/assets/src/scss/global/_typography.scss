@@ -1,0 +1,50 @@
+/***************************************************
+    GLOBAL TYPOGRAPHY
+    (Available even a mixin to centralize typography
+    rules, not globally but only when needed, in
+    global/mixins.scss)
+ ***************************************************/
+
+p {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+a {
+    color: $primary;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+        color: $black;
+    }
+}
+
+// Titles
+h1,
+h2,
+h3,
+h4 {
+    font-weight: $font-bold;
+    font-size: inherit;
+}
+
+.section-title {
+    font-weight: $font-bold;
+    font-size: 4rem;
+    line-height: 1.2;
+
+    & > * {
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+    }
+
+    &.big {
+        font-size: 4.8rem;
+    }
+}

@@ -1,0 +1,110 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "publifarm/columns",
+	"title": "Pb Columns",
+	"category": "evblocks",
+	"description": "Display content in multiple columns, with blocks added to each column.",
+	"textdomain": "default",
+	"attributes": {
+		"verticalAlignment": {
+			"type": "string"
+		},
+		"allineamentoOrizzontale": {
+			"type": "string"
+		},
+		"isBoxed": {
+			"type": "boolean",
+			"default": true
+		},
+		"isInvertedMobile": {
+			"type": "boolean",
+			"default": false
+		},
+		"pymb": {
+			"type": "string",
+			"default": "default"
+		},
+		"pydt": {
+			"type": "string",
+			"default": "default"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"urlVideo": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "video",
+			"attribute": "src"
+		},
+		"altezzaVh" : {
+			"type": "string",
+			"default": null
+		},
+		"isVideoAutoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"isVideoLoop": {
+			"type": "boolean",
+			"default": false
+		},
+		"isVideoCover": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"spacing": {
+			"blockGap": true,
+			"margin": [ "top", "bottom" ],
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		},
+		"__experimentalLayout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"allowEditing": false,
+			"default": {
+				"type": "flex",
+				"flexWrap": "nowrap"
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		}
+	},
+	"editorStyle": "wp-block-columns-editor"
+}

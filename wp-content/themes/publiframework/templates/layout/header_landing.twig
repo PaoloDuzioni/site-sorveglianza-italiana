@@ -1,0 +1,39 @@
+<header class="header" >
+    
+    {% block header %}
+        <nav class="py-2 d-block navbar navbar-light navbar-expand-{{options.larghezza_navigazione_mobile}}">
+            <div id="header_riga1">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-lg-3 d-flex">
+                            <a href="{{site.url}}" class="logo d-flex align-items-center mb-0 text-decoration-none">
+                                {% if logo_principale %}    
+                                    {% set image_logo_principale = get_image(logo_principale) %}
+                                    {% if logo_principale_retina %}{% set image_logo_principale_retina = get_image(logo_principale_retina) %}{% endif %}
+                                    <picture>
+                                        <source srcset="{{ image_logo_principale.src|towebp }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src|towebp }} 2x{% endif %}" type="image/webp">
+                                        <source srcset="{{ image_logo_principale.src }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src }} 2x{% endif %}">
+                                        <img id="logo_desktop" src="{{image_logo_principale.src|towebp}}" alt="{{image_logo_principale.alt}}" {% if logo_principale_retina %}srcset="{{ image_logo_principale_retina.src|towebp }} 2x" {% endif %}width="{{image_logo_principale.width}}" height="{{image_logo_principale.height}}" />
+                                    </picture>
+                                {% else %} 
+                                    {{site.name}}
+                                {% endif %}
+                                {% if logo_secondario %}
+                                    {% set image_logo_secondario = get_image(logo_secondario) %}
+                                    {% if logo_secondario_retina %}{% set image_logo_secondario_retina = get_image(logo_secondario_retina) %}{% endif %}
+                                    <picture>
+                                        <source srcset="{{ image_logo_secondario.src|towebp }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src|towebp }} 2x{% endif %}" type="image/webp">
+                                        <source srcset="{{ image_logo_secondario.src }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src }} 2x{% endif %}">
+                                        <img id="logo_desktop" src="{{image_logo_secondario.src|towebp}}" alt="{{image_logo_secondario.alt}}" {% if logo_secondario_retina %}srcset="{{ image_logo_secondario_retina.src|towebp }} 2x" {% endif %}width="{{image_logo_secondario.width}}" height="{{image_logo_secondario.height}}" />
+                                    </picture>
+                                {% endif %}
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div> 
+        </nav>
+
+    {% endblock %}
+</header>

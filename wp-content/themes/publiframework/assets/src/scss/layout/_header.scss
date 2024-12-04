@@ -1,0 +1,49 @@
+/******************************************************
+    SITE HEADER
+******************************************************/
+
+.site-header {
+    //Mobile hamburger
+    .navbar-toggler {
+        padding: 0;
+        border: 0;
+
+        .navbar-toggler-icon {
+            display: block;
+            width: auto;
+            height: auto;
+            text-align: center;
+            background: transparent;
+
+            .icon {
+                width: 32px;
+
+                &.icon-open {
+                    display: none;
+                }
+
+                &.icon-close {
+                    width: 21px;
+                    transform: translate(-5px, 0);
+                    color: $primary;
+                }
+            }
+        }
+
+        &.collapsed {
+            .navbar-toggler-icon {
+                .icon-open {
+                    display: block;
+                }
+
+                .icon-close {
+                    display: none;
+                }
+            }
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}

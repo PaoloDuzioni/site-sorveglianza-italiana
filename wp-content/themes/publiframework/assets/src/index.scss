@@ -1,0 +1,29 @@
+// Dependencies
+@import "./scss/utils/variabili.scss";
+@import "./scss/utils/bootstrap.scss";
+@import "./scss/utils/swiper.scss";
+@import "./scss/utils/fontello.scss";
+
+// Globals
+@import './scss/global/base';
+@import './scss/global/typography';
+@import './scss/global/utilities';
+// @import 'global/mixins';
+// @import 'global/animations';
+
+// Components
+@import './scss/components/buttons';
+@import './scss/components/sliders';
+@import './scss/components/form';
+// @import 'components/pagination';
+
+// Blocks
+
+// Pages
+@import './scss/pages/home';
+@import './scss/pages/internals';
+
+// Layout
+@import "./scss/layout/header.scss";
+@import "./scss/layout/footer.scss";
+

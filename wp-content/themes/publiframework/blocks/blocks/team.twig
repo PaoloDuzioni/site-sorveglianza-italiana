@@ -1,0 +1,15 @@
+<div class="team row">
+    {% for item in fields.elemento_team %}
+        <div class="{% if loop.first %}col-12 first-loop{% else %}col-lg-6{% endif %} mb-3">
+            <div class="wrapper">
+                <div class="row py-2 g-1">
+                    <div class="col-4 m-0 d-flex flex-column justify-content-center"><img class="mx-auto" src="{{item.immagine.url|resize(80,80, 'center')}}" alt="{{item.immagine.alt}}" width="80"/></div>
+                    <div class="col-8 m-0 d-flex flex-column justify-content-center">
+                        <span class="h6">{{item.nome}}</span>
+                        <p class="small mb-0">{{item.ruolo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

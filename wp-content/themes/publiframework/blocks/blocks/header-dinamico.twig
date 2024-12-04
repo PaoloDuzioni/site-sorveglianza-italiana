@@ -1,0 +1,80 @@
+<section class="wp-block-evidenzio-columns ev_header{% if fields.immagine_di_sfondo %} con_sfondo{% endif %}">
+    <div class="container">
+        <div class="row are-vertically-aligned-center">
+            <div class="wp-block-evidenzio-column col-12{% if post.thumbnail or fields.immagine_dx %} col-lg-6{% endif %}{% if not fields.immagine_di_sfondo %} is-vertically-aligned-center{% endif %}">
+                <div class="wp-block-group">
+                    <div class="wp-block-group__inner-container">
+                        {% if fields.sopratitolo %}<span class="wp-block-evidenzio-ev-title titolo_pb d-block h3 has-colore-tema-1-color has-text-color">{{fields.sopratitolo}}</span>{% endif %}
+                        <h1 class="wp-block-evidenzio-ev-title titolo_pb d-block h1">{% if fields.titolo_header %}{{fields.titolo_header}}{% else %}{{ post.title }}{% endif %}</h1>
+                        {% if not fields.rimuovi_breadcrumb %}{% filter shortcodes %}[rank_math_breadcrumb]{% endfilter %}{% endif %}
+                        {% if fields.testo_introduttivo_pagina %}
+                            <div class="testo_introduttivo_pagina">{{ fields.testo_introduttivo_pagina }}</div>
+                        {% endif %}
+                        {% if fields.bottone_link %}
+                            <div class="">
+                                <a href="{{fields.bottone_link.url}}" class="btn btn_head_dinamico"><span>{{fields.bottone_link.title}}</span></a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if post.thumbnail or fields.immagine_dx %}
+                {% if fields.dropdown and fields.tipo_dropdown=='filtro' %}
+                {% else %}
+                <div class="wp-block-evidenzio-column col-12 col-lg-6 is-vertically-aligned-center d-flex justify-content-center justify-content-lg-end">
+                    {% if fields.immagine_dx %}
+                        <picture>
+                            <source srcset="{{ fields.immagine_dx.url|resize(640)|towebp }}" type="image/webp">
+                            <source srcset="{{ fields.immagine_dx.url|resize(640) }}">
+                            <img class="article_thumbnail" src="{{ fields.immagine_dx.url|resize(640) }}" alt="{{ fields.immagine_dx.alt }}" width="" />
+                        </picture>
+                    {% else %}
+                        <picture>
+                            <source srcset="{{ post.thumbnail.src|resize(640)|towebp }}" type="image/webp">
+                            <source srcset="{{ post.thumbnail.src|resize(640) }}">
+                            <img class="article_thumbnail" src="{{ post.thumbnail.src|resize(640) }}" alt="{{ post.thumbnail.alt }}" width="" />
+                        </picture>
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endif %}
+            {% if fields.dropdown %}
+                {% if fields.tipo_dropdown=='filtro' %}
+                    <div class="dropdown">
+                        <div class="btn-filtro filtro_date">
+                            <button type="button" class="btn btn-info link dropdown-toggle" id="dropdownMenuButtonFiltro" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>{{selected_date}}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonFiltro">
+                                {% for elem in elementi_dropdown %}
+                                    <li><a class="dropdown-item" href="?mese={{elem.mese_numero}}&anno={{elem.anno}}">{{elem.mese}} {{elem.anno}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="dropdown">
+                        <div class="btn-filtro">
+                            <button type="button" class="btn btn-info link dropdown-toggle" id="dropdownMenuButtonSottopagine" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>{{pagina_madre.post_title|truncate(2)}}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonSottopagine">
+                                {% for pagina in sottopagine %}
+                                    <li><a class="dropdown-item{% if current_page==pagina.ID %} active{% endif %}" href="{{pagina.link}}">{{pagina.post_title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+
+    </div>
+    {% if fields.immagine_di_sfondo and post.meta('tipo_header')=='scuro' %}
+        <picture>
+            <source srcset="{{ fields.immagine_di_sfondo.url|towebp }}" type="image/webp">
+            <source srcset="{{ fields.immagine_di_sfondo.url }}">
+            <img class="img_sfondo" src="{{ fields.immagine_di_sfondo.url }}" alt="{{ fields.immagine_di_sfondo.alt }}" width="{{ fields.immagine_di_sfondo.width }}" height="{{ fields.immagine_di_sfondo.height }}" />
+        </picture>
+    {% endif %}
+</section>

@@ -1,0 +1,25 @@
+{% if fields.box_numeri|length %}
+<div class="{% if not fields.stile=='portale' %}py-4 {% endif %}box_numeri row gy-3 gx-lg-4 justify-content-center stile_{{fields.stile}} my-3 {% if fields.stile=='attestazioni' %}my-lg-5 {% endif %}{{block.className}}">
+    {% for box in fields.box_numeri %}
+        <div class="elemento{% if fields.frecce_tra_i_box %} frecce_tra_i_box{% endif %} col-12 col-md-6 col-lg-{{ 12 / fields.colonne}} mb-2 mb-lg-0">
+            <div class="wrapper px-2 py-3">
+                <span class="numero h1">{{box.numero}}</span>
+                <div class="row mb-2">
+                    {% if box.icona %}
+                        <div class="col-3">
+                            <picture>
+                                <source srcset="{{ box.icona.url|towebp }}" type="image/webp">
+                                <source srcset="{{ box.icona.url }}">
+                                <img class="img_sfondo" src="{{ box.icona.url }}" alt="{{ box.icona.alt }}" width="{{ box.icona.width }}" height="{{ box.icona.height }}" />
+                            </picture>
+                        </div>
+                    {% endif %}
+                    <div class="col-{% if box.icona %}9{% else %}12{% endif %}"><span class="h4 titolo blue">{{box.titolo}}</span></div>
+                </div>
+                
+                <p class="mb-0">{{box.descrizione}}</p>            
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,9 @@
+<div class="slider-video swiper">
+    <div class="swiper-wrapper">
+        {% for slide in fields.slider_video %}
+            <div class="swiper-slide">
+                <h3>{{ slide.testo }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+</div>

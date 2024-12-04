@@ -1,0 +1,22 @@
+<div id="tab_storia" class="row">
+    <div class="col-lg-2">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            {% for item in fields.elemento_tab %}
+                <button class="nav-link{% if loop.first %} active{% endif %}" id="v-pills-{{loop.index}}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{loop.index}}" type="button" role="tab" aria-controls="v-pills-{{loop.index}}" aria-selected="true">{{item.titolo}}</button>
+            {% endfor %}
+        </div>    
+    </div>
+    <div class="col-lg-10">
+        <div class="tab-content" id="v-pills-tabContent">
+            {% for item in fields.elemento_tab %}
+                <div class="tab-pane fade{% if loop.first %} show active{% endif %}" id="v-pills-{{loop.index}}" role="tabpanel" aria-labelledby="v-pills-{{loop.index}}-tab">
+                    <div class="row">
+                        <div class="col-lg-6"><img src="{{item.immagine.url}}" alt="{{item.immagine.alt}}" width="{{item.immagine.width}}"/></div>
+                        <div class="col-lg-6">{{item.descrizione}}</div>
+                    </div>
+                
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

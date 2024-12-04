@@ -1,0 +1,52 @@
+<button type="button" class="link-ev-modal btn btn-outline-success mx-auto" data-dest="#evidenzioModal-{{block.id}}">
+    {{fields.testo_azione}}
+</button>
+
+<div id="evidenzioModal-{{block.id}}" class="modal fade evidenzioModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div id="carouselEvidenzioModal-{{block.id}}" class="carousel slide carousel-fade" data-bs-interval="false" data-bs-wrap="false" data-bs-ride="carousel"> 
+          <div class="carousel-inner">
+            {% for sl in fields.slide %}
+                <div class="carousel-item{% if loop.index==1 %} active{% endif %}">
+                    {% for el in sl.elemento %}
+                        {% if el.acf_fc_layout == 'bloccotitolo' %}
+                            <span class="h4 d-block my-2 bloccotitolo titolo_job">{{el.titolo}}</span>
+                        {% elseif el.acf_fc_layout == 'bloccotesto' %}
+                            <span class="h2 d-block mb-3 titolo_job">{{el.titolo}}</span>
+                            <div class="my-2">{{el.testo}}</div>
+                        {% elseif el.acf_fc_layout == 'bloccotitolotesto' %}
+                            <div class="row mb-2">
+                                <div class="col-lg-3">
+                                    <span class="h4 d-block bloccotitolo titolo_job">{{el.titolo}}</span>
+                                </div>
+                                <div class="col-lg-9">{{el.testo}}</div>
+                            </div>
+                        {% elseif el.acf_fc_layout == 'immagine' %}
+                            <img src="{{ el.immagine.url }}" width="{{ el.immagine.width }}" height="{{ el.immagine.height }}" alt="{{ el.immagine.alt }}" />
+                        {% elseif el.acf_fc_layout == 'file' %}
+                            <a class="btn btn-primary my-2" target="_new" href="{{el.file.url}}">{{el.file.title}}</a>
+                        {% elseif el.acf_fc_layout == 'shortcode' %}
+                            <span class="h2 d-block mb-3 shortcode titolo_job">{{el.titolo}}</span>
+                            {% filter shortcodes %}{{el.short_code}}{% endfilter %}
+                        {% endif %}
+                    {% endfor %}
+
+                  <div class="modal-footer px-0">
+                    {% if not sl.testo_bottone_prev=='' %}
+                      <button type="button" href="#carouselEvidenzioModal-{{block.id}}" role="button" data-bs-slide="prev" class="btn btn-primary me-0">{{sl.testo_bottone_prev}}</button>
+                    {% endif %}
+                    {% if not sl.testo_bottone_next=='' %}
+                      <button type="button" href="#carouselEvidenzioModal-{{block.id}}" role="button" data-bs-slide="next" class="btn btn-primary btn-next">{{sl.testo_bottone_next}}</button>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

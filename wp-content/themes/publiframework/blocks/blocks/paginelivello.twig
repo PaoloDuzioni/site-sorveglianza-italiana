@@ -1,0 +1,6 @@
+<ul>
+    <li class="first">{{current_title}}</li>
+    {% for page in siblings %}
+        <li><a href="{{page.url}}" class="{% if page.active %}active{% endif %}">{{page.post_title}}</a></li>
+    {% endfor %}
+</ul>

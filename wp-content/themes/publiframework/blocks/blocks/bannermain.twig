@@ -1,0 +1,23 @@
+{% extends "blocks/partials/base.twig" %}
+
+{% block fascia %}
+    <div class="row{% if fields.posizione_bottone=='inlinesx' %} flex-row-reverse{% endif %}">
+        <div class="col-12{% if (fields.posizione_bottone=='inlinedx' or fields.posizione_bottone=='inlinesx') and fields.testo_bottone!='' %} col-lg-8{% endif %} d-flex align-items-center flex-wrap">
+            {% if fields.title %}
+                <div class="titolo w-100">
+                    {{tags_titolo.tag_apertura_titolo}}{{fields.title}}{% if fields.includi_pre_titolo and fields.sottotitolo %}<span class="d-block sottotitolo">{{fields.sottotitolo}}</span>{% endif %}</{{tags_titolo.tag_titolo}}>
+                </div>
+            {% endif %}
+            {% if not fields.includi_pre_titolo and fields.sottotitolo %}
+                <div class="sottotitolo w-100">
+                    {{tags_sottotitolo.tag_apertura_titolo}}{{fields.sottotitolo}}</{{tags_sottotitolo.tag_titolo}}>
+                </div>
+            {% endif %}
+        </div>
+        {% if fields.testo_bottone!='' %}
+            <div class="col-12{% if fields.posizione_bottone=='inlinedx' or fields.posizione_bottone=='inlinesx' %} col-lg-4{% endif %} justify-content-center{% if fields.posizione_bottone!='sotto' %} justify-content-lg-{% if fields.posizione_bottone=='inlinedx' %}end{% else %}start{% endif %}{% endif %} d-flex align-items-center flex-wrap">
+                {% include 'blocks/bottone-singolo.twig' %}            
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

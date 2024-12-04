@@ -1,0 +1,13 @@
+<section 
+    id="{% if fields.id_html %}idmanuale_{{fields.id_html}}{% else %}{{block.id}}{% endif %}" 
+    class="blocco-ev-gutenberg blocco_{{ block.name|replace({ 'acf/': '' }) }} {{block.className}}{% if fields.immagine_sfondo %} has-background-image{% endif %} {{ fields.allineamento_testo }}{% if fields.padding_verticale_mobile != '' %} py-{{fields.padding_verticale_mobile}}{% else %} py-2{% endif %}{% if fields.padding_verticale_desktop != '' %} py-{{options.larghezza_navigazione_mobile}}-{{fields.padding_verticale_desktop}}{% else %} py-{{options.larghezza_navigazione_mobile}}-4{% endif %}{% if fields.colore_sfondo_banner_preset %} sfondo_{{fields.colore_sfondo_banner_preset}}{% endif %}" 
+    {% if fields.colore_sfondo_banner %} style="background-color: {{fields.colore_sfondo_banner}}"{% endif %}
+>
+    <div class="container{% if fields.larghezza=='fullpage' %}-fluid{% endif %}">
+        {% block fascia %}
+        {% endblock %}
+        {% if fields.immagine_sfondo %}
+            <img class="img-background" src="{{fields.immagine_sfondo.url|towebp}}" width="{{fields.immagine_sfondo.width}}" height="{{fields.immagine_sfondo.height}}" alt="{{fields.immagine_sfondo.alt}}" />
+        {% endif %}
+    </div>
+</section>

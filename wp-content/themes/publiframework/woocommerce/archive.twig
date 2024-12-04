@@ -1,0 +1,38 @@
+{% extends 'templates/layout/base.twig' %}
+
+{% block titolo %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+        {% if title %}<h1>{{title}}</h1>{% endif %}
+            {% do action( 'woocommerce_archive_description' ) %}
+            {% do action('woocommerce_before_main_content') %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            {{sidebar}}
+        </div>
+        <div class="col-lg-9">
+            <div class="before-shop-loop row">
+                <div class="col-12">{% do action('woocommerce_before_shop_loop') %}</div>
+                
+            </div>
+            <div class="woocommerce-loop row">
+                {% for post in products %}
+                    {% include ["woocommerce/partials/tease-product.twig"] %}
+                {% endfor %}
+            </div>        
+        </div>
+    </div>
+
+    {% do action('woocommerce_after_shop_loop') %}
+
+    <div class="row">
+        <div class="col-12">{{ seconda_descrizione_categoria }}</div>
+    </div>
+    {% do action('woocommerce_after_main_content') %}
+</div>
+{% endblock  %}

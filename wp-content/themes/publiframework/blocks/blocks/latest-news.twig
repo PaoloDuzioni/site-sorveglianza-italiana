@@ -1,0 +1,27 @@
+<div class="row latest_news">
+    {% if next_events|length %}{% set c1 = 9 %}{% set c2 = 4 %}{% else %}{% set c1 = 12 %}{% set c2 = 3 %}{% endif %}
+    <div class="col-lg-{{c1}}">
+        <div class="row latest_news_row">
+            {% for post in recent_posts %}
+                {% include ['partial/tease-post.twig'] with {col: c2} %}
+            {% endfor %}    
+        </div>
+    </div>
+    {% if next_events|length %}
+        <div class="col-lg-3 mt-2 mt-lg-0">
+            <div class="next_events">
+                <span class="h4 d-block mb-2">{{ __('Next events',theme_slug) }}</span>
+                {% for evento in next_events %}
+                    <div class="next_event">
+                        <h6>{{evento.title}}</h6>
+                        <div class="row">
+                            <div class="col-6 data">{{evento.meta('data_fine')|date("d F Y")}}</div>
+                            <div class="col-6"><a class="readmore" href="{{evento.link}}">{{__('Read more', theme_slug)}} <span class="icon-right"></span></a></div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <a class="btn btn-outline-success" href="{{events_url}}">{{__('Events archive', theme_slug)}}</a>               
+            </div>  
+        </div>
+    {% endif %}
+</div> 

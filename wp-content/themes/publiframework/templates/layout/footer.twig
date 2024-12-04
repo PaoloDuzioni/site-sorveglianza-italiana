@@ -1,0 +1,62 @@
+<div class="riga1">
+    <div class="container">
+        <div class="row pb-3">
+            <div class="col-12 d-flex justify-content-center">
+
+            </div>
+        </div>
+        <div class="row justify-content-center pb-2">
+            {% if sidebar_footer_1 %}
+                <div class="text-center col-md-4 col-{{options.larghezza_navigazione_mobile}}-3">
+                    {{sidebar_footer_1}}
+                </div>
+            {% endif %}
+            {% if sidebar_footer_2 %}
+                <div class="text-center col-md-4 col-{{options.larghezza_navigazione_mobile}}-3">
+                    {{sidebar_footer_2}}
+                </div>
+            {% endif %}
+            {% if sidebar_footer_3 %}
+                <div class="text-center col-md-4 col-{{options.larghezza_navigazione_mobile}}-3">
+                    {{sidebar_footer_3}}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="copyright pt-3">
+    <div class="container">
+        <div class="row">
+            {% if sidebar_footer_copyright_sx %}
+                <div class="col-12 col-lg-6 text-center text-lg-start">
+                    {{sidebar_footer_copyright_sx}} 
+                </div>
+            {% endif %}
+            
+            <div class="d-none d-lg-block col-12 col-lg-6 text-center text-lg-end">
+                {% if sidebar_footer_copyright_dx %}{{sidebar_footer_copyright_dx}}{% endif %}
+                {% if attiva_credits %} 
+                    <div class="credits d-flex justify-content-center align-items-center">
+                        <a href="{{link_credits}}" class="d-block text-center">
+                            {% if testo_credits %}<span>{{testo_credits}}</span>{% endif %}
+                            {% set img_credits = get_image(immagine_credits) %}
+                            <picture>
+                                <source srcset="{{ img_credits.src|towebp }}" type="image/webp">
+                                <source srcset="{{ img_credits.src }}">
+                                <img id="logo_desktop" src="{{img_credits.src|towebp}}" alt="{{img_credits.alt}}" width="{{img_credits.width}}" height="{{img_credits.height}}" />
+                            </picture>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="col-12 text-center">Copyright {{ 'now' | date('Y') }}</div>
+        </div>
+    </div>
+</div>
+
+{% if abilita_scrolltop %}
+<button type="button" class="scrollToTopBtn btn btn-danger" id="btn-back-to-top">
+  <i class="icon-up"></i>
+</button>
+{% endif %}

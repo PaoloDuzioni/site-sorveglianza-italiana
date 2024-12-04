@@ -1,0 +1,54 @@
+/******************************************************
+    Pagination
+ ******************************************************/
+
+ .pagination {
+    gap: 1rem;
+    margin-top: 7rem;
+    font-size: 2rem;
+
+    li {
+        color: $primary;
+
+        &:not(.prev-link, .next-link)::before {
+            content: '•';
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        &.no-dot::before {
+            display: none;
+        }
+
+        &.prev-link,
+        &.next-link {
+            svg {
+                height: 2rem;
+                translate: 0 -0.1rem;
+                path {
+                    fill: currentColor;
+                }
+            }
+        }
+
+        &.prev-link {
+            margin-right: 1.5rem;
+        }
+        &.next-link {
+            margin-left: 1.5rem;
+        }
+    }
+
+    a,
+    span {
+        &.current {
+            font-weight: $font-bold;
+            color: $secondary;
+        }
+
+        &:hover,
+        &:focus-visible {
+            color: $secondary;
+        }
+    }
+}

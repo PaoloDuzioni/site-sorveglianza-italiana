@@ -1,0 +1,72 @@
+<style>  
+    {% if colore_tema_1 %}
+    .testo_colore1, .has-colore-tema-1-color, .testo_colore1 a:not(.wp-block-button__link), .has-colore-tema-1-color a:not(.wp-block-button__link) {
+        color: {{colore_tema_1}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_2 %}
+    .testo_colore2, .has-colore-tema-2-color, .testo_colore2 a:not(.wp-block-button__link) , .has-colore-tema-2-color a:not(.wp-block-button__link) {
+        color: {{colore_tema_2}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_3 %}
+    .testo_colore3, .has-colore-tema-3-color, .testo_colore3 a:not(.wp-block-button__link), .has-colore-tema-3-color a:not(.wp-block-button__link) {
+        color: {{colore_tema_3}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_4 %}
+    .testo_colore4, .has-colore-tema-4-color, .testo_colore4 a:not(.wp-block-button__link), .has-colore-tema-4-color a:not(.wp-block-button__link) {
+        color: {{colore_tema_4}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_5 %}
+    .testo_colore5, .has-colore-tema-5-color, .testo_colore5 a:not(.wp-block-button__link), .has-colore-tema-5-color a:not(.wp-block-button__link) {
+        color: {{colore_tema_5}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_6 %}
+    .testo_colore6, .has-colore-tema-6-color, .testo_colore6 a:not(.wp-block-button__link), .has-colore-tema-6-color a:not(.wp-block-button__link) {
+        color: {{colore_tema_6}}!important;
+    }
+    {% endif %}
+
+    {% if colore_tema_1 %}
+    .sfondo_colore1, .has-colore-tema-1-background-color, .sfondo_colore1 a:not(.wp-block-button__link), .has-colore-tema-1-background-color a:not(.wp-block-button__link) {
+        background-color: {{colore_tema_1}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_2 %}
+    .sfondo_colore2, .has-colore-tema-2-background-color, .sfondo_colore2 a:not(.wp-block-button__link), .has-colore-tema-2-background-color a:not(.wp-block-button__link) {
+        background-color: {{colore_tema_2}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_3 %}
+    .sfondo_colore3, .has-colore-tema-3-background-color, .sfondo_colore3 a:not(.wp-block-button__link), .has-colore-tema-3-background-color a:not(.wp-block-button__link) {
+        background-color: {{colore_tema_3}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_4 %}
+    .sfondo_colore4, .has-colore-tema-4-background-color, .sfondo_colore4 a:not(.wp-block-button__link), .has-colore-tema-4-background-color a:not(.wp-block-button__link) {
+        background-color: {{colore_tema_4}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_5 %}
+    .sfondo_colore5, .has-colore-tema-5-background-color, .sfondo_colore5 a:not(.wp-block-button__link), .has-colore-tema-5-background-color a:not(.wp-block-button__link) {
+        background-color: {{colore_tema_5}}!important;
+    }
+    {% endif %}
+    {% if colore_tema_6 %}
+    .sfondo_colore6, .has-colore-tema-6-background-color, .sfondo_colore6 a:not(.wp-block-button__link), .has-colore-tema-6-background-color a:not(.wp-block-button__link) {
+        background-color: {{colore_tema_6}}!important;
+    }
+    {% endif %}
+
+    :root {
+        {% if colore_tema_1 %}--colore_preset_1: {{colore_tema_1}}!important;{% endif %}
+        {% if colore_tema_2 %}--colore_preset_2: {{colore_tema_2}}!important;{% endif %}
+        {% if colore_tema_3 %}--colore_preset_3: {{colore_tema_3}}!important;{% endif %}
+        {% if colore_tema_4 %}--colore_preset_4: {{colore_tema_4}}!important;{% endif %}
+        {% if colore_tema_5 %}--colore_preset_5: {{colore_tema_5}}!important;{% endif %}
+        {% if colore_tema_6 %}--colore_preset_6: {{colore_tema_6}}!important;{% endif %}
+    }
+</style>

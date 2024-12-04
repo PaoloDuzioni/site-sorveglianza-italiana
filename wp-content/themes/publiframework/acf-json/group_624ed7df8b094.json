@@ -1,0 +1,87 @@
+{
+    "key": "group_624ed7df8b094",
+    "title": "EV Gutenberg - Gmaps",
+    "fields": [
+        {
+            "key": "field_624ed7dfd512b",
+            "label": "Gmaps",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_624ed8271d56a",
+            "label": "Localizzazione",
+            "name": "localizzazione",
+            "aria-label": "",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": "",
+            "wpml_cf_preferences": 0
+        },
+        {
+            "key": "field_624ed85a1d56c",
+            "label": "Testo info stradali",
+            "name": "testo_info_stradali",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/gmaps"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1733310349,
+    "local_file": "\/Users\/masbovi\/www\/iw_framework\/wp-content\/themes\/evidenzio-fw\/acf-json\/group_624ed7df8b094.json",
+    "acfml_field_group_mode": "advanced"
+}

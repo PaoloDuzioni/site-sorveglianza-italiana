@@ -1,0 +1,19 @@
+{% extends "blocks/partials/base.twig" %}
+
+{% block fascia %}
+<div class="wrapper elenco_{{fields.tipo_elenco}}">
+    {% if fields.title %}
+        <div class="titolo w-100 mb-2">
+            {{tags_titolo.tag_apertura_titolo}}{{fields.title}}{% if fields.includi_pre_titolo and fields.sottotitolo %}<span class="d-block sottotitolo">{{fields.sottotitolo}}</span>{% endif %}</{{tags_titolo.tag_titolo}}>
+        </div>
+    {% endif %}
+    {% if not fields.includi_pre_titolo and fields.sottotitolo %}
+        <div class="sottotitolo w-100">
+            {{tags_sottotitolo.tag_apertura_titolo}}{{fields.sottotitolo}}</{{tags_sottotitolo.tag_titolo}}>
+        </div>
+    {% endif %}
+    {% filter shortcodes %}
+        [products category="{{ fields.categorie|join(',') }}" limit="{{fields.limite_prodotti}}" columns="{{fields.columns}}"{% if fields.in_offerta %} on_sale="true"{% endif %} orderby="{{fields.ordina_per}}" order="{{fields.ordine}}"]
+    {% endfilter %}
+</div>
+{% endblock %}

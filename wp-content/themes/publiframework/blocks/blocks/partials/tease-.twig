@@ -1,0 +1,15 @@
+<div class="elemento_gallery cpt_{{fields.cpt}} col-12 col-lg-4 mb-3">
+	<div class="wrapper">
+		<div class="row mb-3">
+			{% if elemento.thumbnail %}
+				<div class="col-3"><img src="{{ elemento.thumbnail.src|resize(95, 95, 'center') }}" alt="{{ elemento.thumbnail.alt }}" width="95" /></div>
+			{% endif %}
+			<div class="col-9">
+				{% if elemento.titolo_madre %}<span class="tassonomia blue">{{elemento.titolo_madre}}</span>{% endif %}
+				<span class="h4 d-block">{{elemento.post_title}}</span>
+			</div>
+		</div>
+		<p>{{ elemento.riassunto|truncate(20) }}</p>
+		<a class="read_more" href="{{elemento.link}}">{{__('Read now', theme_slug)}}</a>   
+	</div>
+</div>

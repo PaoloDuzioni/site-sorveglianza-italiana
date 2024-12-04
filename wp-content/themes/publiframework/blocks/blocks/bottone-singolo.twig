@@ -1,0 +1,6 @@
+{% if block.align %}
+    {% if block.align=='left' %}{% set align = 'start' %}{% elseif block.align=='center' %}{% set align = 'center' %}{% elseif block.align=='right' %}{% set align = 'end' %}{% endif %}
+    <div class="bottone_wrapper d-flex justify-content-{{align}}">
+{% endif %}
+<a href="{{fields.link_bottone.url}}" {% if fields.link_bottone.target %}target="{{fields.link_bottone.target}}" {% endif %}class="btn btn-{% if fields.outline %}outline-{% endif %}{{fields.tipo_bottone_bootstrap}}{% if fields.misura!='btn' %} {{fields.misura}}{% endif %}">{{fields.testo_bottone}}</a>
+{% if block.align %}</div>{% endif %}

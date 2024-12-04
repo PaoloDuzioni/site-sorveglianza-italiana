@@ -1,0 +1,18 @@
+<article class="mb-3 col-12 col-lg-{{col}} tease tease-post" id="tease-{{post.ID}}">
+	<a class="readmore" href="{{post.link}}">
+		{% block content %}
+			<div class="wrap">
+				{% if post.get_thumbnail %}
+					<picture>
+						<source srcset="{{ post.thumbnail.src|towebp|resize(310,140, 'center') }}" type="image/webp">
+						<source srcset="{{ post.thumbnail.src|resize(310,140, 'center') }}">
+						<img src="{{post.thumbnail.src|towebp|resize(310,140, 'center')}}" alt="{{post.thumbnail.alt}}" width="310" />
+					</picture>
+				{% endif %}
+				<h2 class="h4 titolo">{{post.title}}</h2>
+				<p class="small">{{post.preview.length(15).read_more(false)}}</p>
+				<p class="mb-0">{{__('Read now', 'ev-framework')}}</p>					
+			</div>
+		{% endblock %}
+	</a>
+</article>

@@ -1,0 +1,42 @@
+{% if posts.pagination.pages is not empty %}
+
+
+
+
+<nav class="woocommerce-pagination py-3">
+	<ul class="page-numbers">
+
+  
+        
+
+        {# Previous #}
+        {% if posts.pagination.prev %}
+            <a href="{{ posts.pagination.prev.link }}" class="page-numbers prev"><span class="icon-left"></span></a>
+        {% endif %}
+
+    
+        {% for page in posts.pagination.pages %}
+            {% if page.link %}
+                <li>
+                    <a href="{{ page.link }}" class="page-numbers {{ page.class }}">{{ page.title }}</a>
+                </li>
+            {% else %}
+                <li class="current">
+                    <span class="{{ page.class }}">{{ page.title }}</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+        
+
+   
+        {% if posts.pagination.next %}
+            <a href="{{ posts.pagination.next.link }}" class="page-numbers next"><span class="icon-right"></span></a>
+        {% endif %}
+
+    
+
+        
+
+    </ul>
+</nav>
+{% endif %}
