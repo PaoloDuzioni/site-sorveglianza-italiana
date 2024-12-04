@@ -140,7 +140,7 @@ class StarterSite extends Timber\Site
 	{
 		register_nav_menus(array(
 			'testata' => __('Menu Testata', 'iw-framework'),
-			'menu_top' => __('Menu Top', 'iw-framework')
+//			'menu_top' => __('Menu Top', 'iw-framework')
 		));
 	}
 

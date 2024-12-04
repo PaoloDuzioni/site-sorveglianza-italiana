@@ -1,9 +1,18 @@
-<div class="slider-video swiper">
+<div class="site-slider-video swiper">
     <div class="swiper-wrapper">
         {% for slide in fields.slider_video %}
             <div class="swiper-slide">
-                <h3>{{ slide.testo }}</h3>
+                <div class="container">
+                    <div class="title">
+                        {{ slide.testo }}
+                    </div>
+
+                    {% if slide.link_cta %}
+                        <a class="btn btn-primary" href="{{ slide.link_cta }}">{{ slide.testo_cta }}</a>
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
+        <div class="swiper-pagination"></div>
     </div>
 </div>

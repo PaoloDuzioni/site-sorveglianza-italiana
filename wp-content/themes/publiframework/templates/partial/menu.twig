@@ -1,52 +1,40 @@
 {% if menu %}
-	<ul id="{{id}}" class="nav flex-column flex-lg-row">
-		{% if id=='menu-mega-menu' %}<span class="megamenu_back d-block d-lg-none text-start py-1 px-0"><span class="icon-left"></span> {{__('Back', theme_slug)}}</span>{% endif %}
+    {% for item in items %}
+        {% if loop.index == 1 or loop.index == 4 %}
+            <ul class="navbar-nav d-flex flex-row">
+        {% endif %}
 
-		{% for item in items %}
-			<li class="{{ item.classes | join(' ') }}{% if item.children %} dropdown{% endif %}">
-				<a id="menu-item-{{item.post_name}}" class="nav-link{% if item.children %} dropdown-toggle{% endif %}" {% if item.target %}target="{{ item.target }}" {% endif %}href="{{ item.link }}">{{ item.title }}</a>
-				{% if item.children %}<span class="material-symbols-outlined">arrow_drop_down</span>{% endif %}
-				{% if item.children %}{% include "partial/submenu.twig" with {'items': item.children, 'parent': item.post_name} %}{% endif %}
-			</li>
-		{% endfor %}
+        <li class="nav-item {{ item.classes | join(' ') }} {% if item.children %} dropdown{% endif %}">
+            <a id="menu-item-{{ item.post_name }}"
+               class="nav-link {% if item.children %} dropdown-toggle{% endif %}"
+                    {% if item.target %}
+                        target="{{ item.target }}"
+                    {% endif %}
+                    {% if item.children %}
+                        data-bs-toggle="dropdown"
+                    {% endif %}
+               href="{{ item.link }}">
+                {{ item.title }}
+            </a>
+            {% if item.children %}
+                <ul class="dropdown-menu">
+                    {% for child in item.children %}
+                        <li>
+                            <a class="dropdown-item"
+                               href="{{ child.link }}"
+                                    {{ item.is_target_blank ? 'target="_blank"' }}
+                            >{{ child.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
 
-		{% if id=='menu-mega-menu' %}
-			<div class="banner_megamenu d-none d-lg-block w-100" style="background-image: url({{options.immagine_banner_megamenu.url}});">
-				<div class="row justify-content-between">
-					<div class="col-lg-5">{{options.testo_banner_megamenu}}</div>
-					<div class="col-lg-4 d-flex justify-content-end align-items-center"><a href="{{options.link_banner_megamenu.url}}" class="btn btn-success">{{options.link_banner_megamenu.title}}</a></div>
-				</div>
-			</div>
-		{% endif %}
-	</ul>
+        {% if loop.index == 3 or loop.index == 6 %}
+            </ul>
+        {% endif %}
+    {% endfor %}
 {% endif %}
 
-{# {% if items %}
-	<ul id="{{id}}" class="menu">
-		{% for item in items %}
-			<li id="menu-item-{{item.id}}" class="{{ item.classes | join(' ') }} menu-item-{{item.id}}">
-				<a href="{{ item.link }}">
-					<span class="menu-item-label">{{ item.title }}</span>
-					{% if item.children %}
-						<span class="dropdown-symbol">
-							<span></span>
-							<span></span>
-						</span>
-					{% endif %}
-				</a>
-				{% if item.children %}
-					<ul class="sub-menu">
-						{% for child in item.children  %}
-							<li id="menu-item-{{child.id}}" class="{{ child.classes | join(' ') }} menu-item-{{child.id}}">
-								<a href="{{child.link}}">
-									<span class="menu-item-label">{{ child.title }}</span>
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
-			</li>
-		{% endfor %}
-	</ul>
-{% endif %} #}
+
 

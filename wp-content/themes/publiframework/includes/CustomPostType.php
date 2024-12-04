@@ -37,6 +37,29 @@ class CustomPostType
 			)
 		);
 
+		// Register Sistema Post Type
+		register_post_type(
+			'servizi',
+			array(
+				'labels'			=> array(
+					'name' 			=> __('Servizi'),
+					'singular_name' => __('Servizi')
+				),
+				'show_ui' 			=> true,
+				'has_archive'		=> true,
+				'menu_position' 	=> 10,
+				'hierarchical' 		=> false,
+				'show_in_rest' 		=> true,
+				'show_in_nav_menus ' => true,
+				'menu_icon' 		=> 'dashicons-editor-ul',
+				'supports' 			=> array(
+					'title',
+					'editor',
+					'thumbnail'
+				)
+			)
+		);
+
 		// Register Eventi Post Type
 		if (carbon_get_theme_option('attiva_cpt_eventi')) {
 			register_post_type(
@@ -125,47 +148,47 @@ class CustomPostType
 	public function register_taxonomies()
 	{
 		// Register Tipo Evento Taxonomy
-		if (carbon_get_theme_option('attiva_cpt_eventi')) {
-			register_taxonomy(
-				'tipo_evento',
-				'eventi',
-				array(
-					'label' 				=> __('Tipo evento'),
-					'hierarchical' 			=> true,
-					'show_ui'       		=> true,
-					'query_var' 			=> true,
-					'show_in_rest' 			=> true,
-					'sort' 					=> true,
-					'show_admin_column' 	=> true,
-					// 'publicly_queryable'	=> false,
-					'args' 					=> array(
-						'orderby' 	=> 'term_order',
-						'order' 	=> 'DESC'
-					),
-				)
-			);
-		}
+//		if (carbon_get_theme_option('attiva_cpt_eventi')) {
+//			register_taxonomy(
+//				'tipo_evento',
+//				'eventi',
+//				array(
+//					'label' 				=> __('Tipo evento'),
+//					'hierarchical' 			=> true,
+//					'show_ui'       		=> true,
+//					'query_var' 			=> true,
+//					'show_in_rest' 			=> true,
+//					'sort' 					=> true,
+//					'show_admin_column' 	=> true,
+//					// 'publicly_queryable'	=> false,
+//					'args' 					=> array(
+//						'orderby' 	=> 'term_order',
+//						'order' 	=> 'DESC'
+//					),
+//				)
+//			);
+//		}
 
 		// Register Tipo Case History Taxonomy
-		if (carbon_get_theme_option('attiva_cpt_case_history')) {
-			register_taxonomy(
-				'tipo_casehistory',
-				'casehistory',
-				array(
-					'label'					=> __('Tipo case history'),
-					'hierarchical'			=> true,
-					'show_ui'           	=> true,
-					'query_var'				=> true,
-					'show_in_rest'			=> true,
-					'sort'					=> true,
-					'show_admin_column'		=> true,
-					//'publicly_queryable'	=> false,
-					'args'					=> array(
-						'orderby' => 'term_order',
-						'order' => 'DESC'
-					),
-				)
-			);
-		}
+//		if (carbon_get_theme_option('attiva_cpt_case_history')) {
+//			register_taxonomy(
+//				'tipo_casehistory',
+//				'casehistory',
+//				array(
+//					'label'					=> __('Tipo case history'),
+//					'hierarchical'			=> true,
+//					'show_ui'           	=> true,
+//					'query_var'				=> true,
+//					'show_in_rest'			=> true,
+//					'sort'					=> true,
+//					'show_admin_column'		=> true,
+//					//'publicly_queryable'	=> false,
+//					'args'					=> array(
+//						'orderby' => 'term_order',
+//						'order' => 'DESC'
+//					),
+//				)
+//			);
+//		}
 	}
 }

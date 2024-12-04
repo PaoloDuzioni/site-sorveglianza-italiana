@@ -1,0 +1,59 @@
+/******************************************
+    SITE SLIDERS
+ ******************************************/
+
+.wrap-slider-video {
+    background: $light-gray;
+
+    .iconaAudio {
+        display: none;
+    }
+}
+
+.site-slider-video {
+    height: 65rem;
+
+    img {
+        width: 100%;
+    }
+
+    // Navigation
+    //.swiper-button-prev::after,
+    //.swiper-button-next::after {
+    //    font-family: 'Font Awesome 5 Pro';
+    //    font-weight: 900;
+    //    font-size: 30px;
+    //    color: $primary;
+    //}
+    //
+    //.swiper-button-prev {
+    //    left: 20px;
+    //    &::after {
+    //        content: '\f060';
+    //    }
+    //}
+    //
+    //.swiper-button-next {
+    //    right: 20px;
+    //    &::after {
+    //        content: '\f061';
+    //    }
+    //}
+
+    // Pagination
+    .swiper-pagination-bullets {
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background: transparent;
+            border: 1px solid $primary;
+            opacity: 1;
+            outline: none;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $primary;
+        }
+    }
+}

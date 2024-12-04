@@ -234,12 +234,11 @@ class BlocchiCustom {
 		);
 	}
 
-
+	/**
+	 * Register ACF Custom blocks
+	 */
 	function iw_acf_init() {
-		
 		if( function_exists('acf_register_block') ) {
-
-			
 			acf_register_block_type(array(
 				'name'				=> 'slider-video',
 				'title'				=> 'Slider video',
@@ -250,54 +249,6 @@ class BlocchiCustom {
 				//'supports'			=> ['mode'=> false],
 				'mode' => 'edit'
 			));
-
-			/*
-			acf_register_block_type(array(
-				'name'				=> 'numeri',
-				'title'				=> 'Numeri',
-				'description'		=> 'Numeri',
-				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
-				'category'			=> 'publifarm_singoli',
-				'keywords'			=> array( 'link', 'home' ),
-				//'supports'			=> ['mode'=> false],
-				'mode' => 'edit'
-			));
-
-			acf_register_block_type(array(
-				'name'				=> 'modale',
-				'title'				=> 'Modale',
-				'description'		=> 'Modale',
-				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
-				'category'			=> 'publifarm_singoli',
-				'keywords'			=> array( 'link', 'home' ),
-				//'supports'			=> ['mode'=> false],
-				'mode' => 'edit'
-			));
-
-			acf_register_block_type(array(
-				'name'				=> 'elenco-pagine',
-				'title'				=> 'Elenco Pagine',
-				'description'		=> 'Elenco Pagine',
-				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
-				'category'			=> 'publifarm_singoli',
-				'keywords'			=> array( 'link', 'home' ),
-				//'supports'			=> ['mode'=> false],
-				'mode' => 'edit'
-			));
-			
-
-			acf_register_block_type(array(
-				'name'				=> 'faqs',
-				'title'				=> 'Faqs',
-				'description'		=> 'Faqs',
-				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
-				'category'			=> 'publifarm_singoli',
-				'keywords'			=> array( 'link', 'home' ),
-				//'supports'			=> ['mode'=> false],
-				'mode' => 'edit'
-			));
-			*/
-
 		}
 	}
 

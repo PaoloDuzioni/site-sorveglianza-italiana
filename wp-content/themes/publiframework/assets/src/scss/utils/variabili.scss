@@ -53,20 +53,6 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 
-$cornflower-blue: #86C8E6 !default;
-$lochmara: #0188BE !default;
-$resolution-blue: #032186 !default;
-$downriver: #0C1F4D !default;
-$blue3: #00196A !default;
-
-
-@mixin boxshadow {
-  box-shadow: 0 3px 6px #00000029;
-}
-@mixin gradiente_blu {
-  background: transparent linear-gradient(109deg, #000000 0, #0C1F4D 34%, #183C96 54%, #86C8E6 100%) 0 0 no-repeat padding-box;
-}
-
 /******************************************************
     THEME SETTINGS
  ******************************************************/
@@ -74,9 +60,10 @@ $blue3: #00196A !default;
 //COLORS
 $white: #fff;
 $black: #000;
-$font-col: #333;
+$light-gray: #FAFAFA;
+$font-col: #262626;
 $back-col: $white;
-$primary: dodgerblue;
+$primary: #0455C0;
 $secondary: orange;
 
 // TYPOGRAPHY
@@ -88,5 +75,5 @@ $font-bold: 700;
 
 // Dynamic values
 :root {
-  --body-font-size: 1.6rem; // 16px
+  --body-font-size: 1.8rem; // 16px
 }

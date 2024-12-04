@@ -1,20 +1,20 @@
-import Swiper, { Autoplay, Navigation, Pagination, EffectFade } from "swiper";
-//import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
+import Swiper from "swiper";
+import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 
 /**
  * Site Sliders
  *
- * - Site Carousel
+ * - Site Slider
  */
 export default function siteSliders() {
-  // Site Carousel
-  new Swiper(".site-carousel", {
+  // Site Slider
+  new Swiper(".site-slider-video", {
     // Modules
     modules: [Autoplay, Navigation, Pagination, EffectFade],
     // Optional parameters
-    autoplay: {
-      delay: 5000,
-    },
+//    autoplay: {
+//      delay: 5000,
+//    },
     speed: 700,
     loop: true,
     effect: "fade",
@@ -27,9 +27,9 @@ export default function siteSliders() {
       clickable: true,
     },
     // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+//    navigation: {
+//      nextEl: ".swiper-button-next",
+//      prevEl: ".swiper-button-prev",
+//    },
   });
 }

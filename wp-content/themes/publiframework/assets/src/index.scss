@@ -1,7 +1,7 @@
 // Dependencies
 @import "./scss/utils/variabili.scss";
 @import "./scss/utils/bootstrap.scss";
-@import "./scss/utils/swiper.scss";
+//@import "./scss/utils/swiper.scss";
 @import "./scss/utils/fontello.scss";
 
 // Globals
@@ -13,11 +13,11 @@
 
 // Components
 @import './scss/components/buttons';
-@import './scss/components/sliders';
 @import './scss/components/form';
 // @import 'components/pagination';
 
 // Blocks
+@import 'scss/blocks/site-slider-video';
 
 // Pages
 @import './scss/pages/home';

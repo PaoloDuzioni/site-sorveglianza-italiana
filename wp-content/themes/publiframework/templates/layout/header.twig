@@ -1,10 +1,11 @@
-<header class="site-header" >
+<header class="site-header">
 
     {% if abilita_topbar %}
         <div class="topbar_msg text-center">
-            {% if racchiudi_nel_container_header %}<div class="container">{% endif %}
-                {{messaggio_topbar}}
-            {% if racchiudi_nel_container_header %}</div>{% endif %}
+            {% if racchiudi_nel_container_header %}
+            <div class="container">{% endif %}
+                {{ messaggio_topbar }}
+                {% if racchiudi_nel_container_header %}</div>{% endif %}
         </div>
     {% endif %}
     {% if sidebar_top_sx or sidebar_top_dx %}
@@ -15,60 +16,69 @@
                         {% include "partial/menu.twig" with {'items': menu_top.get_items, 'id': 'menu_top'} %}
                     </div>
                     <div class="topbar-dx align-items-center d-flex justify-content-center justify-content-lg-end col-12 col-lg-6">
-                        {% if sidebar_top_dx %}{{sidebar_top_dx}}{% endif %}
+                        {% if sidebar_top_dx %}{{ sidebar_top_dx }}{% endif %}
                         {% include '/partial/lang_switcher.twig' %}
                     </div>
                 </div>
             </div>
         </div>
     {% endif %}
-    
+
     {% block header %}
-        <nav class="py-2 d-block navbar navbar-light navbar-expand-{{larghezza_navigazione_mobile}}">
+        <nav class="py-0 d-block navbar navbar-light navbar-expand-{{ larghezza_navigazione_mobile }}">
             <div id="header_riga1">
                 <div class="container{% if not racchiudi_nel_container_header %}-fluid{% endif %}">
                     <div class="row">
-                        <div class="col-6 col-lg-3 d-flex">
-                            <a href="{{site.url}}" class="logo me-lg-3 d-flex align-items-center mb-0 text-decoration-none">
-                                {% if logo_principale %}    
+                        <div class="col-12">
+                            <a href="{{ site.url }}"
+                               class="logo me-lg-3 d-flex align-items-center mb-0 text-decoration-none">
+                                {% if logo_principale %}
                                     {% set image_logo_principale = get_image(logo_principale) %}
                                     {% if logo_principale_retina %}{% set image_logo_principale_retina = get_image(logo_principale_retina) %}{% endif %}
                                     <picture>
-                                        <source srcset="{{ image_logo_principale.src|towebp }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src|towebp }} 2x{% endif %}" type="image/webp">
+                                        <source srcset="{{ image_logo_principale.src|towebp }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src|towebp }} 2x{% endif %}"
+                                                type="image/webp">
                                         <source srcset="{{ image_logo_principale.src }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src }} 2x{% endif %}">
-                                        <img id="logo_desktop" src="{{image_logo_principale.src|towebp}}" alt="{{image_logo_principale.alt}}" {% if logo_principale_retina %}srcset="{{ image_logo_principale_retina.src|towebp }} 2x" {% endif %}width="{{image_logo_principale.width}}" height="{{image_logo_principale.height}}" />
+                                        <img id="logo_desktop" src="{{ image_logo_principale.src|towebp }}"
+                                             alt="{{ image_logo_principale.alt }}"
+                                             {% if logo_principale_retina %}srcset="{{ image_logo_principale_retina.src|towebp }} 2x"
+                                             {% endif %}width="{{ image_logo_principale.width }}"
+                                             height="{{ image_logo_principale.height }}"/>
                                     </picture>
-                                {% else %} 
-                                    {{site.name}}
+                                {% else %}
+                                    {{ site.name }}
                                 {% endif %}
                                 {% if logo_secondario %}
                                     {% set image_logo_secondario = get_image(logo_secondario) %}
                                     {% if logo_secondario_retina %}{% set image_logo_secondario_retina = get_image(logo_secondario_retina) %}{% endif %}
                                     <picture>
-                                        <source srcset="{{ image_logo_secondario.src|towebp }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src|towebp }} 2x{% endif %}" type="image/webp">
+                                        <source srcset="{{ image_logo_secondario.src|towebp }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src|towebp }} 2x{% endif %}"
+                                                type="image/webp">
                                         <source srcset="{{ image_logo_secondario.src }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src }} 2x{% endif %}">
-                                        <img id="logo_desktop" src="{{image_logo_secondario.src|towebp}}" alt="{{image_logo_secondario.alt}}" {% if logo_secondario_retina %}srcset="{{ image_logo_secondario_retina.src|towebp }} 2x" {% endif %}width="{{image_logo_secondario.width}}" height="{{image_logo_secondario.height}}" />
+                                        <img id="logo_desktop" src="{{ image_logo_secondario.src|towebp }}"
+                                             alt="{{ image_logo_secondario.alt }}"
+                                             {% if logo_secondario_retina %}srcset="{{ image_logo_secondario_retina.src|towebp }} 2x"
+                                             {% endif %}width="{{ image_logo_secondario.width }}"
+                                             height="{{ image_logo_secondario.height }}"/>
                                     </picture>
                                 {% endif %}
                             </a>
-                        </div>
-                        <div class="col-6 col-lg-9 d-lg-flex justify-content-center">
-                            <button class="navbar-toggler collapsed d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
+
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="navbar-collapse justify-content-lg-end" id="navbarToggler">
+
+                            <div class="collapse navbar-collapse" id="navbarToggler">
                                 {% include "partial/menu.twig" with {'items': menu.get_items, 'id': 'menu-main-menu'} %}
-                                {% if cta_menu %}<a href="{{link_bottone_cta}}" class="btn btn-secondary">{{testo_bottone_cta}}</a>{% endif %}
-                                <div class="lang_mobile d-flex d-lg-none">
-                                    {% include '/partial/lang_switcher.twig' %}
-                                </div>
+                                {% if cta_menu %}<a href="{{ link_bottone_cta }}"
+                                                    class="btn btn-secondary">{{ testo_bottone_cta }}</a>{% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </nav>
 
     {% endblock %}
