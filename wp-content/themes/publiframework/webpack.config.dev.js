@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   mode: "development",
@@ -56,6 +57,25 @@ module.exports = {
       dangerouslyAllowCleanPatternsOutsideProject: true,
       dry: false,
     }),
+    new BrowserSyncPlugin(
+        // BrowserSync options
+        {
+          // proxy the Webpack Dev Server endpoint
+          // (which should be serving on http://localhost:3100/)
+          // through BrowserSync
+          proxy: 'https://localhost/site-sorverglianza-italia',
+          notify: true,
+          open: false,
+          // Reloads the browser when PHP files change.
+          files: [
+            './assets/dist/css/*.css',
+            './assets/dist/js/*.js',
+            '**/*.php',
+          ],
+        },
+        // plugin options
+        {}
+    )
   ],
   optimization: {
     minimizer: [new CssMinimizerPlugin()],

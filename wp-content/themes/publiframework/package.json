@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.8",
     "bootstrap": "^5.2.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
@@ -30,7 +31,6 @@
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "lottie-web": "^5.12.2",
-    "slick-carousel": "^1.8.1",
     "swiper": "^9.0.3"
   }
 }
