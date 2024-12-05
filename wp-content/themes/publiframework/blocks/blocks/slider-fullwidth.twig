@@ -1,0 +1,33 @@
+<div class="site-slider-fullwidth swiper">
+    <div class="swiper-wrapper">
+        {% for slide in fields.slider_fullwidth %}
+            <div class="swiper-slide text-white">
+                <img class="image" src="{{ slide.immagine.url|resize(1920) }}" alt="{{ slide.immagine.alt }}"
+                     width={{ slide.immagine.width }} height={{ slide.immagine.height }} />
+                <div class="container">
+                    <div class="content">
+                        <div class="section-subtitle">
+                            {{ slide.sottotitolo }}
+                        </div>
+                        <div class="section-title">
+                            {{ slide.titolo }}
+                        </div>
+
+                        {% if slide.link_cta %}
+                            <a class="button outline" href="{{ slide.link_cta }}">
+                                {% include "partials/icon-arrow.twig" with {'items': menu.get_items, 'id': 'menu-main-menu'} %}
+                                {{ slide.testo_cta }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <div class="container container-pagination">
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>

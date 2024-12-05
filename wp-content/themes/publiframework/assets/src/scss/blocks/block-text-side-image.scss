@@ -9,6 +9,16 @@
 
     & > .container {
         position: static;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    .wp-block-evidenzio-column {
+        &:first-child {
+            & > * {
+                max-width: 59rem;
+            }
+        }
     }
 
     .titolo_pb {
@@ -27,5 +37,9 @@
         img {
             @include image-fit();
         }
+    }
+
+    .wp-element-button {
+        margin-top: 3rem;
     }
 }

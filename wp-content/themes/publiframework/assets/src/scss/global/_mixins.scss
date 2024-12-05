@@ -64,23 +64,24 @@
         left: 0;
     }
 }
+
 // List with custom bullet
-//@mixin list-custom() {
-//    list-style: none;
-//    padding-left: 0;
-//    li {
-//        display: flex;
-//        margin-bottom: 0.5rem;
-//
-//        &:before {
-//            content: '';
-//            flex-shrink: 0;
-//            margin-top: 1.2rem;
-//            margin-right: 1.5rem;
-//            width: 0.5rem;
-//            height: 0.5rem;
-//            border-radius: 50%;
-//            background-color: $primary;
-//        }
-//    }
-//}
+@mixin list-custom() {
+    list-style: none;
+    padding-left: 0;
+    li {
+        display: flex;
+        margin-bottom: 0.5rem;
+
+        &:before {
+            content: '';
+            flex-shrink: 0;
+            margin-top: 1.2rem;
+            margin-right: 1.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background-color: $primary;
+        }
+    }
+}

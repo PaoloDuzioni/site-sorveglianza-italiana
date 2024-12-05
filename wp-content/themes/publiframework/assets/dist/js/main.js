@@ -107,35 +107,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * Site Sliders
- *
- * - Site Slider
  */
 function siteSliders() {
-  // Site Slider
-  new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".site-slider-video", {
-    // Modules
-    modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectFade],
-    // Optional parameters
-//    autoplay: {
-//      delay: 5000,
-//    },
-    speed: 700,
-    loop: true,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    // Pagination
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    // Navigation arrows
-//    navigation: {
-//      nextEl: ".swiper-button-next",
-//      prevEl: ".swiper-button-prev",
-//    },
-  });
+    // Site Slider video
+    new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.site-slider-video', {
+        // Modules
+        modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectFade],
+        // Optional parameters
+        //    autoplay: {
+        //      delay: 5000,
+        //    },
+        speed: 700,
+        loop: true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        // Navigation arrows
+        //    navigation: {
+        //      nextEl: ".swiper-button-next",
+        //      prevEl: ".swiper-button-prev",
+        //    },
+    });
+
+    // Site Slider fullwidth
+    new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.site-slider-fullwidth', {
+        // Modules
+        modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.EffectFade],
+        // Optional parameters
+        //    autoplay: {
+        //      delay: 5000,
+        //    },
+        speed: 700,
+        loop: true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 }
 
 

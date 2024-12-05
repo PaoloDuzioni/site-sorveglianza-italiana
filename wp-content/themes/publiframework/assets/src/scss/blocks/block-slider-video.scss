@@ -2,7 +2,7 @@
     SITE SLIDERS
  ******************************************/
 
-// Class for the
+// Class for the block in admin
 .block-slider-video {
     background: $light-gray;
 
@@ -49,29 +49,5 @@
                 background: $white;
             }
         }
-
-        // TODO: remove if not used
-        // Navigation
-        //.swiper-button-prev::after,
-        //.swiper-button-next::after {
-        //    font-family: 'Font Awesome 5 Pro';
-        //    font-weight: 900;
-        //    font-size: 30px;
-        //    color: $primary;
-        //}
-        //
-        //.swiper-button-prev {
-        //    left: 20px;
-        //    &::after {
-        //        content: '\f060';
-        //    }
-        //}
-        //
-        //.swiper-button-next {
-        //    right: 20px;
-        //    &::after {
-        //        content: '\f061';
-        //    }
-        //}
     }
 }

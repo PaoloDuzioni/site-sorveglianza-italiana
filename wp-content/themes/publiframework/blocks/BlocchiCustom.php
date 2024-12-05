@@ -241,8 +241,19 @@ class BlocchiCustom {
 		if( function_exists('acf_register_block') ) {
 			acf_register_block_type(array(
 				'name'				=> 'slider-video',
-				'title'				=> 'Slider video',
-				'description'		=> 'Slides dui testo con sfond video',
+				'title'				=> 'Pb Slider video',
+				'description'		=> 'Slides di testo con sfondo video',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'slider-fullwidth',
+				'title'				=> 'Pb Slider Fullwidth',
+				'description'		=> 'Slides di testo con immagine fullwidth',
 				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
 				'category'			=> 'publifarm_singoli',
 				'keywords'			=> array( 'link', 'home' ),

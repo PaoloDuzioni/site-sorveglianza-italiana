@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    min-width: 12rem;
+    min-width: 13rem;
     padding: 1rem 2rem;
     font-family: $main-font;
     text-align: center;
@@ -31,6 +31,12 @@
         transform: translateY(-4px);
     }
 
+    &.outline {
+        background: transparent;
+        border: 1px solid currentColor;
+        color: inherit;
+    }
+
     &.big {
         padding: 2rem 4rem;
         font-size: 2rem;
@@ -48,7 +54,7 @@
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    min-width: 12rem;
+    min-width: 13rem;
     padding: 1rem 2rem;
     font-family: $main-font;
     text-align: center;
