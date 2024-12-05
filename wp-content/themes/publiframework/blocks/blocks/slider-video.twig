@@ -1,14 +1,14 @@
 <div class="site-slider-video swiper">
     <div class="swiper-wrapper">
         {% for slide in fields.slider_video %}
-            <div class="swiper-slide">
+            <div class="swiper-slide text-center">
                 <div class="container">
-                    <div class="title">
+                    <div class="section-title big text-white">
                         {{ slide.testo }}
                     </div>
 
                     {% if slide.link_cta %}
-                        <a class="btn btn-primary" href="{{ slide.link_cta }}">{{ slide.testo_cta }}</a>
+                        <a class="button big" href="{{ slide.link_cta }}">{{ slide.testo_cta }}</a>
                     {% endif %}
                 </div>
             </div>

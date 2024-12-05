@@ -2,58 +2,76 @@
     SITE SLIDERS
  ******************************************/
 
-.wrap-slider-video {
+// Class for the
+.block-slider-video {
     background: $light-gray;
 
     .iconaAudio {
         display: none;
     }
-}
 
-.site-slider-video {
-    height: 65rem;
+    .site-slider-video {
+        height: 65rem;
 
-    img {
-        width: 100%;
-    }
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
 
-    // Navigation
-    //.swiper-button-prev::after,
-    //.swiper-button-next::after {
-    //    font-family: 'Font Awesome 5 Pro';
-    //    font-weight: 900;
-    //    font-size: 30px;
-    //    color: $primary;
-    //}
-    //
-    //.swiper-button-prev {
-    //    left: 20px;
-    //    &::after {
-    //        content: '\f060';
-    //    }
-    //}
-    //
-    //.swiper-button-next {
-    //    right: 20px;
-    //    &::after {
-    //        content: '\f061';
-    //    }
-    //}
+            .image {
+                width: 100%;
+            }
 
-    // Pagination
-    .swiper-pagination-bullets {
-        .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-            background: transparent;
-            border: 1px solid $primary;
-            opacity: 1;
-            outline: none;
+            .section-title {
+                margin-bottom: 5rem;
+            }
+
+            .button {
+                min-width: 31rem;
+            }
         }
 
-        .swiper-pagination-bullet-active {
-            background: $primary;
+        // Pagination
+        .swiper-pagination-bullets {
+            bottom: 5rem;
+
+            .swiper-pagination-bullet {
+                width: 1.6rem;
+                height: 1.6rem;
+                margin: 0 0.5rem;
+                background: transparent;
+                border: 1px solid $white;
+                opacity: 1;
+                outline: none;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: $white;
+            }
         }
+
+        // TODO: remove if not used
+        // Navigation
+        //.swiper-button-prev::after,
+        //.swiper-button-next::after {
+        //    font-family: 'Font Awesome 5 Pro';
+        //    font-weight: 900;
+        //    font-size: 30px;
+        //    color: $primary;
+        //}
+        //
+        //.swiper-button-prev {
+        //    left: 20px;
+        //    &::after {
+        //        content: '\f060';
+        //    }
+        //}
+        //
+        //.swiper-button-next {
+        //    right: 20px;
+        //    &::after {
+        //        content: '\f061';
+        //    }
+        //}
     }
 }

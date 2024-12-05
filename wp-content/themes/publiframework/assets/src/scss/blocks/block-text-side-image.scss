@@ -1,0 +1,31 @@
+/******************************************************
+    BLock Text Side Image
+ ******************************************************/
+
+.block-text-side-image {
+    display: flex;
+    align-items: center;
+    min-height: 62rem;
+
+    & > .container {
+        position: static;
+    }
+
+    .titolo_pb {
+        margin-bottom: 3rem;
+        &:nth-child(1) {
+        }
+    }
+
+    .wp-block-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 40%;
+
+        img {
+            @include image-fit();
+        }
+    }
+}

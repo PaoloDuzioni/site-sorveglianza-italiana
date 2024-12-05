@@ -3,40 +3,91 @@
  ***************************************************/
 
 .button {
-    display: inline-block;
-    min-width: 120px;
-    padding: 0.6rem 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 12rem;
+    padding: 1rem 2rem;
     font-family: $main-font;
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
+    font-weight: $font-bold;
+    font-size: 1.8rem;
     color: $white;
     background: $primary;
     border: none;
     border-radius: 0;
-    transition: background 0.3s, transform 0.3s;
+    transition:
+        background 0.3s,
+        opacity 0.3s,
+        transform 0.3s;
     outline: none;
 
     &:hover,
     &:focus {
         color: $white;
-        background: rgba($primary, 0.6);
+        background: $font-col;
         transform: translateY(-4px);
     }
 
-    &.white {
-        color: white;
+    &.big {
+        padding: 2rem 4rem;
+        font-size: 2rem;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        transform: none;
+    }
+}
+
+.wp-element-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 12rem;
+    padding: 1rem 2rem;
+    font-family: $main-font;
+    text-align: center;
+    text-decoration: none;
+    font-weight: $font-bold;
+    font-size: 1.8rem;
+    color: $font-col;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 0;
+    transition:
+        border 0.3s,
+        transform 0.3s;
+    outline: none;
+
+    // icon
+    &::before {
+        content: '';
+        width: 1.1rem;
+        height: 1.1rem;
+        background-image: url('../images/arrow-right.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: translate 0.3s;
+    }
+
+    &:hover,
+    &:focus {
         background: transparent;
-        border: 1px solid currentColor;
-        &:hover,
-        &:focus {
-            background: rgba($white, 0.3);
+        transform: translateY(-4px);
+
+        &::before {
+            translate: 0.7rem;
         }
     }
 
     &:disabled {
         cursor: not-allowed;
-        background: rgba($primary, 0.6);
+        opacity: 0.5;
         transform: none;
     }
 }

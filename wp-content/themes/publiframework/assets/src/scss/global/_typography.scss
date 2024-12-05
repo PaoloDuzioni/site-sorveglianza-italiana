@@ -34,17 +34,13 @@ h4 {
 }
 
 .section-title {
-    font-weight: $font-bold;
-    font-size: 4rem;
-    line-height: 1.2;
+    @include section-title();
+}
 
-    & > * {
-        font-size: inherit;
-        font-weight: inherit;
-        line-height: inherit;
-    }
+.titolo_pb {
+    @include section-title();
 
-    &.big {
-        font-size: 4.8rem;
+    &.h2 {
+        @include section-title('small');
     }
 }
