@@ -1,0 +1,30 @@
+<div class="news-section">
+    <div class="section-title text-center">{{ fields.titolo_news_section }}</div>
+
+    <div class="row gx-md-4 boxes-news">
+        {% for post in posts %}
+            <div class="col-md-4">
+                <div class="box">
+                    <div>
+                        <div class="category">{{ post.categories[0].title }}</div>
+                        <h3 class="title">{{ post.title }}</h3>
+                        <div class="date">{{ post.date('d F Y') }}</div>
+                        <p class="text">{{ post.excerpt({ words: 100, read_more: false}) }}</p>
+                    </div>
+                    <div>
+                        <a class="button outline" href="{{ post.link }}">
+                            {% include "partials/icon-arrow.twig" with {'items': menu.get_items, 'id': 'menu-main-menu'} %}
+                            Leggi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center">
+        <a class="cta" href="{{ news_url }}">
+            {{ fields.testo_cta_news_section }}
+        </a>
+    </div>
+</div>

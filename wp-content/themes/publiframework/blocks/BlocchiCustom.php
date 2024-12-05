@@ -37,6 +37,13 @@ class BlocchiCustom {
 			$context['google_api_key'] = carbon_get_theme_option('google_api_key');
 		}
 
+		if($slug=='news-section') {
+			$posts = Timber::get_posts( new WP_Query( [ 'post_type' => 'post' ]) );
+			$context['posts'] = $posts;
+			// get url for custom post type archive
+			$context['news_url'] = get_post_type_archive_link( 'post' );
+		}
+
 		Timber::render( '/blocks/blocks/'.$slug.'.twig', $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
 	}
 
@@ -254,6 +261,17 @@ class BlocchiCustom {
 				'name'				=> 'slider-fullwidth',
 				'title'				=> 'Pb Slider Fullwidth',
 				'description'		=> 'Slides di testo con immagine fullwidth',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'news-section',
+				'title'				=> 'Pb Sezione News',
+				'description'		=> 'Sezione news',
 				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
 				'category'			=> 'publifarm_singoli',
 				'keywords'			=> array( 'link', 'home' ),

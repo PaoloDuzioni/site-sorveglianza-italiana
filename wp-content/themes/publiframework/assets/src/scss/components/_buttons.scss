@@ -97,3 +97,53 @@
         transform: none;
     }
 }
+
+.cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: $main-font;
+    text-align: center;
+    text-decoration: none;
+    font-weight: $font-bold;
+    font-size: 1.8rem;
+    color: $font-col;
+    background: transparent;
+    border-radius: 0;
+    transition: color 0.3s;
+    outline: none;
+
+    // icon
+    &::before {
+        content: '';
+        translate: 0 -0.1rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: $font-col;
+        background-image: url('../images/arrow-right-white.svg');
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition:
+            translate 0.3s,
+            background-color 0.3s;
+    }
+
+    &:hover,
+    &:focus {
+        color: $primary;
+
+        &::before {
+            translate: 0.7rem;
+            background-color: $primary;
+        }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        transform: none;
+    }
+}

@@ -1,6 +1,6 @@
 {
     "key": "group_675182624713d",
-    "title": "Slider video (copia)",
+    "title": "Slider Fullwidth",
     "fields": [
         {
             "key": "field_6751826248c0c",
@@ -161,5 +161,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733396401
+    "modified": 1733400106
 }
