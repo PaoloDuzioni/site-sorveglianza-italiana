@@ -132,3 +132,18 @@ if (isset($_GET['activated']) && is_admin()) {
 	// StarterSite::CreateStandardUsers();
 	StarterSite::CreateStandardPages();
 }
+
+/**
+ * TESTING MAIL SMTP
+ */
+function setup_phpmailer_init($phpmailer)
+{
+	$phpmailer->Host = 'smtp.mailtrap.io';   // for example, smtp.mailtrap.io
+	$phpmailer->Port = 2525;                 // set the appropriate port: 465, 2525, etc.
+	$phpmailer->Username = 'b00b814c4a876e'; // your SMTP username
+	$phpmailer->Password = 'c692e2a0c745e9'; // your SMTP password
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->SMTPSecure = 'tls'; // preferable but optional
+	$phpmailer->IsSMTP();
+}
+add_action('phpmailer_init', 'setup_phpmailer_init');

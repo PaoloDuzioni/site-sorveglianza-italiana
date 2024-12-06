@@ -47,7 +47,7 @@ class SidebarsInit
 		));
 
 		register_sidebar(array(
-			'name' 			=> 'Footer 1 (1/4)',
+			'name' 			=> 'Footer 1 (1/5)',
 			'id' 			=> 'sidebar_footer_1',
 			'description' 	=> 'Area Widget Footer 1',
 			'before_widget' => $div_start,
@@ -57,7 +57,7 @@ class SidebarsInit
 		));
 
 		register_sidebar(array(
-			'name' 			=> 'Footer 2 (1/4)',
+			'name' 			=> 'Footer 2 (1/5)',
 			'id' 			=> 'sidebar_footer_2',
 			'description' 	=> 'Area Widget Footer 2',
 			'before_widget' => $div_start,
@@ -67,7 +67,7 @@ class SidebarsInit
 		));
 
 		register_sidebar(array(
-			'name' 			=> 'Footer 3 (1/4)',
+			'name' 			=> 'Footer 3 (1/5)',
 			'id' 			=> 'sidebar_footer_3',
 			'description' 	=> 'Area Widget Footer 3',
 			'before_widget' => $div_start,
@@ -77,9 +77,19 @@ class SidebarsInit
 		));
 
 		register_sidebar(array(
-			'name' 			=> 'Footer 4 (1/4)',
+			'name' 			=> 'Footer 4 (1/5)',
 			'id' 			=> 'sidebar_footer_4',
 			'description' 	=> 'Area Widget Footer 4',
+			'before_widget' => $div_start,
+			'after_widget' 	=> $div_end,
+			'before_title' 	=> $span_start,
+			'after_title' 	=> $span_end,
+		));
+
+		register_sidebar(array(
+			'name' 			=> 'Footer 5 (1/5)',
+			'id' 			=> 'sidebar_footer_5',
+			'description' 	=> 'Area Widget Footer 5',
 			'before_widget' => $div_start,
 			'after_widget' 	=> $div_end,
 			'before_title' 	=> $span_start,

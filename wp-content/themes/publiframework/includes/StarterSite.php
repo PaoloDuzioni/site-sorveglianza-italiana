@@ -282,6 +282,7 @@ class StarterSite extends Timber\Site
 		$context['sidebar_footer_2'] = Timber::get_widgets('sidebar_footer_2');
 		$context['sidebar_footer_3'] = Timber::get_widgets('sidebar_footer_3');
 		$context['sidebar_footer_4'] = Timber::get_widgets('sidebar_footer_4');
+		$context['sidebar_footer_5'] = Timber::get_widgets('sidebar_footer_5');
 		$context['sidebar_footer_copyright_sx'] = Timber::get_widgets('sidebar_footer_copyright_sx');
 		$context['sidebar_footer_copyright_dx'] = Timber::get_widgets('sidebar_footer_copyright_dx');
 		$context['sidebar_menu'] = Timber::get_widgets('sidebar_menu');
