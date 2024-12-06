@@ -1,0 +1,23 @@
+/******************************************************
+    BLOCK FORM SECTION
+ ******************************************************/
+
+.block-form-section {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    background: $light-gray;
+
+    .titolo_pb {
+        margin-bottom: 5rem;
+
+        &.h2 {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .wpcf7-form {
+        // Form styles in components/_form.scss
+        max-width: 86rem;
+        margin: 0 auto;
+    }
+}

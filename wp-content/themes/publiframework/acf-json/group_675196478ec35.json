@@ -3,11 +3,11 @@
     "title": "Sezione News",
     "fields": [
         {
-            "key": "field_6751964725ffa",
-            "label": "Titolo",
-            "name": "titolo_news_section",
+            "key": "field_6752b0933b915",
+            "label": "Numero posts",
+            "name": "numero_posts_news_section",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,12 +16,14 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "allow_in_bindings": 1,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "default_value": 3,
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_675196cc67919",
@@ -63,5 +65,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733400684
+    "modified": 1733474741
 }

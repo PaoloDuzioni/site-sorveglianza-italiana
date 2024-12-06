@@ -20,20 +20,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_css_effect_fade__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! swiper/css/effect-fade */ "../node_modules/swiper/modules/effect-fade.css");
 /* harmony import */ var _js_scrollHeader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/scrollHeader */ "./src/js/scrollHeader.js");
 /* harmony import */ var _js_sliders__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/sliders */ "./src/js/sliders.js");
+/* harmony import */ var _js_customSelect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/customSelect */ "./src/js/customSelect.js");
  // Collapse: for navbar mobile collapse and accordion
  // Dropdown: for navbar submenus
 
 // Site styles
 
 
-//import Swiper from "swiper";
+// Swiper Styles
 
- 
+
 
 
 // import 'swiper/css/scrollbar';
 
 // Custom functions
+
 
 
 
@@ -48,9 +50,46 @@ __webpack_require__.r(__webpack_exports__);
 (0,_js_sliders__WEBPACK_IMPORTED_MODULE_8__["default"])();
 
 /**
+ * Custom select input
+ */
+(0,_js_customSelect__WEBPACK_IMPORTED_MODULE_9__["default"])();
+
+/**
  * Site scroll animations
  */
 // scrollAnimations();
+
+
+/***/ }),
+
+/***/ "./src/js/customSelect.js":
+/*!********************************!*\
+  !*** ./src/js/customSelect.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ customSelect)
+/* harmony export */ });
+function customSelect() {
+    const customSelects = document.querySelectorAll('.wrap-select select');
+    if (!customSelects) return;
+
+    customSelects.forEach(customSelect => {
+        // In case on pre-selected values
+        if (customSelect.value === '') {
+            customSelect.classList.add('empty');
+        }
+
+        customSelect.addEventListener('change', () => {
+            customSelect.value === ''
+                ? customSelect.classList.add('empty')
+                : customSelect.classList.remove('empty');
+        });
+    });
+}
 
 
 /***/ }),

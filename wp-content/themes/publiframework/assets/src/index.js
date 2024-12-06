@@ -1,19 +1,20 @@
-import "bootstrap/js/dist/collapse"; // Collapse: for navbar mobile collapse and accordion
-import "bootstrap/js/dist/dropdown"; // Dropdown: for navbar submenus
+import 'bootstrap/js/dist/collapse'; // Collapse: for navbar mobile collapse and accordion
+import 'bootstrap/js/dist/dropdown'; // Dropdown: for navbar submenus
 
 // Site styles
-import "./index.scss";
+import './index.scss';
 
-//import Swiper from "swiper";
-import "swiper/css";
- import 'swiper/css/navigation';
+// Swiper Styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 // import 'swiper/css/scrollbar';
 
 // Custom functions
-import scrollHeader from "./js/scrollHeader";
-import siteSliders from "./js/sliders";
+import scrollHeader from './js/scrollHeader';
+import siteSliders from './js/sliders';
+import customSelect from './js/customSelect';
 
 /**
  * Check if the header is scrolled
@@ -24,6 +25,11 @@ scrollHeader();
  * Site sliders
  */
 siteSliders();
+
+/**
+ * Custom select input
+ */
+customSelect();
 
 /**
  * Site scroll animations
