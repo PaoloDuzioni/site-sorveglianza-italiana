@@ -8,16 +8,17 @@
 
 <body class="{{ body_class }} header_{% if post.meta('tipo_header') %}{{ post.meta('tipo_header') }}{% else %}chiaro{% endif %}{% if post.meta('classi_custom') %} {{ post.meta('classi_custom') }}{% endif %}"
       data-template="base.twig">
+<div id="main-wrapper">
+    {% include 'layout/header.twig' %}
 
-{% include 'layout/header.twig' %}
-
-<div id="content" role="main" class="content-wrapper">
-    {% block breadcrumb %}
-        {% include 'partial/breadcrumb.twig' %}
-    {% endblock breadcrumb %}
-    {% block content %}
-        Sorry, no content
-    {% endblock %}
+    <div id="content" role="main" class="content-wrapper">
+        {% block breadcrumb %}
+            {% include 'partial/breadcrumb.twig' %}
+        {% endblock breadcrumb %}
+        {% block content %}
+            Sorry, no content
+        {% endblock %}
+    </div>
 </div>
 
 {% block footer %}

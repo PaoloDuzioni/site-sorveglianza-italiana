@@ -3,9 +3,10 @@
 ******************************************************/
 
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: 20;
     background: $back-col;
     filter: drop-shadow(0 1rem 2rem rgba($black, 0.08));
@@ -34,11 +35,17 @@
         background: $back-col;
         border-radius: 50%;
         overflow: hidden;
+        transition:
+            top 0.3s ease-in-out,
+            width 0.3s ease-in-out,
+            height 0.3s ease-in-out;
 
         img {
             margin-top: 6rem;
             width: 20.3rem;
-            transition: width 0.3s ease-in-out;
+            transition:
+                width 0.3s ease-in-out,
+                margin-top 0.3s ease-in-out;
         }
     }
 
@@ -86,6 +93,7 @@
         //}
     }
 
+    // Menu
     .navbar-collapse {
         display: flex;
 
@@ -105,6 +113,9 @@
                     font-size: 2rem;
                     color: inherit;
                     border-bottom: 0.4rem solid transparent;
+                    transition:
+                        padding 0.3s ease-in-out,
+                        border-bottom-color 0.3s ease-in-out;
 
                     &:hover,
                     &.show {
@@ -138,6 +149,30 @@
                         &.active {
                             background: rgba($black, 0.05);
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    // Scrolled version
+    &.scrolled {
+        .logo {
+            top: -7rem;
+            width: 20rem;
+            height: 20rem;
+
+            img {
+                margin-top: 7rem;
+                width: 10rem;
+            }
+        }
+
+        .navbar-collapse {
+            .navbar-nav {
+                & > li {
+                    & > a {
+                        padding: 2rem 0;
                     }
                 }
             }
