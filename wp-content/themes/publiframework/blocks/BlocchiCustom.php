@@ -43,8 +43,22 @@ class BlocchiCustom {
 				'posts_per_page' => get_field('numero_posts_news_section')
 			]) );
 			$context['posts'] = $posts;
-			// get url for custom post type archive
 			$context['news_url'] = get_post_type_archive_link( 'post' );
+		}
+
+		if($slug=='boxes-services-categories') {
+			$context['servizi_url'] = get_post_type_archive_link( 'servizi' );
+			$context['taxonomies'] = Timber::get_terms([
+				'taxonomy' => 'categoria_servizi',
+				'hide_empty' => false,
+				'orderby' => 'term_order',
+				'order' => 'ASC'
+			]);
+
+			// Add acf taxonomy fields for icon and image
+			foreach($context['taxonomies'] as $key => $tax) {
+				$tax->fields = get_fields('categoria_servizi_'.$tax->term_id);
+			}
 		}
 
 		Timber::render( '/blocks/blocks/'.$slug.'.twig', $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
@@ -297,6 +311,39 @@ class BlocchiCustom {
 				'name'				=> 'carousel',
 				'title'				=> 'Pb Carousel',
 				'description'		=> 'Carousel di immagini',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'google-maps-iframe',
+				'title'				=> 'Pb Google Maps',
+				'description'		=> 'Iframe Google Maps',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'boxes-services-categories',
+				'title'				=> 'Pb Boxes Categorie Servizi',
+				'description'		=> 'Boxes delle categorie servizi',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'archive-services',
+				'title'				=> 'Pb Archivio Servizi',
+				'description'		=> 'Archivio dei servizi con filtraggio e lista di servizi',
 				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
 				'category'			=> 'publifarm_singoli',
 				'keywords'			=> array( 'link', 'home' ),

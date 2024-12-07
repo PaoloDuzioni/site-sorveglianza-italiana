@@ -100,7 +100,7 @@ function is_user_ev_admin()
 require_once(get_template_directory() . '/includes/OpzioniTema.php');
 require_once(get_template_directory() . '/includes/AcfSettings.php');
 require_once(get_template_directory() . '/includes/class-tgm-plugin-activation.php');
-require_once(get_template_directory() . '/includes/Breadcrumb.php');
+//require_once(get_template_directory() . '/includes/Breadcrumb.php');
 require_once(get_template_directory() . '/includes/StarterSite.php');
 require_once(get_template_directory() . '/includes/CustomPostType.php');
 require_once(get_template_directory() . '/includes/Utilities.php');

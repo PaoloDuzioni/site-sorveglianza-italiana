@@ -1,0 +1,66 @@
+/******************************************************
+    BLOCK BOXES CAT SERVICES
+ ******************************************************/
+
+.block-boxes-cat-services {
+    padding: 7rem 0 5rem;
+
+    .wrap-boxes {
+        padding-top: 4rem;
+
+        .box {
+            position: relative;
+            display: block;
+            height: 31rem;
+            background: $primary;
+            overflow: hidden;
+
+            .wrap-image {
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                //translate: 0 100%;
+                //transition: translate 0.3s;
+                transition: opacity 0.3s;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: rgba($primary, 0.35);
+                }
+
+                .image {
+                    transition: scale 0.6s;
+                }
+            }
+
+            .content {
+                position: relative;
+                z-index: 1;
+                height: 100%;
+                padding: 2rem;
+            }
+
+            .icon {
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+
+                max-width: 5rem;
+                max-height: 5rem;
+            }
+
+            &:hover {
+                .wrap-image {
+                    //translate: 0 0;
+                    opacity: 1;
+
+                    .image {
+                        scale: 1.2;
+                    }
+                }
+            }
+        }
+    }
+}

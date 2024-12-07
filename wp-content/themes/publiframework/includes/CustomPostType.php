@@ -15,29 +15,7 @@ class CustomPostType
 
 	public function register_post_types()
 	{
-		// Register Sistema Post Type
-		register_post_type(
-			'sistema',
-			array(
-				'labels'			=> array(
-					'name' 			=> __('Pagine di sistema'),
-					'singular_name' => __('Pagina di sistema')
-				),
-				'show_ui' 			=> true,
-				'has_archive'		=> false,
-				'menu_position' 	=> 3,
-				'hierarchical' 		=> false,
-				'show_in_rest' 		=> true,
-				'menu_icon' 		=> 'dashicons-admin-tools',
-				'supports' 			=> array(
-					'title',
-					'editor',
-					'thumbnail'
-				)
-			)
-		);
-
-		// Register Sistema Post Type
+		// Register Servizi Post Type
 		register_post_type(
 			'servizi',
 			array(
@@ -45,8 +23,9 @@ class CustomPostType
 					'name' 			=> __('Servizi'),
 					'singular_name' => __('Servizi')
 				),
+				'public' 			=> true,
 				'show_ui' 			=> true,
-				'has_archive'		=> true,
+				'has_archive'		=> false,
 				'menu_position' 	=> 10,
 				'hierarchical' 		=> false,
 				'show_in_rest' 		=> true,
@@ -55,10 +34,36 @@ class CustomPostType
 				'supports' 			=> array(
 					'title',
 					'editor',
-					'thumbnail'
+					'thumbnail',
+					'excerpt',
+					'revisions'
 				)
 			)
 		);
+
+		// Register Sistema Post Type
+//		register_post_type(
+//			'sistema',
+//			array(
+//				'labels'			=> array(
+//					'name' 			=> __('Pagine di sistema'),
+//					'singular_name' => __('Pagina di sistema')
+//				),
+//				'show_ui' 			=> true,
+//				'has_archive'		=> false,
+//				'menu_position' 	=> 3,
+//				'hierarchical' 		=> false,
+//				'show_in_rest' 		=> true,
+//				'menu_icon' 		=> 'dashicons-admin-tools',
+//				'supports' 			=> array(
+//					'title',
+//					'editor',
+//					'thumbnail'
+//				)
+//			)
+//		);
+
+
 
 		// Register Eventi Post Type
 		if (carbon_get_theme_option('attiva_cpt_eventi')) {
@@ -147,27 +152,25 @@ class CustomPostType
 
 	public function register_taxonomies()
 	{
-		// Register Tipo Evento Taxonomy
-//		if (carbon_get_theme_option('attiva_cpt_eventi')) {
-//			register_taxonomy(
-//				'tipo_evento',
-//				'eventi',
-//				array(
-//					'label' 				=> __('Tipo evento'),
-//					'hierarchical' 			=> true,
-//					'show_ui'       		=> true,
-//					'query_var' 			=> true,
-//					'show_in_rest' 			=> true,
-//					'sort' 					=> true,
-//					'show_admin_column' 	=> true,
-//					// 'publicly_queryable'	=> false,
-//					'args' 					=> array(
-//						'orderby' 	=> 'term_order',
-//						'order' 	=> 'DESC'
-//					),
-//				)
-//			);
-//		}
+		// Register Categoria Servizi Taxonomy
+		register_taxonomy(
+			'categoria_servizi',
+			'servizi',
+			array(
+				'label' 				=> __('Categoria Servizi'),
+				'hierarchical' 			=> true,
+				'show_ui'       		=> true,
+				'query_var' 			=> true,
+				'show_in_rest' 			=> true,
+				'sort' 					=> true,
+				'show_admin_column' 	=> true,
+				// 'publicly_queryable'	=> false,
+				'args' 					=> array(
+					'orderby' 	=> 'term_order',
+					'order' 	=> 'DESC'
+				),
+			)
+		);
 
 		// Register Tipo Case History Taxonomy
 //		if (carbon_get_theme_option('attiva_cpt_case_history')) {

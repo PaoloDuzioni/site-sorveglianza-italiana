@@ -376,7 +376,7 @@ class StarterSite extends Timber\Site
 		 * Breadcrumb
 		 */
 		
-		$context['breadcrumb'] = pubfa_breadcrumb();
+//		$context['breadcrumb'] = pubfa_breadcrumb();
 
 		/**
 		 * CTA Menu
