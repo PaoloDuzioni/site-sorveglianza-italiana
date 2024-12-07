@@ -20,7 +20,7 @@ $context['posts'] = $posts;
 
 $context = StarterSite::passVariables($context);
 
-$templates        = array('index.twig');
+$templates = array('index.twig');
 if (is_home()) {
 	array_unshift($templates, 'home.twig');
 	$page_for_posts = get_option('page_for_posts');

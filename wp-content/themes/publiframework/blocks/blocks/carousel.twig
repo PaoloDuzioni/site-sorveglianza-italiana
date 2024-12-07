@@ -1,0 +1,17 @@
+<div class="block-carousel">
+    <div class="site-carousel swiper">
+        <div class="swiper-wrapper">
+            {% for slide in fields.carousel_block %}
+                <div class="swiper-slide text-white">
+                    <img class="image" src="{{ slide.immagine.url|resize(860) }}" alt="{{ slide.immagine.alt }}"
+                         width={{ slide.immagine.width }} height={{ slide.immagine.height }} />
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="container container-navigation d-flex justify-content-end">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>

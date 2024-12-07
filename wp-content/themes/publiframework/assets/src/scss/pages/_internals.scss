@@ -1,5 +1,5 @@
 /******************************************************
-    INTERNAL PAGES (template standard) and 404
+    INTERNAL PAGES and 404
  ******************************************************/
 
 .wrap-internals {
@@ -34,9 +34,14 @@
     }
 }
 
-#page-404 {
-    .image {
-        margin-bottom: 4rem;
-        width: 200px;
+.page404 {
+    padding: 15rem 0 10rem;
+
+    .titolo_pb {
+        margin-bottom: 3rem;
+    }
+
+    .wp-element-button {
+        margin-top: 3rem;
     }
 }

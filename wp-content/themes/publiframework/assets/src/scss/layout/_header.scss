@@ -122,6 +122,8 @@
                         border-bottom-color: $primary;
                     }
                 }
+
+                &.current-menu-ancestor,
                 &.current-menu-item {
                     & > a {
                         border-bottom-color: $primary;
@@ -133,6 +135,7 @@
                     left: -4rem;
                     min-width: 30rem;
                     margin-top: 0;
+                    padding: 0;
                     border: none;
                     border-radius: 0;
                     background: $back-col;
@@ -147,7 +150,13 @@
                         &:hover,
                         &:focus-visible,
                         &.active {
-                            background: rgba($black, 0.05);
+                            background: rgba($primary, 0.05);
+                        }
+                    }
+
+                    .current-menu-item {
+                        .dropdown-item {
+                            background: rgba($primary, 0.1);
                         }
                     }
                 }

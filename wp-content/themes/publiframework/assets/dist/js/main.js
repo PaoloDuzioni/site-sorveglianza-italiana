@@ -199,6 +199,40 @@ function siteSliders() {
             prevEl: '.swiper-button-prev',
         },
     });
+
+    // Site Slider fullwidth
+    const referenceElelement = document.querySelector(
+        '.block-text-box-contacts > .container',
+    );
+    const carouselParent = document.querySelector('.block-carousel');
+    new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.site-carousel', {
+        // Modules
+        modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
+        // Optional parameters
+        //    autoplay: {
+        //      delay: 5000,
+        //    },
+        speed: 700,
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        on: {
+            // Align slider to previus content (inside container and untill the right of the viewport)
+            beforeInit: function () {
+                carouselParent.style.marginLeft =
+                    referenceElelement.offsetLeft + 'px';
+            },
+            resize: function () {
+                console.log('resize');
+                carouselParent.style.marginLeft =
+                    referenceElelement.offsetLeft + 'px';
+            },
+        },
+    });
 }
 
 

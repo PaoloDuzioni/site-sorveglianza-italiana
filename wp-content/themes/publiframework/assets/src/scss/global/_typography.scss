@@ -42,7 +42,9 @@ h4 {
 }
 
 .titolo_pb {
-    @include section-title();
+    &.h1 {
+        @include section-title();
+    }
 
     &.h2 {
         @include section-title('small');

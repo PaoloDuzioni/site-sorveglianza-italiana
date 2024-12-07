@@ -17,14 +17,19 @@
 // @import 'components/pagination';
 
 // Blocks
+@import 'scss/blocks/block-hero';
+@import 'scss/blocks/block-breadcrumbs';
 @import 'scss/blocks/block-slider-video';
 @import 'scss/blocks/block-text-side-image';
 @import 'scss/blocks/block-slider-fullwidth';
 @import 'scss/blocks/block-news-section';
 @import 'scss/blocks/block-form-section';
+@import 'scss/blocks/block-text-box-contacts';
+@import 'scss/blocks/block-carousel';
+@import 'scss/blocks/block-banner-testo';
 
 // Pages
-@import './scss/pages/home';
+//@import './scss/pages/home';
 @import './scss/pages/internals';
 
 // Layout

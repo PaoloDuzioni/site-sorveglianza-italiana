@@ -282,16 +282,27 @@ class BlocchiCustom {
 				'mode' => 'edit'
 			));
 
-//			acf_register_block_type(array(
-//				'name'				=> 'form-section',
-//				'title'				=> 'Pb Sezione Form',
-//				'description'		=> 'Sezione form di contatto',
-//				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
-//				'category'			=> 'publifarm_singoli',
-//				'keywords'			=> array( 'link', 'home' ),
-//				//'supports'			=> ['mode'=> false],
-//				'mode' => 'edit'
-//			));
+			acf_register_block_type(array(
+				'name'				=> 'box-contatti',
+				'title'				=> 'Pb Box Contatti',
+				'description'		=> 'Box con informazioni di contatto',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'carousel',
+				'title'				=> 'Pb Carousel',
+				'description'		=> 'Carousel di immagini',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
 		}
 	}
 

@@ -1,0 +1,23 @@
+/******************************************************
+    BLOCK BREADCRUMBS
+ ******************************************************/
+
+.block-breadcrumbs {
+    padding: 2rem 0;
+    font-size: 1.4rem;
+    color: $dark-gray;
+    border-bottom: 1px solid rgba($black, 0.1);
+
+    a {
+        color: inherit;
+
+        &:hover,
+        &:focus-visible {
+            color: $font-col;
+        }
+    }
+
+    .breadcrumb_last {
+        color: $font-col;
+    }
+}

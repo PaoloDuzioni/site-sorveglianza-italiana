@@ -1,0 +1,66 @@
+/******************************************************
+    BLOCK CAROUSEL
+ ******************************************************/
+
+.block-carousel {
+    & > .container-fluid {
+        --bs-gutter-x: 0;
+
+        & > .row {
+            --bs-gutter-x: 0;
+        }
+    }
+
+    .site-carousel {
+        --space-bottom: 12rem;
+        height: calc(50rem + var(--space-bottom));
+        padding-bottom: var(--space-bottom);
+
+        .swiper-slide {
+            width: auto;
+
+            .image {
+                width: auto;
+                max-height: 100%;
+            }
+        }
+
+        // Navigation
+        .container-navigation {
+            position: relative;
+            margin-left: initial;
+            margin-right: initial;
+            gap: 1rem;
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                margin-top: 0;
+                position: static;
+                height: 8rem;
+                transition:
+                    opacity 0.1s linear,
+                    scale 0.1s linear;
+
+                &:hover {
+                    scale: 1.3;
+                }
+
+                &::after {
+                    content: '';
+                    width: 2rem;
+                    height: 2rem;
+                    background-image: url('../images/round-arrow-black.svg');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+
+            .swiper-button-prev {
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

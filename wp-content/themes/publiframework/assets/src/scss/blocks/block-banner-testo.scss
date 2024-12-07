@@ -1,0 +1,17 @@
+/******************************************************
+    BLOCK BANNER TESTO
+ ******************************************************/
+
+.block-banner-testo {
+    padding: 7rem 0;
+
+    .titolo_pb {
+        margin-bottom: 4rem;
+    }
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

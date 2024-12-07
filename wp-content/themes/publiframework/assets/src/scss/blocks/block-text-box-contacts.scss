@@ -1,0 +1,80 @@
+/******************************************************
+    BLOCK TEXT BOX CONTACTS
+ ******************************************************/
+
+.block-text-box-contacts {
+    padding: 6rem 0;
+
+    ul {
+        @include list-custom;
+
+        strong:first-child {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        br {
+            display: none;
+        }
+    }
+
+    p + ul {
+        padding-top: 3rem;
+    }
+
+    .wp-block-evidenzio-column > * {
+        max-width: 75rem;
+    }
+
+    .titolo_pb {
+        &.h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        &.h1 {
+            margin-bottom: 4rem;
+        }
+    }
+
+    .block-box-contatti {
+        margin-top: 5rem;
+        border: 1px solid $primary;
+        padding: 4rem 3rem;
+
+        .title {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: $primary;
+        }
+
+        .info {
+            p {
+                margin-bottom: 0;
+
+                br {
+                    display: none;
+                }
+            }
+
+            a {
+                display: block;
+                font-weight: $font-bold;
+                text-decoration: none;
+
+                &:first-child {
+                    margin-top: 0.5rem;
+                    font-size: 2.5rem;
+                    line-height: 1;
+                }
+                &:last-child {
+                    font-size: 1.6rem;
+                }
+
+                &:hover,
+                &:focus-visible {
+                    color: lighten($primary, 20%);
+                }
+            }
+        }
+    }
+}

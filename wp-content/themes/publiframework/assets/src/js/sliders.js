@@ -56,4 +56,38 @@ export default function siteSliders() {
             prevEl: '.swiper-button-prev',
         },
     });
+
+    // Site Slider fullwidth
+    const referenceElelement = document.querySelector(
+        '.block-text-box-contacts > .container',
+    );
+    const carouselParent = document.querySelector('.block-carousel');
+    new Swiper('.site-carousel', {
+        // Modules
+        modules: [Autoplay, Navigation],
+        // Optional parameters
+        //    autoplay: {
+        //      delay: 5000,
+        //    },
+        speed: 700,
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        on: {
+            // Align slider to previus content (inside container and untill the right of the viewport)
+            beforeInit: function () {
+                carouselParent.style.marginLeft =
+                    referenceElelement.offsetLeft + 'px';
+            },
+            resize: function () {
+                console.log('resize');
+                carouselParent.style.marginLeft =
+                    referenceElelement.offsetLeft + 'px';
+            },
+        },
+    });
 }

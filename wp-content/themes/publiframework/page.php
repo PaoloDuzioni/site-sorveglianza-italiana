@@ -25,6 +25,8 @@ $context = Timber::context();
 $timber_post     = Timber::get_post();
 $context['post'] = $timber_post;
 $context = StarterSite::passVariables($context);
+$context['no-hero'] = is_404();
+
 if(is_front_page())
     Timber::render( array( 'front-page.twig' ), $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
 else

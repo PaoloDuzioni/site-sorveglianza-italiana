@@ -1,0 +1,14 @@
+/******************************************************
+    BLOCK HERO
+ ******************************************************/
+
+.block-hero {
+    display: flex;
+    align-items: center;
+    min-height: 35rem;
+
+    .titolo_pb {
+        margin-top: 3rem;
+        @include section-title('large');
+    }
+}
