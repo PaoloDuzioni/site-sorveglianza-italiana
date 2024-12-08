@@ -25,7 +25,7 @@ class CustomPostType
 				),
 				'public' 			=> true,
 				'show_ui' 			=> true,
-				'has_archive'		=> false,
+				'has_archive'		=> true,
 				'menu_position' 	=> 10,
 				'hierarchical' 		=> false,
 				'show_in_rest' 		=> true,
@@ -158,6 +158,26 @@ class CustomPostType
 			'servizi',
 			array(
 				'label' 				=> __('Categoria Servizi'),
+				'hierarchical' 			=> true,
+				'show_ui'       		=> true,
+				'query_var' 			=> true,
+				'show_in_rest' 			=> true,
+				'sort' 					=> true,
+				'show_admin_column' 	=> true,
+				// 'publicly_queryable'	=> false,
+				'args' 					=> array(
+					'orderby' 	=> 'term_order',
+					'order' 	=> 'DESC'
+				),
+			)
+		);
+
+		// Register Categoria Settori Taxonomy
+		register_taxonomy(
+			'categoria_settori',
+			'servizi',
+			array(
+				'label' 				=> __('Categoria Settori'),
 				'hierarchical' 			=> true,
 				'show_ui'       		=> true,
 				'query_var' 			=> true,

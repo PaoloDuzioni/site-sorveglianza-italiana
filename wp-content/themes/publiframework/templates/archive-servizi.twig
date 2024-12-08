@@ -1,0 +1,45 @@
+{% extends "layout/base.twig" %}
+
+{% block content %}
+    <section class="services-archive">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="tanonomy-list">
+                        <h4 class="title">Settori</h4>
+                        <ul class="list-unstyled list">
+                            {% for tax in taxonomies_sectors %}
+                                <li>{{ tax.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="tanonomy-list">
+                        <h4 class="title">Servizi</h4>
+                        <ul class="list-unstyled list">
+                            {% for tax in taxonomies_services %}
+                                <li>{{ tax.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-lg-9">
+                    <div class="row" id="top-archive">
+                        {% for post in posts %}
+                            <div class="col-md-4">
+                                <a class="box">
+                                    <img src="{{ post.thumbnail.src|resize(420) }}" alt="{{ post.title }}">
+                                    <h3>{{ post.title }}</h3>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

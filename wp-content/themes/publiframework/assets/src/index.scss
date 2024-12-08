@@ -14,7 +14,7 @@
 // Components
 @import './scss/components/buttons';
 @import './scss/components/form';
-// @import 'components/pagination';
+@import './scss/components/pagination';
 
 // Blocks
 @import 'scss/blocks/block-hero';
@@ -32,7 +32,8 @@
 
 // Pages
 //@import './scss/pages/home';
-@import './scss/pages/internals';
+@import './scss/pages/archive-services';
+@import 'scss/pages/internals';
 
 // Layout
 @import './scss/layout/header.scss';

@@ -47,26 +47,21 @@ if ( is_day() ) {
 	array_unshift( $templates, 'category.twig' );
 } elseif ( is_post_type_archive() ) {
 
-//	if(get_post_type() == 'servizi') {
-//		$templates = array( 'servizi.twig' );
-////		$context['next_events'] = next_events(4);
-////
-////		$today = date('Ymd');
-////		$archivio_eventi_args = [
-////			'post_type' => 'events',
-////			'posts_per_page' => -1,
-////			'meta_query' => array(
-////				array(
-////					'key'     => 'data_fine',
-////					'compare' => '<=',
-////					'value'   => $today,
-////				)
-////			)
-////		];
-////		$archivio_eventi = Timber::get_posts($archivio_eventi_args);
-////		$context['archivio_eventi'] = $archivio_eventi;
-//
-//	}
+	if(get_post_type() == 'servizi') {
+		$context['taxonomies_sectors'] = Timber::get_terms([
+			'taxonomy' => 'categoria_settori',
+			'hide_empty' => false,
+			'orderby' => 'term_order',
+			'order' => 'ASC'
+		]);
+
+		$context['taxonomies_services'] = Timber::get_terms([
+			'taxonomy' => 'categoria_servizi',
+			'hide_empty' => false,
+			'orderby' => 'term_order',
+			'order' => 'ASC'
+		]);
+	}
 
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
@@ -115,6 +110,7 @@ if ( is_category() ) {
 
 
 }
+
 $context['posts'] = $posts;
 
 

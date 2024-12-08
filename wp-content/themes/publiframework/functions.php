@@ -133,6 +133,17 @@ if (isset($_GET['activated']) && is_admin()) {
 	StarterSite::CreateStandardPages();
 }
 
+function pb_custom_cpt_query($query)
+{
+	if ($query->is_main_query() && is_post_type_archive('servizi') && !is_admin()) {
+
+			$query->set('post_type', ['servizi']);
+			$query->set('posts_per_page', 2);
+	}
+}
+
+add_action('pre_get_posts', 'pb_custom_cpt_query');
+
 /**
  * TESTING MAIL SMTP
  */

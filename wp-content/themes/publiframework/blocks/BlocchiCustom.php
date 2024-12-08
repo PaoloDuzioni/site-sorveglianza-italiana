@@ -61,6 +61,21 @@ class BlocchiCustom {
 			}
 		}
 
+//		if($slug=='archive-services') {
+//			global $paged;
+//
+//			if (!isset($paged) || !$paged) {
+//				$paged = 1;
+//			}
+//
+//			$posts = Timber::get_posts( new WP_Query( [
+//				'post_type' => 'servizi',
+//				'posts_per_page' => 2,
+//				'paged' => $paged,
+//			]) );
+//			$context['posts'] = $posts;
+//		}
+
 		Timber::render( '/blocks/blocks/'.$slug.'.twig', $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
 	}
 
