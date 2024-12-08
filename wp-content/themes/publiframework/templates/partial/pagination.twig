@@ -4,7 +4,7 @@
             {# Previous #}
             {% if posts.pagination.prev %}
                 <li class="prev-link">
-                    <a href="{{ posts.pagination.prev.link }}" class="page-numbers prev">
+                    <a href="{{ posts.pagination.prev.link }}#top-archive" class="page-numbers prev">
                         &lt;
                     </a>
                 </li>
@@ -14,7 +14,7 @@
             {% for page in posts.pagination.pages %}
                 {% if page.link %}
                     <li class="{{ loop.index == 1 ? 'no-dot' : '' }}">
-                        <a href="{{ page.link }}" class="page-numbers {{ page.class }}">{{ page.title }}</a>
+                        <a href="{{ page.link }}#top-archive" class="page-numbers {{ page.class }}">{{ page.title }}</a>
                     </li>
                 {% else %}
                     <li class="current {{ loop.index == 1 ? 'no-dot' : '' }}">
@@ -26,7 +26,7 @@
 
             {% if posts.pagination.next %}
                 <li class="next-link">
-                    <a href="{{ posts.pagination.next.link }}" class="page-numbers next">
+                    <a href="{{ posts.pagination.next.link }}#top-archive" class="page-numbers next">
                         &gt;
                     </a>
                 </li>

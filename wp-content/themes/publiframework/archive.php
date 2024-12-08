@@ -45,9 +45,12 @@ if ( is_day() ) {
 	$context['blog_categories'] = $blog_categories;
 
 	array_unshift( $templates, 'category.twig' );
-} elseif ( is_post_type_archive() ) {
+} elseif ( is_post_type_archive('servizi') ) {
 
-	if(get_post_type() == 'servizi') {
+
+		$context['query_sectors'] = $_POST['taxonomies_sectors'] ?? '';
+		$context['query_services'] = $_POST['taxonomies_services'] ?? '';
+
 		$context['taxonomies_sectors'] = Timber::get_terms([
 			'taxonomy' => 'categoria_settori',
 			'hide_empty' => false,
@@ -61,10 +64,31 @@ if ( is_day() ) {
 			'orderby' => 'term_order',
 			'order' => 'ASC'
 		]);
-	}
+//		echo 'taxonomies_sectors: ' . '<br>';
+//		echo '<pre>';
+//		var_dump($context['taxonomies_sectors']);
+//		echo '</pre>';
 
-	$context['title'] = post_type_archive_title( '', false );
-	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+		// Get blocks from page Servizi
+		$post_content = get_post( 320 )->post_content;
+		$blocks = parse_blocks( $post_content );
+
+		$hero_block = render_block($blocks[0]);
+		$context['hero_block'] = $hero_block;
+
+		$breadcrumb_block = render_block($blocks[2]);
+		$context['breadcrumb_block'] = $breadcrumb_block;
+
+		$news_block = render_block($blocks[4]);
+		$context['news_block'] = $news_block;
+
+		$form_block = render_block($blocks[6]);
+		$context['form_block'] = $form_block;
+
+		$context['title'] = post_type_archive_title( '', false );
+	$templates = array( 'archive-servizi.twig', 'index.twig' );
+
+//	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
 

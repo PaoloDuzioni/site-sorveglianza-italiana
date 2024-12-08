@@ -1,45 +1,77 @@
 {% extends "layout/base.twig" %}
 
 {% block content %}
+    {{ hero_block }}
+    {{ breadcrumb_block }}
+
     <section class="services-archive">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-3">
-                    <div class="tanonomy-list">
-                        <h4 class="title">Settori</h4>
-                        <ul class="list-unstyled list">
-                            {% for tax in taxonomies_sectors %}
-                                <li>{{ tax.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+            <div class="row g-md-3">
+                <div class="col-md-4 col-lg-3 col-side">
+                    <form method="post" id="services-form"
+                          class="{{ query_sectors|length or query_services|length ? 'active' : '' }}">
+                        <div class="tanonomy-list">
+                            <h4 class="title">Settori</h4>
 
-                    <div class="tanonomy-list">
-                        <h4 class="title">Servizi</h4>
-                        <ul class="list-unstyled list">
-                            {% for tax in taxonomies_services %}
-                                <li>{{ tax.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                            <ul class="list-unstyled list">
+                                {{ dump(taxonomies_sectors) }}
+                                {% for tax in taxonomies_sectors %}
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" {{ tax.term_id in query_sectors ? 'checked' : '' }}
+                                                   name="taxonomies_sectors[]" value="{{ tax.term_id }}"
+                                                   onchange="this.form.submit()">
+                                            <span>{{ tax.name }}</span>
+                                        </label>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="tanonomy-list">
+                            <h4 class="title">Servizi</h4>
+
+                            <ul class="list-unstyled list">
+                                {% for tax in taxonomies_services %}
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" {{ tax.term_id in query_services ? 'checked' : '' }}
+                                                   name="taxonomies_services[]" value="{{ tax.term_id }}"
+                                                   onchange="this.form.submit()">
+                                            <span>{{ tax.name }}</span>
+                                        </label>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="col-md-8 col-lg-9">
-                    <div class="row" id="top-archive">
-                        {% for post in posts %}
-                            <div class="col-md-4">
-                                <a class="box">
-                                    <img src="{{ post.thumbnail.src|resize(420) }}" alt="{{ post.title }}">
-                                    <h3>{{ post.title }}</h3>
-                                </a>
-                            </div>
-                        {% endfor %}
+                    <div class="row g-3 box-list" id="top-archive">
+                        {% if posts is not empty %}
+                            {% for post in posts %}
+                                <div class="col-md-4">
+                                    <a class="box" href="{{ post.link }}">
+                                        <img class="image" src="{{ post.thumbnail.src|resize(420) }}"
+                                             alt="{{ post.title }}">
+                                        <h2 class="title">{{ post.title }}</h2>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>Nessun servizio trovato con questi filtri.</p>
+                        {% endif %}
                     </div>
-                    
+
                     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
                 </div>
             </div>
-
         </div>
     </section>
+
+    {{ news_block }}
+    {% apply shortcodes %}
+        {{ form_block }}
+    {% endapply %}
 {% endblock %}

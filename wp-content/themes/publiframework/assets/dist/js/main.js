@@ -54,6 +54,14 @@ __webpack_require__.r(__webpack_exports__);
  */
 (0,_js_customSelect__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
+// TODO: put in separate file
+const servicesForm = document.getElementById('services-form');
+if (servicesForm && servicesForm.classList.contains('active')) {
+    // scroll page to #top-archive
+    const topArchive = document.getElementById('top-archive');
+    topArchive.scrollIntoView({ behavior: 'instant' });
+}
+
 /**
  * Site scroll animations
  */

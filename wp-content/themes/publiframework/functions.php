@@ -133,12 +133,51 @@ if (isset($_GET['activated']) && is_admin()) {
 	StarterSite::CreateStandardPages();
 }
 
+/**
+ * Custom query for post per page
+ */
 function pb_custom_cpt_query($query)
 {
 	if ($query->is_main_query() && is_post_type_archive('servizi') && !is_admin()) {
+			// get query string
+			$query_sectors = $_POST['taxonomies_sectors'] ?? [];
+			$query_services = $_POST['taxonomies_services'] ?? [];
+
+//			echo '<br><br><br><br><br><br><br><br><br>';
+//			var_dump($query_sectors);
+//			var_dump($query_services);
 
 			$query->set('post_type', ['servizi']);
-			$query->set('posts_per_page', 2);
+			$query->set('posts_per_page', 12);
+
+			if(!empty($query_services) || !empty($query_sectors)) {
+				$tax_query = array(
+					'relation' => 'AND',
+				);
+
+				if(!empty($query_sectors)) {
+					$tax_query[] = array(
+						array(
+							'taxonomy' => 'categoria_settori',
+							'field'    => 'term_id',
+							'terms'    => $query_sectors,
+						),
+					);
+				}
+
+				if(!empty($query_services)) {
+
+					$tax_query[] = array(
+						array(
+							'taxonomy' => 'categoria_servizi',
+							'field'    => 'term_id',
+							'terms'    => $query_services,
+						),
+					);
+				}
+
+				$query->set('tax_query', $tax_query);
+			}
 	}
 }
 

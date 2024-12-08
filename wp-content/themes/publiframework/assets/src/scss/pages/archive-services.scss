@@ -3,5 +3,127 @@
  ******************************************************/
 
 .services-archive {
-    padding: 10rem 0;
+    --space-top: 8rem;
+
+    #top-archive {
+        padding-top: 8rem;
+        scroll-margin-top: var(--header-scrolled-height);
+    }
+
+    .col-side {
+        padding-top: var(--space-top);
+    }
+
+    .tanonomy-list {
+        margin-bottom: 4rem;
+
+        .title {
+            margin-bottom: 2rem;
+            padding: 1rem 1.5rem;
+            font-size: 2rem;
+            color: $white;
+            background: $primary;
+        }
+
+        .list {
+            li {
+                margin-bottom: 2rem;
+            }
+        }
+
+        // Custom checkbox
+        label {
+            position: relative;
+            text-transform: none;
+            cursor: pointer;
+            font-weight: $font-bold;
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                z-index: -1;
+
+                & + span {
+                    position: relative;
+                    padding-left: 3rem;
+                    display: block;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0.4rem;
+                        left: 0;
+                        width: 1.6rem;
+                        height: 1.6rem;
+                        border: 1px solid currentColor;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0.8rem;
+                        left: 0.4rem;
+                        width: 0.8rem;
+                        height: 0.8rem;
+                        background: $primary;
+                        opacity: 0;
+                        transition: opacity 0.2s;
+                    }
+                }
+
+                &:checked + span::after {
+                    opacity: 1;
+                }
+
+                &:focus + span::before {
+                    outline: 2px dotted currentColor;
+                    outline-offset: 3px;
+                }
+            }
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+
+    .box {
+        display: block;
+        position: relative;
+        color: $white;
+        overflow: hidden;
+
+        // overlay
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            background: linear-gradient(to top, $primary, transparent);
+        }
+
+        .image {
+            transition: scale 0.3s;
+        }
+
+        .title {
+            position: absolute;
+            z-index: 2;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            font-weight: $font-bold;
+        }
+
+        // hover
+        &:hover,
+        &:focus-visible {
+            .image {
+                scale: 1.2;
+            }
+        }
+    }
 }

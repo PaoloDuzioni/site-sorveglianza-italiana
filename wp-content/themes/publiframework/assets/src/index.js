@@ -31,6 +31,14 @@ siteSliders();
  */
 customSelect();
 
+// TODO: put in separate file
+const servicesForm = document.getElementById('services-form');
+if (servicesForm && servicesForm.classList.contains('active')) {
+    // scroll page to #top-archive
+    const topArchive = document.getElementById('top-archive');
+    topArchive.scrollIntoView({ behavior: 'instant' });
+}
+
 /**
  * Site scroll animations
  */

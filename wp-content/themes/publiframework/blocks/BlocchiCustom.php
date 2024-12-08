@@ -354,17 +354,6 @@ class BlocchiCustom {
 				//'supports'			=> ['mode'=> false],
 				'mode' => 'edit'
 			));
-
-			acf_register_block_type(array(
-				'name'				=> 'archive-services',
-				'title'				=> 'Pb Archivio Servizi',
-				'description'		=> 'Archivio dei servizi con filtraggio e lista di servizi',
-				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
-				'category'			=> 'publifarm_singoli',
-				'keywords'			=> array( 'link', 'home' ),
-				//'supports'			=> ['mode'=> false],
-				'mode' => 'edit'
-			));
 		}
 	}
 
