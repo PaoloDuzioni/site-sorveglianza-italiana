@@ -14,18 +14,19 @@
                             <h4 class="title">Settori</h4>
 
                             <ul class="list-unstyled list">
-                                {{ dump(taxonomies_sectors) }}
                                 {% for tax in taxonomies_sectors %}
                                     <li>
                                         <label>
                                             <input type="checkbox" {{ tax.term_id in query_sectors ? 'checked' : '' }}
-                                                   name="taxonomies_sectors[]" value="{{ tax.term_id }}"
-                                                   onchange="this.form.submit()">
+                                                   name="taxonomies_sectors[]" value="{{ tax.term_id }}">
                                             <span>{{ tax.name }}</span>
                                         </label>
                                     </li>
                                 {% endfor %}
                             </ul>
+                            {% if query_sectors|length %}
+                                <button class="clear-filters">Rimuovi filtri</button>
+                            {% endif %}
                         </div>
 
                         <div class="tanonomy-list">
@@ -36,13 +37,15 @@
                                     <li>
                                         <label>
                                             <input type="checkbox" {{ tax.term_id in query_services ? 'checked' : '' }}
-                                                   name="taxonomies_services[]" value="{{ tax.term_id }}"
-                                                   onchange="this.form.submit()">
+                                                   name="taxonomies_services[]" value="{{ tax.term_id }}">
                                             <span>{{ tax.name }}</span>
                                         </label>
                                     </li>
                                 {% endfor %}
                             </ul>
+                            {% if query_services|length %}
+                                <button class="clear-filters">Rimuovi filtri</button>
+                            {% endif %}
                         </div>
                     </form>
                 </div>

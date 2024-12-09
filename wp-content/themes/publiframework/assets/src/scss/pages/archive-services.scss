@@ -88,6 +88,14 @@
             }
         }
     }
+
+    .clear-filters {
+        all: unset;
+        font-size: 1.4rem;
+        font-weight: $font-bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 
 .box-services {

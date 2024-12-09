@@ -139,14 +139,21 @@ if (isset($_GET['activated']) && is_admin()) {
 function pb_custom_cpt_query($query)
 {
 	if ($query->is_main_query() && is_post_type_archive('servizi') && !is_admin()) {
-			// get query string
+			// From sidebar filters
 			$query_sectors = $_POST['taxonomies_sectors'] ?? [];
 			$query_services = $_POST['taxonomies_services'] ?? [];
+
+			// Prefilter rom services category boxes on external pages
+			// only if we don't have active services filters on the sidebar
+			$link_service = $_GET['service'] ? array($_GET['service']) : [];
+			if(!empty($link_service) && empty($query_services)) {
+				$query_services = $link_service;
+			}
 
 			$query->set('post_type', ['servizi']);
 			$query->set('posts_per_page', 12);
 
-			if(!empty($query_services) || !empty($query_sectors)) {
+			if($link_service || !empty($query_services) || !empty($query_sectors)) {
 				$tax_query = array(
 					'relation' => 'AND',
 				);
