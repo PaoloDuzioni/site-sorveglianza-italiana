@@ -26,13 +26,15 @@
                 {% for post in posts %}
                     <div class="col-md-4">
                         <div class="box in-archive">
-                            <picture class="wrap-image">
-                                <source srcset="{{ post.thumbnail.src|towebp|resize(360,220, 'center') }}"
-                                        type="image/webp">
-                                <source srcset="{{ post.thumbnail.src|resize(360,220, 'center') }}">
-                                <img src="{{ post.thumbnail.src|towebp|resize(360,220, 'center') }}"
-                                     alt="{{ post.thumbnail.alt }}" />
-                            </picture>
+                            <a class="d-block" href="{{ post.link }}">
+                                <picture class="wrap-image d-block">
+                                    <source srcset="{{ post.thumbnail.src|towebp|resize(360,220, 'center') }}"
+                                            type="image/webp">
+                                    <source srcset="{{ post.thumbnail.src|resize(360,220, 'center') }}">
+                                    <img src="{{ post.thumbnail.src|towebp|resize(360,220, 'center') }}"
+                                         alt="{{ post.thumbnail.alt }}" />
+                                </picture>
+                            </a>
                             <div>
                                 <a class="category"
                                    href="{{ post.categories[0].link }}#top-archive">

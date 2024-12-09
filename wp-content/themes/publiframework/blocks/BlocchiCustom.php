@@ -38,10 +38,16 @@ class BlocchiCustom {
 		}
 
 		if($slug=='news-section') {
-			$posts = Timber::get_posts( new WP_Query( [
+			$args = array(
 				'post_type' => 'post',
 				'posts_per_page' => get_field('numero_posts_news_section')
-			]) );
+			);
+
+			if(is_singular('post')) {
+				$args['post__not_in'] = array(get_the_ID());
+			}
+
+			$posts = Timber::get_posts( new WP_Query($args));
 			$context['posts'] = $posts;
 			$context['news_url'] = get_post_type_archive_link( 'post' );
 		}

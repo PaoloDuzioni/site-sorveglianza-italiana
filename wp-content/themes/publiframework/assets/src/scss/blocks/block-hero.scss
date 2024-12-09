@@ -10,5 +10,9 @@
     .titolo_pb {
         margin-top: 3rem;
         @include section-title('large');
+
+        &.h2 {
+            @include section-title('medium');
+        }
     }
 }
