@@ -1,6 +1,6 @@
 {
     "key": "group_675033f14dd69",
-    "title": "Slider video",
+    "title": "Pb Slider video",
     "fields": [
         {
             "key": "field_675033f13dbc3",
@@ -112,5 +112,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733353924
+    "modified": 1733740693
 }

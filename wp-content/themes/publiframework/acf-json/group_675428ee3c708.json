@@ -1,6 +1,6 @@
 {
     "key": "group_675428ee3c708",
-    "title": "Carousel",
+    "title": "Pb Carousel",
     "fields": [
         {
             "key": "field_675428eeccec2",
@@ -72,5 +72,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733568984
+    "modified": 1733740602
 }

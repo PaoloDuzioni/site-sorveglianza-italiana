@@ -1,6 +1,6 @@
 {
     "key": "group_675196478ec35",
-    "title": "Sezione News",
+    "title": "Pb Sezione News",
     "fields": [
         {
             "key": "field_6752b0933b915",
@@ -65,5 +65,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733474741
+    "modified": 1733740662
 }

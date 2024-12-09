@@ -1,6 +1,6 @@
 {
     "key": "group_6756b14abe0b1",
-    "title": "Boxes Servizi Correlati",
+    "title": "Pb Boxes Servizi Correlati",
     "fields": [
         {
             "key": "field_6756b14ac1b1d",
@@ -63,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733734834
+    "modified": 1733740576
 }

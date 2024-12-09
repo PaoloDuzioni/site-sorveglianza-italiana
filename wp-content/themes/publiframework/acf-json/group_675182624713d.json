@@ -1,6 +1,6 @@
 {
     "key": "group_675182624713d",
-    "title": "Slider Fullwidth",
+    "title": "Pb Slider Fullwidth",
     "fields": [
         {
             "key": "field_6751826248c0c",
@@ -161,5 +161,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733400106
+    "modified": 1733740676
 }

@@ -1,6 +1,6 @@
 {
     "key": "group_675469dd7de92",
-    "title": "Boxes Categoria Servizi",
+    "title": "Pb Boxes Categorie Servizi",
     "fields": [
         {
             "key": "field_67546a508de0d",
@@ -89,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733738417
+    "modified": 1733740593
 }

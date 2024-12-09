@@ -1,6 +1,6 @@
 {
     "key": "group_675417f146f6a",
-    "title": "Box Contatti",
+    "title": "Pb Box Contatti",
     "fields": [
         {
             "key": "field_67541899a36dc",
@@ -110,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733564940
+    "modified": 1733740558
 }
