@@ -143,10 +143,6 @@ function pb_custom_cpt_query($query)
 			$query_sectors = $_POST['taxonomies_sectors'] ?? [];
 			$query_services = $_POST['taxonomies_services'] ?? [];
 
-//			echo '<br><br><br><br><br><br><br><br><br>';
-//			var_dump($query_sectors);
-//			var_dump($query_services);
-
 			$query->set('post_type', ['servizi']);
 			$query->set('posts_per_page', 12);
 

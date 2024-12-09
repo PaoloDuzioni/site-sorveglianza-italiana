@@ -48,33 +48,34 @@ class BlocchiCustom {
 
 		if($slug=='boxes-services-categories') {
 			$context['servizi_url'] = get_post_type_archive_link( 'servizi' );
-			$context['taxonomies'] = Timber::get_terms([
-				'taxonomy' => 'categoria_servizi',
-				'hide_empty' => false,
-				'orderby' => 'term_order',
-				'order' => 'ASC'
-			]);
 
-			// Add acf taxonomy fields for icon and image
-			foreach($context['taxonomies'] as $key => $tax) {
+			// Add taxonomy acf fields
+			$terms = get_field('servizi_correlati_block_cat_servizi');
+			foreach($terms as $key => $tax) {
 				$tax->fields = get_fields('categoria_servizi_'.$tax->term_id);
 			}
 		}
 
-//		if($slug=='archive-services') {
-//			global $paged;
-//
-//			if (!isset($paged) || !$paged) {
-//				$paged = 1;
-//			}
-//
-//			$posts = Timber::get_posts( new WP_Query( [
-//				'post_type' => 'servizi',
-//				'posts_per_page' => 2,
-//				'paged' => $paged,
-//			]) );
-//			$context['posts'] = $posts;
-//		}
+		if($slug=='boxes-services-related') {
+			$context['servizi_url'] = get_post_type_archive_link( 'servizi' );
+
+			// get taxonomy of the current post
+			$terms = get_the_terms(get_the_ID(), 'categoria_servizi');
+			$post_taxonomy = $terms[0]->term_id;
+
+			$context['posts'] = Timber::get_posts( new WP_Query( [
+				'post_type' => 'servizi',
+				'posts_per_page' => 4,
+				'post__not_in' => array(get_the_ID()),
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'categoria_servizi',
+						'field' => 'term_id',
+						'terms' => $post_taxonomy
+					)
+				)
+			]) );
+		}
 
 		Timber::render( '/blocks/blocks/'.$slug.'.twig', $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
 	}
@@ -347,6 +348,17 @@ class BlocchiCustom {
 			acf_register_block_type(array(
 				'name'				=> 'boxes-services-categories',
 				'title'				=> 'Pb Boxes Categorie Servizi',
+				'description'		=> 'Boxes delle categorie servizi',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
+
+			acf_register_block_type(array(
+				'name'				=> 'boxes-services-related',
+				'title'				=> 'Pb Boxes Servizi Correlati',
 				'description'		=> 'Boxes delle categorie servizi',
 				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
 				'category'			=> 'publifarm_singoli',

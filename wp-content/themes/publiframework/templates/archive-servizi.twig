@@ -52,7 +52,7 @@
                         {% if posts is not empty %}
                             {% for post in posts %}
                                 <div class="col-md-4">
-                                    <a class="box" href="{{ post.link }}">
+                                    <a class="box-services" href="{{ post.link }}">
                                         <img class="image" src="{{ post.thumbnail.src|resize(420) }}"
                                              alt="{{ post.title }}">
                                         <h2 class="title">{{ post.title }}</h2>

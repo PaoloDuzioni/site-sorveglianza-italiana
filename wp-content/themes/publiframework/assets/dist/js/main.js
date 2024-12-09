@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_scrollHeader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/scrollHeader */ "./src/js/scrollHeader.js");
 /* harmony import */ var _js_sliders__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/sliders */ "./src/js/sliders.js");
 /* harmony import */ var _js_customSelect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/customSelect */ "./src/js/customSelect.js");
+/* harmony import */ var _js_servicesFilters__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/servicesFilters */ "./src/js/servicesFilters.js");
  // Collapse: for navbar mobile collapse and accordion
  // Dropdown: for navbar submenus
 
@@ -35,6 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 // import 'swiper/css/scrollbar';
 
 // Custom functions
+
 
 
 
@@ -54,13 +56,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 (0,_js_customSelect__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
-// TODO: put in separate file
-const servicesForm = document.getElementById('services-form');
-if (servicesForm && servicesForm.classList.contains('active')) {
-    // scroll page to #top-archive
-    const topArchive = document.getElementById('top-archive');
-    topArchive.scrollIntoView({ behavior: 'instant' });
-}
+/**
+ * Services filters
+ */
+(0,_js_servicesFilters__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
 /**
  * Site scroll animations
@@ -130,6 +129,43 @@ function scrollHeader() {
         } else {
             header.classList.remove('scrolled');
         }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/js/servicesFilters.js":
+/*!***********************************!*\
+  !*** ./src/js/servicesFilters.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ servicesFilters)
+/* harmony export */ });
+function servicesFilters() {
+    const servicesForm = document.getElementById('services-form');
+    if (servicesForm) {
+        if (
+            servicesForm.classList.contains('active') ||
+            sessionStorage.getItem('servicesFormfilteres') === 'true'
+        ) {
+            // scroll page to #top-archive
+            const topArchive = document.getElementById('top-archive');
+            topArchive.scrollIntoView({ behavior: 'instant' });
+
+            // keep track of filtering even when those are cleared
+            sessionStorage.setItem('servicesFormfilteres', 'true');
+        }
+
+        // TODO: clean up
+
+        // TODO: disable animation for scrool header when filtering services
+    } else {
+        sessionStorage.removeItem('servicesFormfilteres');
     }
 }
 

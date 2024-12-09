@@ -88,42 +88,44 @@
             }
         }
     }
+}
 
-    .box {
-        display: block;
-        position: relative;
+.box-services {
+    display: block;
+    position: relative;
+    color: $white;
+    overflow: hidden;
+
+    // overlay
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: linear-gradient(to top, $primary, transparent);
+    }
+
+    .image {
+        transition: scale 0.3s;
+    }
+
+    .title {
+        position: absolute;
+        z-index: 2;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        font-weight: $font-bold;
+    }
+
+    // hover
+    &:hover,
+    &:focus-visible {
         color: $white;
-        overflow: hidden;
-
-        // overlay
-        &::before {
-            content: '';
-            position: absolute;
-            z-index: 1;
-            inset: 0;
-            background: linear-gradient(to top, $primary, transparent);
-        }
 
         .image {
-            transition: scale 0.3s;
-        }
-
-        .title {
-            position: absolute;
-            z-index: 2;
-            bottom: 1rem;
-            left: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            font-weight: $font-bold;
-        }
-
-        // hover
-        &:hover,
-        &:focus-visible {
-            .image {
-                scale: 1.2;
-            }
+            scale: 1.2;
         }
     }
 }

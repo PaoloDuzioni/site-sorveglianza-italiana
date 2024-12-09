@@ -1,11 +1,11 @@
 {
-    "key": "group_675469dd7de92",
-    "title": "Boxes Categoria Servizi",
+    "key": "group_6756b14abe0b1",
+    "title": "Boxes Servizi Correlati",
     "fields": [
         {
-            "key": "field_67546a508de0d",
+            "key": "field_6756b14ac1b1d",
             "label": "Titolo",
-            "name": "titolo_cta_block_boxes_cat_servizi",
+            "name": "titolo_cta_block_boxes_related_servizi",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -24,35 +24,9 @@
             "delay": 0
         },
         {
-            "key": "field_6756bf042c956",
-            "label": "Servizi correlati",
-            "name": "servizi_correlati_block_cat_servizi",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "categoria_servizi",
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "bidirectional": 0,
-            "multiple": 0,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_675469dd79ea3",
+            "key": "field_6756b14ac3181",
             "label": "Testo CTA",
-            "name": "testo_cta_block_boxes_cat_servizi",
+            "name": "testo_cta_block_boxes_related_servizi",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -76,7 +50,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/boxes-services-categories"
+                "value": "acf\/boxes-services-related"
             }
         ]
     ],
@@ -89,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733738417
+    "modified": 1733734834
 }

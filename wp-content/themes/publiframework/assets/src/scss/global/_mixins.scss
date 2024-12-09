@@ -49,6 +49,8 @@
 
     @if $size == 'small' {
         font-size: 3rem;
+    } @else if $size == 'tiny' {
+        font-size: 2.4rem;
     } @else if $size == 'large' {
         font-size: 8rem;
         line-height: 1.1;

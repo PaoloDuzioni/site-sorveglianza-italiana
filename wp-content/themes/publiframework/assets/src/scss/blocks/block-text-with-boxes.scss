@@ -1,0 +1,24 @@
+/******************************************************
+    BLOCK TEXT WITH BOXES
+ ******************************************************/
+
+.block-text-with-boxes {
+    padding: 7rem 0 5rem;
+
+    .titolo_pb {
+        margin-bottom: 6rem;
+    }
+
+    .box {
+        height: 100%;
+        padding: 2rem;
+
+        .titolo_pb {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .bottom-text {
+        margin-top: 3rem;
+    }
+}

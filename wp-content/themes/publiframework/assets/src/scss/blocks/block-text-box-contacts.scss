@@ -5,6 +5,10 @@
 .block-text-box-contacts {
     padding: 6rem 0;
 
+    .cta.back {
+        margin-bottom: 6rem;
+    }
+
     ul {
         @include list-custom;
 
@@ -36,8 +40,15 @@
         }
     }
 
+    .wrap-block-contatti {
+        position: sticky;
+        top: 0;
+        left: 0;
+        padding-top: var(--header-scrolled-height);
+    }
+
     .block-box-contatti {
-        margin-top: 5rem;
+        margin-top: 2rem;
         border: 1px solid $primary;
         padding: 4rem 3rem;
 

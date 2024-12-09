@@ -1,32 +1,34 @@
-<div class="boxes-cat-servives">
-    <div class="d-flex flex-column flex-md-row justify-content-md-between gap-4">
-        <div class="section-subtitle primary">{{ fields.titolo_cta_block_boxes_cat_servizi }}</div>
+{% if fields.servizi_correlati_block_cat_servizi is not empty %}
+    <div class="boxes-cat-servives">
+        <div class="d-flex flex-column flex-md-row justify-content-md-between gap-4">
+            <div class="section-subtitle primary">{{ fields.titolo_cta_block_boxes_cat_servizi }}</div>
 
-        <a class="cta" href="{{ servizi_url }}">
-            {{ fields.testo_cta_block_boxes_cat_servizi }}
-        </a>
-    </div>
+            <a class="cta" href="{{ servizi_url }}">
+                {{ fields.testo_cta_block_boxes_cat_servizi }}
+            </a>
+        </div>
 
-    <div class="row g-md-3 wrap-boxes">
-        {% for taxonomy in taxonomies %}
-            <div class="col-md-3">
-                <div class="box">
-                    <figure class="wrap-image">
-                        <img class="image image-fit"
-                             src="{{ taxonomy.fields.immagine_categoria_Servizi.url | resize(420) }}"
-                             alt="{{ taxonomy.name }}">
-                    </figure>
+        <div class="row g-md-3 wrap-boxes">
+            {% for taxonomy in fields.servizi_correlati_block_cat_servizi %}
+                <div class="col-md-3">
+                    <a class="box" href="{{ servizi_url }}?service={{ taxonomy.term_id }}#top-archive">
+                        <figure class="wrap-image">
+                            <img class="image image-fit"
+                                 src="{{ taxonomy.fields.immagine_categoria_Servizi.url | resize(420) }}"
+                                 alt="{{ taxonomy.name }}">
+                        </figure>
 
-                    <div class="content">
-                        <div class="section-subtitle text-white">
-                            {{ taxonomy.name }}
+                        <div class="content">
+                            <div class="section-subtitle text-white">
+                                {{ taxonomy.name }}
+                            </div>
+
+                            <img class="icon" src="{{ taxonomy.fields.icona_categoria_Servizi.url | resize(50) }}"
+                                 alt="{{ taxonomy.name }}">
                         </div>
-
-                        <img class="icon" src="{{ taxonomy.fields.icona_categoria_Servizi.url | resize(50) }}"
-                             alt="{{ taxonomy.name }}">
-                    </div>
+                    </a>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
+{% endif %}

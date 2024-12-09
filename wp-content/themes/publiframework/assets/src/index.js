@@ -15,6 +15,7 @@ import 'swiper/css/effect-fade';
 import scrollHeader from './js/scrollHeader';
 import siteSliders from './js/sliders';
 import customSelect from './js/customSelect';
+import servicesFilters from './js/servicesFilters';
 
 /**
  * Check if the header is scrolled
@@ -31,13 +32,10 @@ siteSliders();
  */
 customSelect();
 
-// TODO: put in separate file
-const servicesForm = document.getElementById('services-form');
-if (servicesForm && servicesForm.classList.contains('active')) {
-    // scroll page to #top-archive
-    const topArchive = document.getElementById('top-archive');
-    topArchive.scrollIntoView({ behavior: 'instant' });
-}
+/**
+ * Services filters
+ */
+servicesFilters();
 
 /**
  * Site scroll animations
