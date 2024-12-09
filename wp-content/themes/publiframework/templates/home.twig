@@ -1,31 +1,64 @@
 {% extends "layout/base.twig" %}
 
-{% block titolo %}{% endblock %}
 {% block content %}
-    <section id="news_home" class="py-5">
+    {{ hero_block }}
+    {{ breadcrumb_block }}
+
+    <section class="news-archive">
         <div class="container">
-            <div class="row mb-3">
-                <div class="col-12 text-center">
-                    <h1>{{ title }}</h1>
-                    {% if content %}
-                        <div class="content">{{ content }}</div>{% endif %}
-                </div>
-            </div>
-            <div class="row justify-content-center flex-column-reverse flex-lg-row">
-                <div class="col-lg-9">
-                    <div class="row">
-                        {% for post in posts %}
-                            {% include ['partial/tease-'~post.post_type~'.twig', 'partial/tease.twig'] with {col: 4} %}
-                        {% endfor %}
+            {{ active_taxonomy_id }}
+            <ul class="categories-list list-unstyled d-flex gap-5" id="top-archive">
+                <li>
+                    <a href="{{ news_archive_url }}#top-archive"
+                       {% if active_taxonomy_id is null %}class="active"{% endif %}>Tutte</a>
+                </li>
+
+                {% for category in blog_categories %}
+                    <li>
+                        <a {% if active_taxonomy_id == category.term_id %}class="active"{% endif %}
+                           href="{{ category.link }}#top-archive">
+                            {{ category.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div class="row g-4 boxes-news">
+                {% for post in posts %}
+                    <div class="col-md-4">
+                        <div class="box in-archive">
+                            <picture class="wrap-image">
+                                <source srcset="{{ post.thumbnail.src|towebp|resize(360,220, 'center') }}"
+                                        type="image/webp">
+                                <source srcset="{{ post.thumbnail.src|resize(360,220, 'center') }}">
+                                <img src="{{ post.thumbnail.src|towebp|resize(360,220, 'center') }}"
+                                     alt="{{ post.thumbnail.alt }}" />
+                            </picture>
+                            <div>
+                                <a class="category"
+                                   href="{{ post.categories[0].link }}#top-archive">
+                                    {{ post.categories[0].title }}
+                                </a>
+                                <h3 class="title">{{ post.title }}</h3>
+                                <div class="date">{{ post.date('d F Y') }}</div>
+                                <p class="text">{{ post.excerpt({ words: 100, read_more: false}) }}</p>
+                            </div>
+                            <div>
+                                <a class="button outline" href="{{ post.link }}">
+                                    {% include "partial/icon-arrow.twig" %}
+                                    Leggi
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-                </div>
-
-                <div class="col-lg-3 sidebar mb-3">
-                    <div>{{ sidebar }}</div>
-                </div>
-
+                {% endfor %}
             </div>
+
+            {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
         </div>
     </section>
+
+    {% apply shortcodes %}
+        {{ form_block }}
+    {% endapply %}
 {% endblock %}

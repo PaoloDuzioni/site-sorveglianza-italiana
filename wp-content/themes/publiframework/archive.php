@@ -23,19 +23,14 @@ if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
 } elseif ( is_month() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'M Y' );
-} elseif ( is_year() ) {
+}
+elseif ( is_year() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'Y' );
-} elseif ( is_tag() ) {
+}
+elseif ( is_tag() ) {
 	$context['title'] = single_tag_title( '', false );
-} elseif ( is_category() ) {
-	$category = get_category( get_query_var( 'cat' ) );
-	$cat_id = $category->cat_ID;
-
-	$context['title'] = single_cat_title( '', false );
-	$context['content'] = category_description( $cat_id );
-	$context['sidebar'] = Timber::get_widgets( 'sidebar_blog' );
-	$context['descrizione_aggiuntiva'] = get_field('descrizione_aggiuntiva', 'category_'.$cat_id );
-
+}
+elseif ( is_category() ) {
 	$blog_categories = get_categories();
 	if($blog_categories) {
 		foreach($blog_categories as $blog_cat) {
@@ -44,51 +39,63 @@ if ( is_day() ) {
 	}
 	$context['blog_categories'] = $blog_categories;
 
-	array_unshift( $templates, 'category.twig' );
-} elseif ( is_post_type_archive('servizi') ) {
+	// News archive url
+	$context['news_archive_url'] = get_post_type_archive_link('post');
 
+	$context['active_taxonomy_id'] = get_queried_object_id();
 
-		$context['query_sectors'] = $_POST['taxonomies_sectors'] ?? '';
-		$context['query_services'] = $_POST['taxonomies_services'] ?? '';
+	// Get blocks from page News
+	$post_id = get_option( 'page_for_posts' );
+	$post_content = get_post( $post_id  )->post_content;
+	$blocks = parse_blocks( $post_content );
 
-		$context['taxonomies_sectors'] = Timber::get_terms([
-			'taxonomy' => 'categoria_settori',
-			'hide_empty' => false,
-			'orderby' => 'term_order',
-			'order' => 'ASC'
-		]);
+	$hero_block = render_block($blocks[0]);
+	$context['hero_block'] = $hero_block;
 
-		$context['taxonomies_services'] = Timber::get_terms([
-			'taxonomy' => 'categoria_servizi',
-			'hide_empty' => false,
-			'orderby' => 'term_order',
-			'order' => 'ASC'
-		]);
-//		echo 'taxonomies_sectors: ' . '<br>';
-//		echo '<pre>';
-//		var_dump($context['taxonomies_sectors']);
-//		echo '</pre>';
+	$breadcrumb_block = render_block($blocks[2]);
+	$context['breadcrumb_block'] = $breadcrumb_block;
 
-		// Get blocks from page Servizi
-		$post_content = get_post( 320 )->post_content;
-		$blocks = parse_blocks( $post_content );
+	$form_block = render_block($blocks[4]);
+	$context['form_block'] = $form_block;
 
-		$hero_block = render_block($blocks[0]);
-		$context['hero_block'] = $hero_block;
+	array_unshift( $templates, 'home.twig' );
+}
+elseif ( is_post_type_archive('servizi') ) {
+	$context['query_sectors'] = $_POST['taxonomies_sectors'] ?? '';
+	$context['query_services'] = $_POST['taxonomies_services'] ?? '';
 
-		$breadcrumb_block = render_block($blocks[2]);
-		$context['breadcrumb_block'] = $breadcrumb_block;
+	$context['taxonomies_sectors'] = Timber::get_terms([
+		'taxonomy' => 'categoria_settori',
+		'hide_empty' => false,
+		'orderby' => 'term_order',
+		'order' => 'ASC'
+	]);
 
-		$news_block = render_block($blocks[4]);
-		$context['news_block'] = $news_block;
+	$context['taxonomies_services'] = Timber::get_terms([
+		'taxonomy' => 'categoria_servizi',
+		'hide_empty' => false,
+		'orderby' => 'term_order',
+		'order' => 'ASC'
+	]);
 
-		$form_block = render_block($blocks[6]);
-		$context['form_block'] = $form_block;
+	// Get blocks from page Servizi
+	$post_content = get_post( 320 )->post_content;
+	$blocks = parse_blocks( $post_content );
 
-		$context['title'] = post_type_archive_title( '', false );
+	$hero_block = render_block($blocks[0]);
+	$context['hero_block'] = $hero_block;
+
+	$breadcrumb_block = render_block($blocks[2]);
+	$context['breadcrumb_block'] = $breadcrumb_block;
+
+	$news_block = render_block($blocks[4]);
+	$context['news_block'] = $news_block;
+
+	$form_block = render_block($blocks[6]);
+	$context['form_block'] = $form_block;
+
+	$context['title'] = post_type_archive_title( '', false );
 	$templates = array( 'archive-servizi.twig', 'index.twig' );
-
-//	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
 

@@ -4,7 +4,10 @@
             <div class="col-md-4">
                 <div class="box">
                     <div>
-                        <div class="category">{{ post.categories[0].title }}</div>
+                        <a class="category"
+                           href="{{ post.categories[0].link }}#top-archive">
+                            {{ post.categories[0].title }}
+                        </a>
                         <h3 class="title">{{ post.title }}</h3>
                         <div class="date">{{ post.date('d F Y') }}</div>
                         <p class="text">{{ post.excerpt({ words: 100, read_more: false}) }}</p>

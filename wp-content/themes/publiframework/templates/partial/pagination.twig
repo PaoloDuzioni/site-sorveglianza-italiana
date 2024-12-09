@@ -5,7 +5,9 @@
             {% if posts.pagination.prev %}
                 <li class="prev-link">
                     <a href="{{ posts.pagination.prev.link }}#top-archive" class="page-numbers prev">
-                        &lt;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m5 12l7 6v-5h6v-2h-6V6z" />
+                        </svg>
                     </a>
                 </li>
             {% endif %}
@@ -27,7 +29,9 @@
             {% if posts.pagination.next %}
                 <li class="next-link">
                     <a href="{{ posts.pagination.next.link }}#top-archive" class="page-numbers next">
-                        &gt;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m19 12l-7-6v5H6v2h6v5z" />
+                        </svg>
                     </a>
                 </li>
             {% endif %}

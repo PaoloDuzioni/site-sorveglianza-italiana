@@ -1,15 +1,15 @@
 {% extends "layout/base.twig" %}
 
 {% block content %}
-	<div class="container">
-		<div class="row">
-			{% for post in posts %}
-				{% include ['partial/tease-'~post.post_type~'.twig', 'partial/tease.twig'] %}
-			{% endfor %}		
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+                {% include ['partial/tease-'~post.post_type~'.twig', 'partial/tease.twig'] %}
+            {% endfor %}
+        </div>
+    </div>
 
-	<div class="container">
-		{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-	</div>
+    <div class="container">
+        {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+    </div>
 {% endblock %}
