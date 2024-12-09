@@ -21,3 +21,15 @@
         color: $font-col;
     }
 }
+
+// Disable unused parent pages links
+.parent-pageid-249,
+.parent-pageid-254 {
+    .block-breadcrumbs {
+        span:nth-child(2) {
+            a {
+                pointer-events: none;
+            }
+        }
+    }
+}

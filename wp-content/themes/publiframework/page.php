@@ -27,7 +27,14 @@ $context['post'] = $timber_post;
 $context = StarterSite::passVariables($context);
 $context['no-hero'] = is_404();
 
-if(is_front_page())
+if(is_front_page()){
     Timber::render( array( 'front-page.twig' ), $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
-else
+}
+else if( is_page(254) || is_page(249)) {
+	// Redirect pages used only for grouping purpose
+	wp_redirect( home_url() );
+	exit;
+}
+else {
     Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context, carbon_get_theme_option('attiva_cache_timber') ? 5000 : false );
+}
