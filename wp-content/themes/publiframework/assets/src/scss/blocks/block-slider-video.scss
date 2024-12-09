@@ -14,9 +14,22 @@
         height: 65rem;
 
         .swiper-slide {
+            position: relative;
             display: flex;
             align-items: center;
             padding: 4rem 0;
+
+            // overlay
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba($black, 0.1);
+            }
+
+            .container {
+                position: relative;
+            }
 
             .image {
                 width: 100%;
