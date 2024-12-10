@@ -26,7 +26,7 @@ class CustomPostType
 				'public' 			=> true,
 				'show_ui' 			=> true,
 				'has_archive'		=> true,
-				'menu_position' 	=> 10,
+				'menu_position' 	=> 20,
 				'hierarchical' 		=> false,
 				'show_in_rest' 		=> true,
 				'show_in_nav_menus ' => true,
@@ -42,26 +42,26 @@ class CustomPostType
 		);
 
 		// Register Sistema Post Type
-//		register_post_type(
-//			'sistema',
-//			array(
-//				'labels'			=> array(
-//					'name' 			=> __('Pagine di sistema'),
-//					'singular_name' => __('Pagina di sistema')
-//				),
-//				'show_ui' 			=> true,
-//				'has_archive'		=> false,
-//				'menu_position' 	=> 3,
-//				'hierarchical' 		=> false,
-//				'show_in_rest' 		=> true,
-//				'menu_icon' 		=> 'dashicons-admin-tools',
-//				'supports' 			=> array(
-//					'title',
-//					'editor',
-//					'thumbnail'
-//				)
-//			)
-//		);
+		register_post_type(
+			'sistema',
+			array(
+				'labels'			=> array(
+					'name' 			=> __('Pagine di sistema'),
+					'singular_name' => __('Pagina di sistema')
+				),
+				'show_ui' 			=> true,
+				'has_archive'		=> false,
+				'menu_position' 	=> 3,
+				'hierarchical' 		=> false,
+				'show_in_rest' 		=> true,
+				'menu_icon' 		=> 'dashicons-admin-tools',
+				'supports' 			=> array(
+					'title',
+					'editor',
+					'thumbnail'
+				)
+			)
+		);
 
 
 

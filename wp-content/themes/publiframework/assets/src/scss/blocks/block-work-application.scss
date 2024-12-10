@@ -1,0 +1,54 @@
+/******************************************************
+    BLOCK WORK APPLICATION
+ ******************************************************/
+
+.block-work-application {
+    padding: 7rem 0;
+
+    & > div {
+        z-index: initial;
+    }
+
+    .titolo_pb {
+        &.h1 {
+            margin-bottom: 3rem;
+        }
+
+        &.h2 {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .show-forms-btn {
+        margin-top: 4rem;
+
+        &:not(.collapsed) {
+            display: none;
+        }
+    }
+
+    // Form styles in components/_form.scss
+
+    .application-form-section {
+        padding-top: 8rem;
+
+        & > .section-subtitle {
+            padding-bottom: 6rem;
+            color: $primary;
+        }
+
+        .no-cv-section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    // Modal {
+    .modal {
+        --bs-modal-width: 1400px;
+        --bs-modal-padding: 3rem;
+    }
+}

@@ -1,0 +1,34 @@
+<a class="wp-element-button show-forms-btn collapsed" href="#wrap-application-forms" data-bs-toggle="collapse"
+   aria-expanded="false" aria-controls="wrap-application-forms">
+    {{ fields.testo_cta_mostra_forms_application }}
+</a>
+
+<div class="collapse" id="wrap-application-forms">
+    <section class="application-form-section">
+        <div class="section-subtitle">{{ fields.titolo_forms_application }}</div>
+        {% apply shortcodes %}
+            <div class="wrap-form form-application">
+                {{ fields.shortcode_form_forms_application }}
+            </div>
+        {% endapply %}
+    </section>
+</div>
+
+<div class="application-modal modal fade" id="form-modal" tabindex="-1" aria-labelledby="form-modal-label"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="section-subtitle">
+                    {{ fields.titolo_modal_forms_application }}
+                </div>
+                {% apply shortcodes %}
+                    <div class="wrap-form form-application form-modal">
+                        {{ fields.shortcode_form_modale_forms_application }}
+                    </div>
+                {% endapply %}
+            </div>
+        </div>
+    </div>
+</div>

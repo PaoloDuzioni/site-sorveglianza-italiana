@@ -72,7 +72,7 @@
 }
 
 // List with custom bullet
-@mixin list-custom() {
+@mixin list-custom($bulletColor: 'primary') {
     list-style: none;
     padding-left: 0;
     li {
@@ -80,7 +80,7 @@
         padding-left: 4rem;
         margin-bottom: 2rem;
 
-        &:after {
+        &::after {
             position: absolute;
             content: '';
             display: block;
@@ -88,10 +88,19 @@
             left: 0;
             width: 2rem;
             height: 2rem;
-            background-image: url('../images/round-arrow.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+        }
+
+        @if $bulletColor == 'primary' {
+            &::after {
+                background-image: url('../images/round-arrow.svg');
+            }
+        } @else {
+            &::after {
+                background-image: url('../images/round-arrow-black.svg');
+            }
         }
     }
 }

@@ -372,6 +372,17 @@ class BlocchiCustom {
 				//'supports'			=> ['mode'=> false],
 				'mode' => 'edit'
 			));
+
+			acf_register_block_type(array(
+				'name'				=> 'work-application',
+				'title'				=> 'Pb Forms Candidatura',
+				'description'		=> 'Pb Sezione forms candidatura lavora con noi',
+				'render_callback'	=> array( $this, 'acf_blocchi_callback'),
+				'category'			=> 'publifarm_singoli',
+				'keywords'			=> array( 'link', 'home' ),
+				//'supports'			=> ['mode'=> false],
+				'mode' => 'edit'
+			));
 		}
 	}
 

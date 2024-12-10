@@ -27,6 +27,10 @@
         }
     }
 
+    ul {
+        @include list-custom('black');
+    }
+
     .wp-block-image {
         position: absolute;
         top: 0;
@@ -41,5 +45,16 @@
 
     .wp-element-button {
         margin-top: 3rem;
+    }
+
+    // Text large version
+    &.text-large {
+        .wp-block-evidenzio-column {
+            &:first-child {
+                & > * {
+                    max-width: 100%;
+                }
+            }
+        }
     }
 }

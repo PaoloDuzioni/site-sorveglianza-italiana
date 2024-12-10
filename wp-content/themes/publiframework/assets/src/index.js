@@ -1,5 +1,6 @@
 import 'bootstrap/js/dist/collapse'; // Collapse: for navbar mobile collapse and accordion
 import 'bootstrap/js/dist/dropdown'; // Dropdown: for navbar submenus
+import 'bootstrap/js/dist/modal'; // Modal: for modals
 
 // Site styles
 import './index.scss';
