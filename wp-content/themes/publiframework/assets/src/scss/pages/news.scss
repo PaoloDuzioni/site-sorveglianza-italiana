@@ -80,11 +80,21 @@
 .single-news-content {
     padding-top: 8rem;
 
+    .wp-block-post-date {
+        margin-bottom: 3rem;
+        color: $primary;
+        font-size: 1.6rem;
+    }
+
     .titolo_pb {
         padding-bottom: 1rem;
     }
 
     p + .titolo_pb {
         padding-top: 2rem;
+    }
+
+    .cta {
+        margin-top: 3rem;
     }
 }
