@@ -24,6 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_sliders__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/sliders */ "./src/js/sliders.js");
 /* harmony import */ var _js_customSelect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/customSelect */ "./src/js/customSelect.js");
 /* harmony import */ var _js_servicesFilters__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/servicesFilters */ "./src/js/servicesFilters.js");
+/* harmony import */ var _js_workWithUsForms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/workWithUsForms */ "./src/js/workWithUsForms.js");
  // Collapse: for navbar mobile collapse and accordion
  // Dropdown: for navbar submenus
  // Modal: for modals
@@ -39,6 +40,7 @@ __webpack_require__.r(__webpack_exports__);
 // import 'swiper/css/scrollbar';
 
 // Custom functions
+
 
 
 
@@ -63,6 +65,11 @@ __webpack_require__.r(__webpack_exports__);
  * Services filters
  */
 (0,_js_servicesFilters__WEBPACK_IMPORTED_MODULE_11__["default"])();
+
+/**
+ * Forms for work with us
+ */
+(0,_js_workWithUsForms__WEBPACK_IMPORTED_MODULE_12__["default"])();
 
 /**
  * Site scroll animations
@@ -321,6 +328,63 @@ function siteSliders() {
                     referenceElelement.offsetLeft + 'px';
             },
         },
+    });
+}
+
+
+/***/ }),
+
+/***/ "./src/js/workWithUsForms.js":
+/*!***********************************!*\
+  !*** ./src/js/workWithUsForms.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ workWithUsForms)
+/* harmony export */ });
+function workWithUsForms() {
+    const parentSection = document.querySelector('.work-with-us-forms-section');
+    if (!parentSection) return;
+
+    const formsContainer = parentSection.querySelector('.forms-container');
+    const wrapForms = parentSection.querySelectorAll('.wrap-form');
+    const modal = parentSection.querySelector('.application-modal');
+    const successMessage = parentSection.querySelector('.success-section');
+
+    //    const modalCta = document.querySelector('.base-candidature');
+    //    const positionInput = formModal.querySelector('.position input');
+    // CTA button
+    //    modalCta.addEventListener('click', () => {
+    //        positionInput.value = 'Candidatura spontanea';
+    //    });
+
+    wrapForms.forEach(formParent => {
+        const form = formParent.querySelector('.wpcf7');
+
+        // Success message
+        form.addEventListener('wpcf7mailsent', () => {
+            // hide modal
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.style.display = 'none';
+            const modalBackdrop = document.querySelector('.modal-backdrop');
+            modalBackdrop.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = 'initial';
+            document.body.paddingRight = '0';
+
+            // message sent section
+            formsContainer.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            setTimeout(() => {
+                parentSection.scrollIntoView({
+                    behavior: 'smooth',
+                });
+            }, 200);
+        });
     });
 }
 

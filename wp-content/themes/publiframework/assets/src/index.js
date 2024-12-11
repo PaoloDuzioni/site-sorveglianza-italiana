@@ -17,6 +17,7 @@ import scrollHeader from './js/scrollHeader';
 import siteSliders from './js/sliders';
 import customSelect from './js/customSelect';
 import servicesFilters from './js/servicesFilters';
+import workWithUsForms from './js/workWithUsForms';
 
 /**
  * Check if the header is scrolled
@@ -37,6 +38,11 @@ customSelect();
  * Services filters
  */
 servicesFilters();
+
+/**
+ * Forms for work with us
+ */
+workWithUsForms();
 
 /**
  * Site scroll animations

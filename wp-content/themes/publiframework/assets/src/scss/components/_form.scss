@@ -181,6 +181,11 @@
                 cursor: not-allowed;
                 opacity: 0.5;
                 transform: none;
+
+                &:hover::before,
+                &:focus-visible::before {
+                    translate: none;
+                }
             }
         }
     }
@@ -221,34 +226,17 @@
     }
 
     .wrap-submit {
-        position: relative;
-        text-align: right;
-
         .wpcf7-spinner {
-            position: absolute;
             top: 1.2rem;
             right: 50%;
-            transform: translateX(50%);
-            margin: 0;
-            background: #4e545a;
-        }
-
-        .wp-element-button {
-            input {
-                all: unset;
-            }
-
-            &:has(input:disabled) {
-                cursor: not-allowed;
-                opacity: 0.5;
-                transform: none;
-            }
         }
     }
 }
 
 .wrap-form.form-modal {
     .label-checkbox {
+        margin-bottom: 2.3rem;
+
         .wrap-acceptance {
             margin-top: 1rem;
             color: $font-col;

@@ -9,6 +9,10 @@
         z-index: initial;
     }
 
+    .work-with-us-forms-section {
+        scroll-margin-top: var(--header-scrolled-height);
+    }
+
     .titolo_pb {
         &.h1 {
             margin-bottom: 3rem;
@@ -46,9 +50,60 @@
         }
     }
 
-    // Modal {
-    .modal {
+    .forms-container {
+        &.hidden {
+            display: none;
+        }
+    }
+
+    .application-modal {
         --bs-modal-width: 1400px;
         --bs-modal-padding: 3rem;
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 4rem;
+
+            .close {
+                all: unset;
+                cursor: pointer;
+                transition: rotate 0.3s;
+
+                &:hover,
+                &focus-visible {
+                    rotate: 90deg;
+                }
+            }
+
+            .icon {
+                width: 2.6rem;
+                height: 2.6rem;
+            }
+        }
+    }
+
+    .success-section {
+        padding: 8rem 0 4rem;
+
+        &.hidden {
+            display: none;
+        }
+
+        h1,
+        h2 {
+            @include section-title();
+            margin-top: 2rem;
+        }
+
+        h3,
+        h4,
+        h5 {
+            @include section-title('small');
+            text-transform: uppercase;
+            color: $primary;
+        }
     }
 }

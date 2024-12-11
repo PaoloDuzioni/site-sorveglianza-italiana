@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_675807e702111",
-            "label": "Testo CTA mostra forms",
+            "label": "Testo CTA mostra form candidatura",
             "name": "testo_cta_mostra_forms_application",
             "aria-label": "",
             "type": "text",
@@ -142,6 +142,45 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6758300a9581a",
+            "label": "Messaggio di invio con successo",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_675830229581b",
+            "label": "Testo",
+            "name": "testo_message_sent_forms_application",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -162,5 +201,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733830347
+    "modified": 1733832759
 }
