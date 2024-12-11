@@ -20,23 +20,32 @@ export default function workWithUsForms() {
         // Success message
         form.addEventListener('wpcf7mailsent', () => {
             // hide modal
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            modal.style.display = 'none';
             const modalBackdrop = document.querySelector('.modal-backdrop');
-            modalBackdrop.style.display = 'none';
-            document.body.classList.remove('modal-open');
-            document.body.style.overflow = 'initial';
-            document.body.paddingRight = '0';
+            if (modalBackdrop) {
+                modal.classList.remove('show');
+                modal.setAttribute('aria-hidden', 'true');
+                modal.style.display = 'none';
+                modalBackdrop.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = 'initial';
+                document.body.paddingRight = '0';
+            }
 
             // message sent section
             formsContainer.classList.add('hidden');
             successMessage.classList.remove('hidden');
-            setTimeout(() => {
+
+            if (modalBackdrop) {
+                setTimeout(() => {
+                    parentSection.scrollIntoView({
+                        behavior: 'smooth',
+                    });
+                }, 200);
+            } else {
                 parentSection.scrollIntoView({
                     behavior: 'smooth',
                 });
-            }, 200);
+            }
         });
     });
 }
