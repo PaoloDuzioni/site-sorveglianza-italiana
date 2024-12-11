@@ -3,15 +3,29 @@
  ******************************************************/
 
 .block-news-section {
+    position: relative;
     padding-top: 8rem;
     padding-bottom: 8rem;
     background: #fff; /* TODO: change with particles */
 
+    & > div {
+        position: static;
+    }
+
+    #particles-js {
+        position: absolute;
+        inset: 0;
+        opacity: 0.5;
+    }
+
     .titolo_pb {
+        position: relative;
+        z-index: 2;
         margin-bottom: 5rem;
     }
 
     .news-section {
+        position: relative;
         .cta {
             margin-top: 5rem;
         }

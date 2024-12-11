@@ -7,6 +7,7 @@ export default function workWithUsForms() {
     const modal = parentSection.querySelector('.application-modal');
     const successMessage = parentSection.querySelector('.success-section');
 
+    // TODO: prepopolate input of modal from with the cv form
     //    const modalCta = document.querySelector('.base-candidature');
     //    const positionInput = formModal.querySelector('.position input');
     // CTA button

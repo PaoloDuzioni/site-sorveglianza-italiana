@@ -12,6 +12,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 // import 'swiper/css/scrollbar';
 
+// Particle effect as in news block
+import './js/particles';
+
 // Custom functions
 import scrollHeader from './js/scrollHeader';
 import siteSliders from './js/sliders';
