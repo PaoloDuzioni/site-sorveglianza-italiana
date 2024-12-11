@@ -229,10 +229,12 @@
         .wpcf7-spinner {
             top: 1.2rem;
             right: 50%;
+            transform: translateX(50%);
         }
     }
 }
 
+// Form Modal
 .wrap-form.form-modal {
     .label-checkbox {
         margin-bottom: 2.3rem;
