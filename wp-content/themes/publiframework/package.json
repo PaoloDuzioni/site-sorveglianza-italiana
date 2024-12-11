@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.config.dev.js"
+    "dev": "webpack --config webpack.config.dev.js",
+    "buildJS": "esbuild assets/dist/js/main.js --allow-overwrite --bundle --minify --outfile=assets/dist/js/main.js --legal-comments=none"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
+    "esbuild": "^0.24.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.2",
     "sass": "^1.54.5",
