@@ -62,7 +62,39 @@ export default function siteSliders() {
         '.block-text-box-contacts > .container',
     );
     const carouselParent = document.querySelector('.block-carousel');
-    new Swiper('.site-carousel', {
+    if (referenceElelement && carouselParent) {
+        new Swiper('.site-carousel', {
+            // Modules
+            modules: [Autoplay, Navigation],
+            // Optional parameters
+            //    autoplay: {
+            //      delay: 5000,
+            //    },
+            speed: 700,
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                // Align slider to previus content (inside container and untill the right of the viewport)
+                beforeInit: function () {
+                    carouselParent.style.marginLeft =
+                        referenceElelement.offsetLeft + 'px';
+                },
+                resize: function () {
+                    console.log('resize');
+                    carouselParent.style.marginLeft =
+                        referenceElelement.offsetLeft + 'px';
+                },
+            },
+        });
+    }
+
+    // Text section with side carousel
+    new Swiper('.block-text-side-carousel .site-carousel', {
         // Modules
         modules: [Autoplay, Navigation],
         // Optional parameters
@@ -70,24 +102,13 @@ export default function siteSliders() {
         //      delay: 5000,
         //    },
         speed: 700,
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         spaceBetween: 30,
+        loop: true,
         // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-        },
-        on: {
-            // Align slider to previus content (inside container and untill the right of the viewport)
-            beforeInit: function () {
-                carouselParent.style.marginLeft =
-                    referenceElelement.offsetLeft + 'px';
-            },
-            resize: function () {
-                console.log('resize');
-                carouselParent.style.marginLeft =
-                    referenceElelement.offsetLeft + 'px';
-            },
         },
     });
 }

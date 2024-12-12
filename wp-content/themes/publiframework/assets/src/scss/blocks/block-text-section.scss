@@ -1,0 +1,17 @@
+/******************************************************
+    BLOCK TEXT SECTION
+ ******************************************************/
+
+.block-text-section {
+    padding: 7rem 0 3rem;
+
+    .titolo_pb {
+        &.h1 {
+            margin-bottom: 4.5rem;
+        }
+
+        &.h2 {
+            margin-bottom: 2.5rem;
+        }
+    }
+}

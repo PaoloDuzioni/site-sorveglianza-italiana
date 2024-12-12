@@ -1,0 +1,73 @@
+/******************************************************
+    BLock Text Side Carousel
+ ******************************************************/
+
+.block-text-side-carousel {
+    display: flex;
+    align-items: center;
+    min-height: 62rem;
+
+    & > .container {
+        position: static;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    .wp-block-evidenzio-column {
+        &:first-child {
+            & > * {
+                max-width: 59rem;
+            }
+        }
+    }
+
+    .titolo_pb {
+        margin-bottom: 3rem;
+        &:nth-child(1) {
+        }
+    }
+
+    ul {
+        @include list-custom('black');
+    }
+
+    // Base styles in block-carousel.scss
+    .block-carousel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 40%;
+
+        .site-carousel {
+            padding-bottom: 0;
+
+            .swiper-slide {
+                width: 100%;
+
+                .image {
+                    @include image-fit();
+                }
+            }
+
+            .container-navigation {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                justify-content: center !important;
+            }
+        }
+    }
+
+    // Text large version
+    &.text-large {
+        .wp-block-evidenzio-column {
+            &:first-child {
+                & > * {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
