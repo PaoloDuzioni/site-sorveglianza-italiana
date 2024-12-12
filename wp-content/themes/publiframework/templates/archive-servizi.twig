@@ -8,7 +8,8 @@
         <div class="container">
             <div class="row g-md-3">
                 <div class="col-md-4 col-lg-3 col-side">
-                    <form method="post" id="services-form"
+                    <form method="post" id="services-form" data-base-url="{{ site_url }}"
+                          data-posts-per-page="{{ posts_per_page }}"
                           class="{{ query_sectors|length or query_services|length ? 'active' : '' }}">
                         <div class="tanonomy-list">
                             <h4 class="title">Settori</h4>
@@ -17,16 +18,14 @@
                                 {% for tax in taxonomies_sectors %}
                                     <li>
                                         <label>
-                                            <input type="checkbox" {{ tax.term_id in query_sectors ? 'checked' : '' }}
-                                                   name="taxonomies_sectors[]" value="{{ tax.term_id }}">
+                                            <input type="checkbox"
+                                                   name="taxonomies_sectors" value="{{ tax.term_id }}">
                                             <span>{{ tax.name }}</span>
                                         </label>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% if query_sectors|length %}
-                                <button class="clear-filters">Rimuovi filtri</button>
-                            {% endif %}
+                            <button class="clear-filters hidden">Rimuovi filtri</button>
                         </div>
 
                         <div class="tanonomy-list">
@@ -36,35 +35,36 @@
                                 {% for tax in taxonomies_services %}
                                     <li>
                                         <label>
-                                            <input type="checkbox" {{ tax.term_id in query_services ? 'checked' : '' }}
-                                                   name="taxonomies_services[]" value="{{ tax.term_id }}">
+                                            <input type="checkbox"
+                                                   name="taxonomies_services" value="{{ tax.term_id }}">
                                             <span>{{ tax.name }}</span>
                                         </label>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% if query_services|length %}
-                                <button class="clear-filters">Rimuovi filtri</button>
-                            {% endif %}
+                            <button class="clear-filters hidden">Rimuovi filtri</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="col-md-8 col-lg-9">
-                    <div class="row g-3 box-list" id="top-archive">
-                        {% if posts is not empty %}
-                            {% for post in posts %}
-                                <div class="col-md-4">
-                                    <a class="box-services" href="{{ post.link }}">
-                                        <img class="image" src="{{ post.thumbnail.src|resize(420) }}"
-                                             alt="{{ post.title }}">
-                                        <h2 class="title">{{ post.title }}</h2>
-                                    </a>
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            <p>Nessun servizio trovato con questi filtri.</p>
-                        {% endif %}
+                <div class="col-md-8 col-lg-9 position-relative">
+                    {# Posts added with JS API #}
+                    <div class="row g-3 box-list services-list" id="top-archive"></div>
+
+                    <div class="loader active"></div>
+
+                    <template id="post-box-template">
+                        <div class="col-md-4">
+                            <a class="box-services" href="">
+                                <img class="image" src="" alt="" />
+                                <h2 class="title"></h2>
+                            </a>
+                        </div>
+                    </template>
+
+                    <div class="services-pagination d-flex justify-content-center gap-3">
+                        <button class="prev cta back">Precedente</button>
+                        <button class="next cta">Prossimo</button>
                     </div>
 
                     {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

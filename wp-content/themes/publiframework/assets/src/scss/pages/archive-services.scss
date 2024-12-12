@@ -6,7 +6,7 @@
     --space-top: 8rem;
 
     #top-archive {
-        padding-top: 8rem;
+        padding-top: var(--space-top);
         scroll-margin-top: var(--header-scrolled-height);
     }
 
@@ -95,6 +95,66 @@
         font-weight: $font-bold;
         text-decoration: underline;
         cursor: pointer;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    .loader {
+        position: absolute;
+        z-index: -1;
+        inset: 1rem;
+        top: var(--space-top);
+        display: grid;
+        place-items: center;
+        background: rgba($primary, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 8rem;
+            height: 8rem;
+            border: 3px solid transparent;
+            border-top-color: $primary;
+            border-bottom-color: $primary;
+            border-radius: 50%;
+            animation: rotation 0.8s ease infinite;
+        }
+
+        &.active {
+            z-index: 2;
+            opacity: 1;
+        }
+    }
+
+    .services-pagination {
+        padding: 6rem 0 8rem;
+
+        .cta {
+            gap: 1rem;
+        }
+
+        .prev {
+            &::before {
+                transform: rotate(180deg);
+            }
+        }
+
+        .next {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
 

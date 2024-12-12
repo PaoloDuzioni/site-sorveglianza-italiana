@@ -61,29 +61,21 @@ elseif ( is_category() ) {
 	array_unshift( $templates, 'home.twig' );
 }
 elseif ( is_post_type_archive('servizi') ) {
-	// From sidebar filters
-	$context['query_sectors'] = $_POST['taxonomies_sectors'] ?? '';
-	$context['query_services'] = $_POST['taxonomies_services'] ?? '';
-
-	// From services category boxes on external pages
-	$link_service = $_GET['service'] ? array($_GET['service']) : [];
-	if(!empty($link_service) && empty($context['query_services'])) {
-		$context['query_services'] = $link_service;
-	}
-
 	$context['taxonomies_sectors'] = Timber::get_terms([
 		'taxonomy' => 'categoria_settori',
 		'hide_empty' => false,
 		'orderby' => 'term_order',
 		'order' => 'ASC'
 	]);
-
 	$context['taxonomies_services'] = Timber::get_terms([
 		'taxonomy' => 'categoria_servizi',
 		'hide_empty' => false,
 		'orderby' => 'term_order',
 		'order' => 'ASC'
 	]);
+
+	$context['site_url']= get_site_url();
+	$context['posts_per_page'] = get_option( 'posts_per_page' );
 
 	// Get blocks from page Servizi
 	$post_content = get_post( 320 )->post_content;

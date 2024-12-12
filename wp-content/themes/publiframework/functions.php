@@ -134,57 +134,141 @@ if (isset($_GET['activated']) && is_admin()) {
 }
 
 /**
- * Custom query for post per page
+ * Custom query for services
  */
-function pb_custom_cpt_query($query)
+//function pb_custom_cpt_query($query)
+//{
+//	if ($query->is_main_query() && is_post_type_archive('servizi') && !is_admin()) {
+//			// From sidebar filters
+//			$query_sectors = $_POST['taxonomies_sectors'] ?? [];
+//			$query_services = $_POST['taxonomies_services'] ?? [];
+//
+//			// Prefilter rom services category boxes on external pages
+//			// only if we don't have active services filters on the sidebar
+//			$link_service = $_GET['service'] ? array($_GET['service']) : [];
+//			if(!empty($link_service) && empty($query_services)) {
+//				$query_services = $link_service;
+//			}
+//
+//			$query->set('post_type', ['servizi']);
+////			$query->set('posts_per_page', 12);
+//
+//			if($link_service || !empty($query_services) || !empty($query_sectors)) {
+//				$tax_query = array(
+//					'relation' => 'AND',
+//				);
+//
+//				if(!empty($query_sectors)) {
+//					$tax_query[] = array(
+//						array(
+//							'taxonomy' => 'categoria_settori',
+//							'field'    => 'term_id',
+//							'terms'    => $query_sectors,
+//						),
+//					);
+//				}
+//
+//				if(!empty($query_services)) {
+//
+//					$tax_query[] = array(
+//						array(
+//							'taxonomy' => 'categoria_servizi',
+//							'field'    => 'term_id',
+//							'terms'    => $query_services,
+//						),
+//					);
+//				}
+//
+//				$query->set('tax_query', $tax_query);
+//			}
+//	}
+//}
+//
+//add_action('pre_get_posts', 'pb_custom_cpt_query');
+
+
+/**
+ * GET SERVICES END POINT
+ *
+ * API URL: http://yoursite.com/wp-json/codesa-api/v1/positions/
+ */
+add_action('rest_api_init', function () {
+	register_rest_route('si-api/v1', '/services', array(
+		'methods' => 'POST',
+		'callback' => 'pb_get_services',
+		'permission_callback' => '__return_true'
+	));
+});
+
+function pb_get_services($data): array|bool
 {
-	if ($query->is_main_query() && is_post_type_archive('servizi') && !is_admin()) {
-			// From sidebar filters
-			$query_sectors = $_POST['taxonomies_sectors'] ?? [];
-			$query_services = $_POST['taxonomies_services'] ?? [];
+	// Extract parameters
+	// From sidebar filters
+	$query_sectors = $data['taxonomiesSectors'] ?? [];
+	$query_services = $data['taxonomiesServices'] ?? [];
 
-			// Prefilter rom services category boxes on external pages
-			// only if we don't have active services filters on the sidebar
-			$link_service = $_GET['service'] ? array($_GET['service']) : [];
-			if(!empty($link_service) && empty($query_services)) {
-				$query_services = $link_service;
-			}
-
-			$query->set('post_type', ['servizi']);
-			$query->set('posts_per_page', 12);
-
-			if($link_service || !empty($query_services) || !empty($query_sectors)) {
-				$tax_query = array(
-					'relation' => 'AND',
-				);
-
-				if(!empty($query_sectors)) {
-					$tax_query[] = array(
-						array(
-							'taxonomy' => 'categoria_settori',
-							'field'    => 'term_id',
-							'terms'    => $query_sectors,
-						),
-					);
-				}
-
-				if(!empty($query_services)) {
-
-					$tax_query[] = array(
-						array(
-							'taxonomy' => 'categoria_servizi',
-							'field'    => 'term_id',
-							'terms'    => $query_services,
-						),
-					);
-				}
-
-				$query->set('tax_query', $tax_query);
-			}
+	// Prefilter rom services category boxes on external pages
+	// only if we don't have active services filters on the sidebar
+	$link_service = (int)$data['service'] ? array($data['service']) : [];
+	if(!empty($link_service) && empty($query_services)) {
+		$query_services = $link_service;
 	}
+
+	$args = array(
+		'post_type' => 'servizi',
+		'post_status' => 'publish',
+		'paged' => $data['page'],
+		'posts_per_page' => $data['postsPerPage'],
+	);
+
+	if($link_service || !empty($query_services) || !empty($query_sectors)) {
+		$tax_query = array(
+			'relation' => 'AND',
+		);
+
+		if(!empty($query_sectors)) {
+			$tax_query[] = array(
+				array(
+					'taxonomy' => 'categoria_settori',
+					'field'    => 'term_id',
+					'terms'    => $query_sectors,
+				),
+			);
+		}
+
+		if(!empty($query_services)) {
+			$tax_query[] = array(
+				array(
+					'taxonomy' => 'categoria_servizi',
+					'field'    => 'term_id',
+					'terms'    => $query_services,
+				),
+			);
+		}
+
+		$args['tax_query'] = $tax_query;
+	}
+
+	$services = array();
+	$the_query = new WP_Query($args);
+
+	if ($the_query->have_posts()) {
+		while ($the_query->have_posts()) {
+			$the_query->the_post();
+
+			$item = array(
+				'id' => get_the_ID(),
+				'title' => get_the_title(),
+				'permalink' => get_the_permalink(),
+				'thumbnail' => get_the_post_thumbnail_url(),
+			);
+			$services[] = $item;
+		}
+	}
+
+	return $services;
 }
 
-add_action('pre_get_posts', 'pb_custom_cpt_query');
 
 /**
  * TESTING MAIL SMTP
