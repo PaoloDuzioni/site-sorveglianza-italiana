@@ -1,7 +1,11 @@
 // Dependencies
 @import './scss/utils/variabili.scss';
 @import './scss/utils/bootstrap.scss';
-//@import "./scss/utils/swiper.scss";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+// import 'swiper/css/scrollbar';
 @import './scss/utils/fontello.scss';
 
 // Globals

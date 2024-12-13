@@ -9,37 +9,27 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap_js_dist_collapse__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/js/dist/collapse */ "../node_modules/bootstrap/js/dist/collapse.js");
-/* harmony import */ var bootstrap_js_dist_collapse__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_collapse__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/js/dist/dropdown */ "../node_modules/bootstrap/js/dist/dropdown.js");
-/* harmony import */ var bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/js/dist/modal */ "../node_modules/bootstrap/js/dist/modal.js");
-/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.scss */ "./src/index.scss");
-/* harmony import */ var swiper_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! swiper/css */ "../node_modules/swiper/swiper.css");
-/* harmony import */ var swiper_css_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! swiper/css/navigation */ "../node_modules/swiper/modules/navigation.css");
-/* harmony import */ var swiper_css_pagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! swiper/css/pagination */ "../node_modules/swiper/modules/pagination.css");
-/* harmony import */ var swiper_css_effect_fade__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! swiper/css/effect-fade */ "../node_modules/swiper/modules/effect-fade.css");
-/* harmony import */ var _js_particles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/particles */ "./src/js/particles.js");
-/* harmony import */ var _js_particles__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_js_particles__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _js_scrollHeader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/scrollHeader */ "./src/js/scrollHeader.js");
-/* harmony import */ var _js_sliders__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/sliders */ "./src/js/sliders.js");
-/* harmony import */ var _js_customSelect__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/customSelect */ "./src/js/customSelect.js");
-/* harmony import */ var _js_servicesFilters__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/servicesFilters */ "./src/js/servicesFilters.js");
-/* harmony import */ var _js_workWithUsForms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./js/workWithUsForms */ "./src/js/workWithUsForms.js");
- // Collapse: for navbar mobile collapse and accordion
- // Dropdown: for navbar submenus
- // Modal: for modals
-
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.scss */ "./src/index.scss");
+/* harmony import */ var bootstrap_js_dist_collapse__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/js/dist/collapse */ "../node_modules/bootstrap/js/dist/collapse.js");
+/* harmony import */ var bootstrap_js_dist_collapse__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_collapse__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/js/dist/dropdown */ "../node_modules/bootstrap/js/dist/dropdown.js");
+/* harmony import */ var bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_dropdown__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap/js/dist/modal */ "../node_modules/bootstrap/js/dist/modal.js");
+/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _js_particles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/particles */ "./src/js/particles.js");
+/* harmony import */ var _js_particles__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_js_particles__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _js_scrollHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/scrollHeader */ "./src/js/scrollHeader.js");
+/* harmony import */ var _js_sliders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/sliders */ "./src/js/sliders.js");
+/* harmony import */ var _js_customSelect__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/customSelect */ "./src/js/customSelect.js");
+/* harmony import */ var _js_servicesFilters__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/servicesFilters */ "./src/js/servicesFilters.js");
+/* harmony import */ var _js_workWithUsForms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/workWithUsForms */ "./src/js/workWithUsForms.js");
 // Site styles
 
 
-// Swiper Styles
-
-
-
-
-// import 'swiper/css/scrollbar';
+// Bootstrap
+ // Collapse: for navbar mobile collapse and accordion
+ // Dropdown: for navbar submenus
+ // Modal: for modals
 
 // Particle effect as in News block
 
@@ -54,27 +44,27 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Check if the header is scrolled
  */
-(0,_js_scrollHeader__WEBPACK_IMPORTED_MODULE_9__["default"])();
+(0,_js_scrollHeader__WEBPACK_IMPORTED_MODULE_5__["default"])();
 
 /**
  * Site sliders
  */
-(0,_js_sliders__WEBPACK_IMPORTED_MODULE_10__["default"])();
+(0,_js_sliders__WEBPACK_IMPORTED_MODULE_6__["default"])();
 
 /**
  * Custom select input
  */
-(0,_js_customSelect__WEBPACK_IMPORTED_MODULE_11__["default"])();
+(0,_js_customSelect__WEBPACK_IMPORTED_MODULE_7__["default"])();
 
 /**
  * Services filters
  */
-(0,_js_servicesFilters__WEBPACK_IMPORTED_MODULE_12__["default"])();
+(0,_js_servicesFilters__WEBPACK_IMPORTED_MODULE_8__["default"])();
 
 /**
  * Forms for work with us
  */
-(0,_js_workWithUsForms__WEBPACK_IMPORTED_MODULE_13__["default"])();
+(0,_js_workWithUsForms__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
 /**
  * Site scroll animations
@@ -6648,58 +6638,6 @@ function withinMaxClamp(min, value, max) {
 /*!************************!*\
   !*** ./src/index.scss ***!
   \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "../node_modules/swiper/modules/effect-fade.css":
-/*!******************************************************!*\
-  !*** ../node_modules/swiper/modules/effect-fade.css ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "../node_modules/swiper/modules/navigation.css":
-/*!*****************************************************!*\
-  !*** ../node_modules/swiper/modules/navigation.css ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "../node_modules/swiper/modules/pagination.css":
-/*!*****************************************************!*\
-  !*** ../node_modules/swiper/modules/pagination.css ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "../node_modules/swiper/swiper.css":
-/*!*****************************************!*\
-  !*** ../node_modules/swiper/swiper.css ***!
-  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
