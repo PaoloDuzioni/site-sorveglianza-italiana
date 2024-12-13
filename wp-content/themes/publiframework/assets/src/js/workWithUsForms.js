@@ -2,19 +2,39 @@ export default function workWithUsForms() {
     const parentSection = document.querySelector('.work-with-us-forms-section');
     if (!parentSection) return;
 
+    // Elelemts
     const formsContainer = parentSection.querySelector('.forms-container');
     const wrapForms = parentSection.querySelectorAll('.wrap-form');
     const modal = parentSection.querySelector('.application-modal');
     const successMessage = parentSection.querySelector('.success-section');
 
-    // TODO: prepopolate input of modal from with the cv form
-    //    const modalCta = document.querySelector('.base-candidature');
-    //    const positionInput = formModal.querySelector('.position input');
-    // CTA button
-    //    modalCta.addEventListener('click', () => {
-    //        positionInput.value = 'Candidatura spontanea';
-    //    });
+    // Pre-populate modal from fields
+    const btnShowModal = parentSection.querySelector('.btn-show-modal');
+    const applicationForm = parentSection.querySelector(
+        '.application-form-section .wpcf7',
+    );
+    const modalForm = modal.querySelector('.wpcf7');
 
+    /**
+     * Prepopolate input of modal from with the cv form
+     * to avoid re-typing the data.
+     */
+    btnShowModal.addEventListener('click', () => {
+        modalForm.querySelector('input[name="nome"]').value =
+            applicationForm.querySelector('input[name="nome"]').value;
+        modalForm.querySelector('input[name="cognome"]').value =
+            applicationForm.querySelector('input[name="cognome"]').value;
+        modalForm.querySelector('input[name="telefono"]').value =
+            applicationForm.querySelector('input[name="telefono"]').value;
+        modalForm.querySelector('input[name="email"]').value =
+            applicationForm.querySelector('input[name="email"]').value;
+        modalForm.querySelector('select[name="provincia"]').value =
+            applicationForm.querySelector('select[name="provincia"]').value;
+    });
+
+    /**
+     * Form submits for thank you message
+     */
     wrapForms.forEach(formParent => {
         const form = formParent.querySelector('.wpcf7');
 

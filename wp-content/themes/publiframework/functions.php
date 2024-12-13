@@ -190,7 +190,7 @@ if (isset($_GET['activated']) && is_admin()) {
 /**
  * GET SERVICES END POINT
  *
- * API URL: http://yoursite.com/wp-json/codesa-api/v1/positions/
+ * API URL example: http://yoursite.com/wp-json/si/v1/services/
  */
 add_action('rest_api_init', function () {
 	register_rest_route('si-api/v1', '/services', array(
