@@ -8,11 +8,9 @@ if (file_exists($composer_autoload)) {
 	\Carbon_Fields\Carbon_Fields::boot();
 }
 
-
 /**
  * Notice for unistalled Timber
  */
-
 if (!class_exists('Timber')) {
 
 	add_action(
@@ -30,10 +28,10 @@ if (!class_exists('Timber')) {
 	);
 	return;
 }
+
 /**
  * Notice for Unistalled ACF
  */
-
 if (!class_exists('ACF')) {
 	add_action('admin_notices', function () {
 		echo '<div class="error">
@@ -100,7 +98,7 @@ function is_user_ev_admin()
 require_once(get_template_directory() . '/includes/OpzioniTema.php');
 require_once(get_template_directory() . '/includes/AcfSettings.php');
 require_once(get_template_directory() . '/includes/class-tgm-plugin-activation.php');
-//require_once(get_template_directory() . '/includes/Breadcrumb.php');
+require_once(get_template_directory() . '/includes/Breadcrumb.php');
 require_once(get_template_directory() . '/includes/StarterSite.php');
 require_once(get_template_directory() . '/includes/CustomPostType.php');
 require_once(get_template_directory() . '/includes/Utilities.php');
@@ -134,61 +132,7 @@ if (isset($_GET['activated']) && is_admin()) {
 }
 
 /**
- * Custom query for services
- */
-//function pb_custom_cpt_query($query)
-//{
-//	if ($query->is_main_query() && is_post_type_archive('servizi') && !is_admin()) {
-//			// From sidebar filters
-//			$query_sectors = $_POST['taxonomies_sectors'] ?? [];
-//			$query_services = $_POST['taxonomies_services'] ?? [];
-//
-//			// Prefilter rom services category boxes on external pages
-//			// only if we don't have active services filters on the sidebar
-//			$link_service = $_GET['service'] ? array($_GET['service']) : [];
-//			if(!empty($link_service) && empty($query_services)) {
-//				$query_services = $link_service;
-//			}
-//
-//			$query->set('post_type', ['servizi']);
-////			$query->set('posts_per_page', 12);
-//
-//			if($link_service || !empty($query_services) || !empty($query_sectors)) {
-//				$tax_query = array(
-//					'relation' => 'AND',
-//				);
-//
-//				if(!empty($query_sectors)) {
-//					$tax_query[] = array(
-//						array(
-//							'taxonomy' => 'categoria_settori',
-//							'field'    => 'term_id',
-//							'terms'    => $query_sectors,
-//						),
-//					);
-//				}
-//
-//				if(!empty($query_services)) {
-//
-//					$tax_query[] = array(
-//						array(
-//							'taxonomy' => 'categoria_servizi',
-//							'field'    => 'term_id',
-//							'terms'    => $query_services,
-//						),
-//					);
-//				}
-//
-//				$query->set('tax_query', $tax_query);
-//			}
-//	}
-//}
-//
-//add_action('pre_get_posts', 'pb_custom_cpt_query');
-
-
-/**
- * GET SERVICES END POINT
+ * SERVICES API END POINT
  *
  * API URL example: http://yoursite.com/wp-json/si/v1/services/
  */
@@ -264,7 +208,7 @@ function pb_get_services($data): array|bool
 	return [
 		'postsCount' => $posts_count,
 		'services' => $services
-		];
+    ];
 }
 
 
