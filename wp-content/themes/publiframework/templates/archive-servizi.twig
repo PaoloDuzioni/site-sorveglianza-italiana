@@ -1,9 +1,11 @@
 {% extends "layout/base.twig" %}
 
 {% block content %}
-    {{ hero_block }}
-    {{ breadcrumb_block }}
-
+    {# Top blocks #}
+    {% for block in top_blocks %}
+        {{ block }}
+    {% endfor %}
+    
     <section class="services-archive">
         <div class="container">
             <div class="row g-md-3">
@@ -13,7 +15,7 @@
                           data-posts-per-page="{{ posts_per_page }}">
                         <div class="tanonomy-list">
                             <h4 class="title">Settori</h4>
-
+                            
                             <ul class="list-unstyled list">
                                 {% for tax in taxonomies_sectors %}
                                     <li>
@@ -27,10 +29,10 @@
                             </ul>
                             <button class="clear-filters hidden">Rimuovi filtri</button>
                         </div>
-
+                        
                         <div class="tanonomy-list">
                             <h4 class="title">Servizi</h4>
-
+                            
                             <ul class="list-unstyled list">
                                 {% for tax in taxonomies_services %}
                                     <li>
@@ -46,22 +48,22 @@
                         </div>
                     </form>
                 </div>
-
+                
                 <div class="col-md-8 col-lg-9 position-relative">
                     {# Posts added with JS API #}
                     <div class="row g-3 box-list services-list" id="top-archive"></div>
-
+                    
                     <div class="loader"></div>
-
+                    
                     <template id="post-box-template">
                         <div class="col-md-4">
                             <a class="box-services" href="">
-                                <img class="image" src="" alt="" />
+                                <img class="image" src="" alt=""/>
                                 <h2 class="title"></h2>
                             </a>
                         </div>
                     </template>
-
+                    
                     <div class="services-pagination d-flex justify-content-center gap-3">
                         <button class="prev cta back hidden">Precedente</button>
                         <button class="next cta hidden">Prossimo</button>
@@ -70,9 +72,11 @@
             </div>
         </div>
     </section>
-
-    {{ news_block }}
+    
+    {# Bottom blocks #}
     {% apply shortcodes %}
-        {{ form_block }}
+        {% for block in bottom_blocks %}
+            {{ block }}
+        {% endfor %}
     {% endapply %}
 {% endblock %}

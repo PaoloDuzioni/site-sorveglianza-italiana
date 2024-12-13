@@ -15,10 +15,9 @@
  */
 
 $templates = array( 'archive.twig', 'index.twig' );
-
 $context = Timber::context();
-
 $context['title'] = 'Archive';
+
 if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
 } elseif ( is_month() ) {
@@ -48,28 +47,25 @@ elseif ( is_category() ) {
 	$post_id = get_option( 'page_for_posts' );
 	$post_content = get_post( $post_id  )->post_content;
 	$blocks = parse_blocks( $post_content );
-
-	$hero_block = render_block($blocks[0]);
-	$context['hero_block'] = $hero_block;
-
-	$breadcrumb_block = render_block($blocks[2]);
-	$context['breadcrumb_block'] = $breadcrumb_block;
-
-	$form_block = render_block($blocks[4]);
-	$context['form_block'] = $form_block;
+    // Top Blocks
+    $top_blocks = array_slice($blocks, 0, 3);
+    $top_blocks = array_map(fn($block) => render_block($block), $top_blocks);
+    $context['top_blocks'] = $top_blocks;
+    // Bottom Blocks
+    $bottom_blocks = array_slice($blocks, 4);
+    $bottom_blocks = array_map(fn($block) => render_block($block), $bottom_blocks);
+    $context['bottom_blocks'] = $bottom_blocks;
 
 	array_unshift( $templates, 'home.twig' );
 }
 elseif ( is_post_type_archive('servizi') ) {
 	$context['taxonomies_sectors'] = Timber::get_terms([
 		'taxonomy' => 'categoria_settori',
-		'hide_empty' => false,
 		'orderby' => 'term_order',
 		'order' => 'ASC'
 	]);
 	$context['taxonomies_services'] = Timber::get_terms([
 		'taxonomy' => 'categoria_servizi',
-		'hide_empty' => false,
 		'orderby' => 'term_order',
 		'order' => 'ASC'
 	]);
@@ -80,18 +76,14 @@ elseif ( is_post_type_archive('servizi') ) {
 	// Get blocks from page Servizi
 	$post_content = get_post( 320 )->post_content;
 	$blocks = parse_blocks( $post_content );
-
-	$hero_block = render_block($blocks[0]);
-	$context['hero_block'] = $hero_block;
-
-	$breadcrumb_block = render_block($blocks[2]);
-	$context['breadcrumb_block'] = $breadcrumb_block;
-
-	$news_block = render_block($blocks[4]);
-	$context['news_block'] = $news_block;
-
-	$form_block = render_block($blocks[6]);
-	$context['form_block'] = $form_block;
+    // Top Blocks
+    $top_blocks = array_slice($blocks, 0, 3);
+    $top_blocks = array_map(fn($block) => render_block($block), $top_blocks);
+    $context['top_blocks'] = $top_blocks;
+	// Bottom Blocks
+	$bottom_blocks = array_slice($blocks, 4);
+	$bottom_blocks = array_map(fn($block) => render_block($block), $bottom_blocks);
+	$context['bottom_blocks'] = $bottom_blocks;
 
 	$context['title'] = post_type_archive_title( '', false );
 	$templates = array( 'archive-servizi.twig', 'index.twig' );

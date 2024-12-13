@@ -24,29 +24,18 @@ $templates = array('index.twig');
 if (is_home()) {
 	array_unshift($templates, 'home.twig');
 
-	//	$page_for_posts = get_option('page_for_posts');
-	//	$context['sidebar'] = Timber::get_widgets('sidebar_blog');
-	//	$context['title'] = get_the_title($page_for_posts);
-	//	$context['content'] = get_post_field('post_content', $page_for_posts);
-
-	$categorie = get_terms(array(
-		'taxonomy' => 'category',
-	));
-	$context['categorie_blog'] = $categorie;
-
 	// Get blocks from page News
 	$post_id = get_option( 'page_for_posts' );
 	$post_content = get_post( $post_id  )->post_content;
 	$blocks = parse_blocks( $post_content );
-
-	$hero_block = render_block($blocks[0]);
-	$context['hero_block'] = $hero_block;
-
-	$breadcrumb_block = render_block($blocks[2]);
-	$context['breadcrumb_block'] = $breadcrumb_block;
-
-	$form_block = render_block($blocks[4]);
-	$context['form_block'] = $form_block;
+    // Top Blocks
+    $top_blocks = array_slice($blocks, 0, 3);
+    $top_blocks = array_map(fn($block) => render_block($block), $top_blocks);
+    $context['top_blocks'] = $top_blocks;
+    // Bottom Blocks
+    $bottom_blocks = array_slice($blocks, 4);
+    $bottom_blocks = array_map(fn($block) => render_block($block), $bottom_blocks);
+    $context['bottom_blocks'] = $bottom_blocks;
 
 	// News archive url
 	$context['news_archive_url'] = get_post_type_archive_link('post');
