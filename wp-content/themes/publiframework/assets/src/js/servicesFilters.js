@@ -9,27 +9,52 @@ export default function servicesFilters() {
     const template = document.querySelector('#post-box-template');
     const filterInputs = servicesForm.querySelectorAll('.list input');
     const clearFiltersBtn = servicesForm.querySelectorAll('.clear-filters');
+    const pagination = document.querySelector('.services-pagination');
+    const paginationPrev = pagination.querySelector('.prev');
+    const paginationNext = pagination.querySelector('.next');
 
     // Setup
     let previousSearchController = null;
     const apiBaseUrl =
         servicesForm.dataset.baseUrl + '/wp-json/si-api/v1/services?';
     const postsPerPage = servicesForm.dataset.postsPerPage;
+    let totalPages = 1;
     let page = 1;
-    // from sidebar filters
+
+    // sidebar filters
     let taxonomiesSectors = [];
     let taxonomiesServices = [];
-    // from external page link pre-filter
-    const service = null;
 
-    // Get services
+    // pre-filter from external page link
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceQuery = urlParams.get('service') ?? null;
+
+    // Optional pre-filter from external page link
+    if (serviceQuery) {
+        // clean query string
+        topArchive.scrollIntoView({ behavior: 'smooth' });
+        window.history.replaceState(null, null, window.location.pathname);
+
+        // Check filters input and set the taxonomy
+        const prefilterInput = servicesForm.querySelector(
+            `input[value="${serviceQuery}"]`,
+        );
+        prefilterInput.checked = true;
+        taxonomiesServices.push(serviceQuery);
+
+        // Show clear filters button
+        prefilterInput
+            .closest('.tanonomy-list')
+            .querySelector('.clear-filters')
+            .classList.remove('hidden');
+    }
+
+    // Fetch services
     fetchServices();
-
-    // TODO: pagination
-    // TODO: pre filter from external page link
 
     // Filter inputs
     filterInputs.forEach(input => {
+        // API call with filters on change
         input.addEventListener('change', e => {
             page = 1;
 
@@ -53,7 +78,6 @@ export default function servicesFilters() {
             inputChecked.forEach(input => {
                 taxonomiesIds.push(input.value);
             });
-            console.log(taxonomiesIds);
 
             if (input.name === 'taxonomies_sectors') {
                 taxonomiesSectors = taxonomiesIds;
@@ -75,7 +99,6 @@ export default function servicesFilters() {
             const inputElementsChecked = btn
                 .closest('.tanonomy-list')
                 .querySelectorAll('.list input:checked');
-            console.log(inputElementsChecked);
 
             inputElementsChecked.forEach(input => {
                 input.checked = false;
@@ -95,19 +118,31 @@ export default function servicesFilters() {
         });
     });
 
+    // Pagination
+    paginationPrev.addEventListener('click', () => {
+        if (page > 1) {
+            page--;
+            fetchServices();
+        }
+    });
+
+    paginationNext.addEventListener('click', () => {
+        if (page < totalPages) {
+            page++;
+            fetchServices();
+        }
+    });
+
+    /**
+     * UTILITIES
+     */
+
     function fetchServices() {
+        // Cancel previous request that still running
         if (previousSearchController) {
             previousSearchController.abort();
             previousSearchController = null;
         }
-
-        const params = new URLSearchParams({
-            posts_per_page: postsPerPage,
-            page,
-            taxonomiesSectors,
-            taxonomiesServices,
-            service,
-        });
 
         loader.classList.add('active');
 
@@ -124,7 +159,6 @@ export default function servicesFilters() {
                 page,
                 taxonomiesSectors,
                 taxonomiesServices,
-                service,
             }),
             signal: previousSearchController.signal,
         })
@@ -141,15 +175,24 @@ export default function servicesFilters() {
 
     function generateResults(data) {
         displayResultsElement.innerHTML = '';
-        if (!data) return;
 
-        if (data.length === 0) {
-            displayResultsElement.innerHTML = `<p class="no-items-text">Nessun servizio trovato per la corrente selezione. Riprova con altre opzioni.</p>`;
+        // No data response from server
+        if (!data) {
+            displayResultsElement.innerHTML = `<p class="no-items-text"> Siè verificato un errore. Si pregna di riprovare più tardi.</p>`;
             return;
         }
 
-        // Search main title
-        data.forEach((service, index) => {
+        // No results
+        if (data.services.length === 0) {
+            displayResultsElement.innerHTML = `<p class="no-items-text">Nessun servizio trovato per la corrente selezione. Riprova con altre opzioni.</p>`;
+            // hide pagination
+            paginationPrev.classList.add('hidden');
+            paginationNext.classList.add('hidden');
+            return;
+        }
+
+        // Add results
+        data.services.forEach((service, index) => {
             // Create item from HTML template
             const clone = template.content.cloneNode(true);
 
@@ -167,5 +210,22 @@ export default function servicesFilters() {
             // Append to DOM
             displayResultsElement.appendChild(clone);
         });
+
+        // Pagination
+        totalPages = Math.ceil(data.postsCount / postsPerPage);
+
+        // pagination prev
+        if (page > 1) {
+            paginationPrev.classList.remove('hidden');
+        } else {
+            paginationPrev.classList.add('hidden');
+        }
+
+        // pagination next
+        if (page + 1 <= totalPages) {
+            paginationNext.classList.remove('hidden');
+        } else {
+            paginationNext.classList.add('hidden');
+        }
     }
 }

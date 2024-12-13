@@ -203,16 +203,8 @@ add_action('rest_api_init', function () {
 function pb_get_services($data): array|bool
 {
 	// Extract parameters
-	// From sidebar filters
 	$query_sectors = $data['taxonomiesSectors'] ?? [];
 	$query_services = $data['taxonomiesServices'] ?? [];
-
-	// Prefilter rom services category boxes on external pages
-	// only if we don't have active services filters on the sidebar
-	$link_service = (int)$data['service'] ? array($data['service']) : [];
-	if(!empty($link_service) && empty($query_services)) {
-		$query_services = $link_service;
-	}
 
 	$args = array(
 		'post_type' => 'servizi',
@@ -221,7 +213,7 @@ function pb_get_services($data): array|bool
 		'posts_per_page' => $data['postsPerPage'],
 	);
 
-	if($link_service || !empty($query_services) || !empty($query_sectors)) {
+	if(!empty($query_services) || !empty($query_sectors)) {
 		$tax_query = array(
 			'relation' => 'AND',
 		);
@@ -250,6 +242,7 @@ function pb_get_services($data): array|bool
 	}
 
 	$services = array();
+	$posts_count = 0;
 	$the_query = new WP_Query($args);
 
 	if ($the_query->have_posts()) {
@@ -264,9 +257,14 @@ function pb_get_services($data): array|bool
 			);
 			$services[] = $item;
 		}
+
+		$posts_count = $the_query->found_posts;
 	}
 
-	return $services;
+	return [
+		'postsCount' => $posts_count,
+		'services' => $services
+		];
 }
 
 

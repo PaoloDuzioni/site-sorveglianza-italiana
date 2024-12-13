@@ -76,7 +76,7 @@ elseif ( is_post_type_archive('servizi') ) {
 
 	$context['site_url']= get_site_url();
 	$context['posts_per_page'] = get_option( 'posts_per_page' );
-
+	
 	// Get blocks from page Servizi
 	$post_content = get_post( 320 )->post_content;
 	$blocks = parse_blocks( $post_content );

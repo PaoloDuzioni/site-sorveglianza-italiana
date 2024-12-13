@@ -137,6 +137,13 @@
             gap: 1rem;
         }
 
+        .prev,
+        .next {
+            &.hidden {
+                display: none;
+            }
+        }
+
         .prev {
             &::before {
                 transform: rotate(180deg);

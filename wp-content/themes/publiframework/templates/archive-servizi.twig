@@ -8,9 +8,9 @@
         <div class="container">
             <div class="row g-md-3">
                 <div class="col-md-4 col-lg-3 col-side">
-                    <form method="post" id="services-form" data-base-url="{{ site_url }}"
-                          data-posts-per-page="{{ posts_per_page }}"
-                          class="{{ query_sectors|length or query_services|length ? 'active' : '' }}">
+                    <form method="post" id="services-form"
+                          data-base-url="{{ site_url }}"
+                          data-posts-per-page="{{ posts_per_page }}">
                         <div class="tanonomy-list">
                             <h4 class="title">Settori</h4>
 
@@ -51,7 +51,7 @@
                     {# Posts added with JS API #}
                     <div class="row g-3 box-list services-list" id="top-archive"></div>
 
-                    <div class="loader active"></div>
+                    <div class="loader"></div>
 
                     <template id="post-box-template">
                         <div class="col-md-4">
@@ -63,11 +63,9 @@
                     </template>
 
                     <div class="services-pagination d-flex justify-content-center gap-3">
-                        <button class="prev cta back">Precedente</button>
-                        <button class="next cta">Prossimo</button>
+                        <button class="prev cta back hidden">Precedente</button>
+                        <button class="next cta hidden">Prossimo</button>
                     </div>
-
-                    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
                 </div>
             </div>
         </div>
