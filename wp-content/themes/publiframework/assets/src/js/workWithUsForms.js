@@ -14,22 +14,26 @@ export default function workWithUsForms() {
         '.application-form-section .wpcf7',
     );
     const modalForm = modal.querySelector('.wpcf7');
+    const formsNameAttributes = [
+        'nome',
+        'cognome',
+        'telefono',
+        'email',
+        'provincia',
+    ];
 
     /**
      * Prepopolate input of modal from with the cv form
      * to avoid re-typing the data.
      */
     btnShowModal.addEventListener('click', () => {
-        modalForm.querySelector('input[name="nome"]').value =
-            applicationForm.querySelector('input[name="nome"]').value;
-        modalForm.querySelector('input[name="cognome"]').value =
-            applicationForm.querySelector('input[name="cognome"]').value;
-        modalForm.querySelector('input[name="telefono"]').value =
-            applicationForm.querySelector('input[name="telefono"]').value;
-        modalForm.querySelector('input[name="email"]').value =
-            applicationForm.querySelector('input[name="email"]').value;
-        modalForm.querySelector('select[name="provincia"]').value =
-            applicationForm.querySelector('select[name="provincia"]').value;
+        formsNameAttributes.forEach(attr => {
+            modalForm.querySelector(
+                `${attr === 'provincia' ? 'select' : 'input'}[name="${attr}"]`,
+            ).value = applicationForm.querySelector(
+                `${attr === 'provincia' ? 'select' : 'input'}[name="${attr}"]`,
+            ).value;
+        });
     });
 
     /**
