@@ -45,6 +45,13 @@
     &.big {
         font-size: 8rem;
         line-height: 1.1;
+        @media (max-width: 991px) {
+            font-size: 5rem;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 4rem;
+        }
     }
 
     @if $size == 'small' {
@@ -54,6 +61,9 @@
     } @else if $size == 'large' {
         font-size: 8rem;
         line-height: 1.1;
+        @media (max-width: 991px) {
+            font-size: 5rem;
+        }
     } @else {
         font-size: 5rem;
     }

@@ -64,3 +64,46 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    .block-slider-video {
+        .site-slider-video {
+            height: 50rem;
+
+            .swiper-slide {
+                .button {
+                    min-width: initial;
+                }
+            }
+
+            // Pagination
+            .swiper-pagination-bullets {
+                bottom: 3rem;
+
+                .swiper-pagination-bullet {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .block-slider-video {
+        .site-slider-video {
+            height: calc(100svh - var(--header-height));
+
+            .swiper-slide {
+                .button {
+                    min-width: initial;
+                }
+            }
+        }
+    }
+}

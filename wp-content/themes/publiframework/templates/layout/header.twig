@@ -1,5 +1,5 @@
 <header class="site-header">
-
+    
     {% if abilita_topbar %}
         <div class="topbar_msg text-center">
             {% if racchiudi_nel_container_header %}
@@ -23,63 +23,69 @@
             </div>
         </div>
     {% endif %}
-
+    
     {% block header %}
         <nav class="py-0 d-block navbar navbar-light navbar-expand-{{ larghezza_navigazione_mobile }}">
             <div id="header_riga1">
                 <div class="container{% if not racchiudi_nel_container_header %}-fluid{% endif %}">
-                    <div class="row">
-                        <div class="col-12">
-                            <a href="{{ site.url }}"
-                               class="logo me-lg-3 d-flex align-items-center mb-0 text-decoration-none">
-                                {% if logo_principale %}
-                                    {% set image_logo_principale = get_image(logo_principale) %}
-                                    {% if logo_principale_retina %}{% set image_logo_principale_retina = get_image(logo_principale_retina) %}{% endif %}
-                                    <picture>
-                                        <source srcset="{{ image_logo_principale.src|towebp }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src|towebp }} 2x{% endif %}"
-                                                type="image/webp">
-                                        <source srcset="{{ image_logo_principale.src }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src }} 2x{% endif %}">
-                                        <img id="logo_desktop" src="{{ image_logo_principale.src|towebp }}"
-                                             alt="{{ image_logo_principale.alt }}"
-                                             {% if logo_principale_retina %}srcset="{{ image_logo_principale_retina.src|towebp }} 2x"
-                                             {% endif %}width="{{ image_logo_principale.width }}"
-                                             height="{{ image_logo_principale.height }}"/>
-                                    </picture>
-                                {% else %}
-                                    {{ site.name }}
-                                {% endif %}
-                                {% if logo_secondario %}
-                                    {% set image_logo_secondario = get_image(logo_secondario) %}
-                                    {% if logo_secondario_retina %}{% set image_logo_secondario_retina = get_image(logo_secondario_retina) %}{% endif %}
-                                    <picture>
-                                        <source srcset="{{ image_logo_secondario.src|towebp }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src|towebp }} 2x{% endif %}"
-                                                type="image/webp">
-                                        <source srcset="{{ image_logo_secondario.src }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src }} 2x{% endif %}">
-                                        <img id="logo_desktop" src="{{ image_logo_secondario.src|towebp }}"
-                                             alt="{{ image_logo_secondario.alt }}"
-                                             {% if logo_secondario_retina %}srcset="{{ image_logo_secondario_retina.src|towebp }} 2x"
-                                             {% endif %}width="{{ image_logo_secondario.width }}"
-                                             height="{{ image_logo_secondario.height }}"/>
-                                    </picture>
-                                {% endif %}
-                            </a>
-
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse" id="navbarToggler">
-                                {% include "partial/menu.twig" with {'items': menu.get_items, 'id': 'menu-main-menu'} %}
-                                {% if cta_menu %}<a href="{{ link_bottone_cta }}"
-                                                    class="btn btn-secondary">{{ testo_bottone_cta }}</a>{% endif %}
-                            </div>
+                    <div class="d-flex flex-wrap align-items-center justify-content-between d-lg-block">
+                        <a href="{{ site.url }}"
+                           class="logo me-lg-3 d-lg-flex justify-content-lg-center align-items-lg-center mb-0 text-decoration-none">
+                            {% if logo_principale %}
+                                {% set image_logo_principale = get_image(logo_principale) %}
+                                {% if logo_principale_retina %}{% set image_logo_principale_retina = get_image(logo_principale_retina) %}{% endif %}
+                                <picture>
+                                    <source srcset="{{ image_logo_principale.src|towebp }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src|towebp }} 2x{% endif %}"
+                                            type="image/webp">
+                                    <source srcset="{{ image_logo_principale.src }}{% if logo_principale_retina %}, {{ image_logo_principale_retina.src }} 2x{% endif %}">
+                                    <img id="logo_desktop" src="{{ image_logo_principale.src|towebp }}"
+                                         alt="{{ image_logo_principale.alt }}"
+                                         {% if logo_principale_retina %}srcset="{{ image_logo_principale_retina.src|towebp }} 2x"
+                                         {% endif %}width="{{ image_logo_principale.width }}"
+                                         height="{{ image_logo_principale.height }}"/>
+                                </picture>
+                            {% else %}
+                                {{ site.name }}
+                            {% endif %}
+                            {% if logo_secondario %}
+                                {% set image_logo_secondario = get_image(logo_secondario) %}
+                                {% if logo_secondario_retina %}{% set image_logo_secondario_retina = get_image(logo_secondario_retina) %}{% endif %}
+                                <picture>
+                                    <source srcset="{{ image_logo_secondario.src|towebp }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src|towebp }} 2x{% endif %}"
+                                            type="image/webp">
+                                    <source srcset="{{ image_logo_secondario.src }}{% if logo_secondario_retina %}, {{ image_logo_secondario_retina.src }} 2x{% endif %}">
+                                    <img id="logo_desktop" src="{{ image_logo_secondario.src|towebp }}"
+                                         alt="{{ image_logo_secondario.alt }}"
+                                         {% if logo_secondario_retina %}srcset="{{ image_logo_secondario_retina.src|towebp }} 2x"
+                                         {% endif %}width="{{ image_logo_secondario.width }}"
+                                         height="{{ image_logo_secondario.height }}"/>
+                                </picture>
+                            {% endif %}
+                        </a>
+                        
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon icon-open"
+                                         viewBox="0 0 16 16">
+                                        <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon icon-close"
+                                         viewBox="0 0 16 16">
+                                        <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                                    </svg>
+                                </span>
+                        </button>
+                        <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarToggler">
+                            {% include "partial/menu.twig" with {'items': menu.get_items, 'id': 'menu-main-menu'} %}
+                            {% if cta_menu %}<a href="{{ link_bottone_cta }}"
+                                                class="btn btn-secondary">{{ testo_bottone_cta }}</a>{% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
-
+    
     {% endblock %}
 </header>

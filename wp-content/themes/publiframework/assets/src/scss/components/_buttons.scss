@@ -155,3 +155,16 @@
         transform: rotate(180deg);
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    .button {
+        &.big {
+            padding: 1rem 2rem;
+            font-size: 1.8rem;
+        }
+    }
+}

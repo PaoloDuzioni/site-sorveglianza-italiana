@@ -79,4 +79,14 @@ $font-bold: 700;
     --body-font-size: 1.8rem; // 16px
     --header-height: 17.4rem;
     --header-scrolled-height: 7.4rem;
+
+    @media (max-width: 1399px) {
+        --header-height: 11.1rem;
+        --header-scrolled-height: 7.1rem;
+    }
+
+    @media (max-width: 991px) {
+        --header-height: 8rem;
+        --header-scrolled-height: 8rem;
+    }
 }
