@@ -36,6 +36,7 @@
             }
 
             .section-title {
+                @include section-title('large');
                 margin-bottom: 5rem;
             }
 

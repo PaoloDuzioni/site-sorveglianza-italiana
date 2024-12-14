@@ -45,6 +45,20 @@
     &.big {
         font-size: 8rem;
         line-height: 1.1;
+    }
+
+    @if $size == 'small' {
+        font-size: 3rem;
+
+        @media (max-width: 767px) {
+            font-size: 2.4rem;
+        }
+    } @else if $size == 'tiny' {
+        font-size: 2.4rem;
+    } @else if $size == 'large' {
+        font-size: 8rem;
+        line-height: 1.1;
+
         @media (max-width: 991px) {
             font-size: 5rem;
         }
@@ -52,20 +66,16 @@
         @media (max-width: 767px) {
             font-size: 4rem;
         }
-    }
-
-    @if $size == 'small' {
-        font-size: 3rem;
-    } @else if $size == 'tiny' {
-        font-size: 2.4rem;
-    } @else if $size == 'large' {
-        font-size: 8rem;
-        line-height: 1.1;
-        @media (max-width: 991px) {
-            font-size: 5rem;
-        }
     } @else {
         font-size: 5rem;
+
+        @media (max-width: 767px) {
+            font-size: 4rem;
+        }
+
+        @media (max-width: 575px) {
+            font-size: 3.4rem;
+        }
     }
 }
 

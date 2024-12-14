@@ -23,8 +23,6 @@
 
     .titolo_pb {
         margin-bottom: 3rem;
-        &:nth-child(1) {
-        }
     }
 
     ul {
@@ -55,6 +53,42 @@
                     max-width: 100%;
                 }
             }
+        }
+    }
+}
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 1199px) {
+    .block-text-side-image {
+        .wp-block-image {
+            width: 45%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .block-text-side-image {
+        & > .container {
+            padding-top: 4rem;
+            padding-bottom: 5rem;
+        }
+
+        .titolo_pb {
+            margin-bottom: 2rem;
+        }
+
+        .wp-element-button {
+            margin-top: 1rem;
+        }
+
+        .wp-block-image {
+            position: static;
+            width: 100%;
+            height: auto;
+            margin-top: 5rem;
         }
     }
 }

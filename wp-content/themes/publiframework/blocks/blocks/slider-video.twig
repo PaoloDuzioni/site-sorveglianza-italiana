@@ -3,10 +3,10 @@
         {% for slide in fields.slider_video %}
             <div class="swiper-slide text-center">
                 <div class="container">
-                    <div class="section-title big text-white">
+                    <div class="section-title text-white">
                         {{ slide.testo }}
                     </div>
-
+                    
                     {% if slide.link_cta %}
                         <a class="button big" href="{{ slide.link_cta }}">{{ slide.testo_cta }}</a>
                     {% endif %}
