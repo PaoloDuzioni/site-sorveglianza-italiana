@@ -4,8 +4,6 @@
 
 html {
     font-size: $base-font;
-    // TODO: disable header scrolled transition if there is a #top-archive anchor in the url
-    scroll-behavior: auto !important;
 }
 
 body {
