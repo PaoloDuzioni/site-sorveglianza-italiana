@@ -15,3 +15,17 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .block-banner-testo {
+        padding: 5rem 0;
+
+        .titolo_pb {
+            margin-bottom: 2rem;
+        }
+    }
+}

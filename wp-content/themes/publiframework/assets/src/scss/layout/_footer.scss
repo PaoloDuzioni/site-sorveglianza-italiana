@@ -147,3 +147,63 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    #footer {
+        .social-icons {
+            font-size: 2rem;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #footer {
+        padding-top: 5rem;
+
+        .titolo-widget-sidebar {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .link-list {
+            a {
+                margin-bottom: 1rem;
+                font-size: 2rem;
+            }
+        }
+
+        .contact-info {
+            .textwidget {
+                text-align: left;
+            }
+
+            .icon {
+                width: 4rem;
+                height: 4rem;
+
+                svg {
+                    width: 2.2rem;
+                }
+            }
+
+            a {
+                &:first-child {
+                    font-size: 2rem;
+                }
+                &:last-child {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        .copyright {
+            margin-top: 5rem;
+            padding-bottom: 2rem;
+        }
+    }
+}

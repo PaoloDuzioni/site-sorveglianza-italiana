@@ -22,3 +22,28 @@
         margin-top: 3rem;
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .block-text-with-boxes {
+        padding: 5rem 0 3rem;
+
+        .titolo_pb {
+            margin-bottom: 0;
+        }
+
+        .row {
+            --bs-gutter-y: 3rem;
+        }
+
+        .box {
+            padding: 1rem;
+            .titolo_pb {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}

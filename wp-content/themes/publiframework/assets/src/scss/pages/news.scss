@@ -12,6 +12,7 @@
     }
 
     .categories-list {
+        gap: 1rem 3rem;
         margin-bottom: 4rem;
 
         a {
@@ -47,6 +48,10 @@
 
         .wrap-image {
             margin-bottom: 3rem;
+
+            img {
+                width: 100%;
+            }
         }
 
         .category {
@@ -60,6 +65,7 @@
             background: $primary;
             border-radius: 0.4rem;
         }
+
         .title {
             font-size: 2.4rem;
             margin-bottom: 2rem;
@@ -97,5 +103,61 @@
 
     .cta {
         margin-top: 3rem;
+    }
+}
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .boxes-news {
+        .box {
+            padding: 2rem;
+
+            .category {
+                display: inline-block;
+                min-width: 13rem;
+                margin-bottom: 3rem;
+                padding: 0.5rem 1rem;
+                text-align: center;
+                font-size: 1.4rem;
+                color: $white;
+                background: $primary;
+                border-radius: 0.4rem;
+            }
+
+            .title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .date {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    .news-archive {
+        padding-bottom: 5rem;
+
+        #top-archive {
+            padding-top: 5rem;
+        }
+    }
+
+    .single-news-content {
+        padding-top: 5rem;
+
+        .wp-block-image {
+            margin-top: 2rem;
+        }
+    }
+
+    .single.single-post .block-news-section {
+        .titolo_pb {
+            font-size: 3rem;
+            text-align: center;
+        }
     }
 }

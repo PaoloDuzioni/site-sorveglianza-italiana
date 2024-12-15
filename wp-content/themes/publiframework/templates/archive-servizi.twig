@@ -13,10 +13,16 @@
                     <form method="post" id="services-form"
                           data-base-url="{{ site_url }}"
                           data-posts-per-page="{{ posts_per_page }}">
-                        <div class="tanonomy-list">
-                            <h4 class="title">Settori</h4>
+                        <div class="taxonomy-list ">
+                            <h4 class="title">
+                                <button class="collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#sectors-inputs" aria-expanded="false"
+                                        aria-controls="sectors-inputs">
+                                    Settori
+                                </button>
+                            </h4>
                             
-                            <ul class="list-unstyled list">
+                            <ul class="list-unstyled list collapse" id="sectors-inputs">
                                 {% for tax in taxonomies_sectors %}
                                     <li>
                                         <label>
@@ -30,10 +36,16 @@
                             <button class="clear-filters hidden">Rimuovi filtri</button>
                         </div>
                         
-                        <div class="tanonomy-list">
-                            <h4 class="title">Servizi</h4>
+                        <div class="taxonomy-list">
+                            <h4 class="title">
+                                <button class="collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#services-inputs" aria-expanded="false"
+                                        aria-controls="services-inputs">
+                                    Servizi
+                                </button>
+                            </h4>
                             
-                            <ul class="list-unstyled list">
+                            <ul class="list-unstyled list collapse" id="services-inputs">
                                 {% for tax in taxonomies_services %}
                                     <li>
                                         <label>
@@ -51,12 +63,12 @@
                 
                 <div class="col-md-8 col-lg-9 position-relative">
                     {# Posts added with JS API #}
-                    <div class="row g-3 box-list services-list" id="top-archive"></div>
+                    <div class="row g-md-3 box-list services-list" id="top-archive"></div>
                     
                     <div class="loader"></div>
                     
                     <template id="post-box-template">
-                        <div class="col-md-4">
+                        <div class="col-sm-6 col-lg-4">
                             <a class="box-services" href="">
                                 <img class="image" src="" alt=""/>
                                 <h2 class="title"></h2>

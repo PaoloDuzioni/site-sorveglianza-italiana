@@ -89,4 +89,8 @@ $font-bold: 700;
         --header-height: 8rem;
         --header-scrolled-height: 8rem;
     }
+
+    @media (max-width: 767px) {
+        --body-font-size: 1.6rem;
+    }
 }

@@ -22,3 +22,21 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .block-two-columns {
+        padding: 5rem 0 4rem;
+
+        .row {
+            --bs-gutter-y: 4rem;
+        }
+
+        .titolo_pb {
+            margin-bottom: 3rem;
+        }
+    }
+}

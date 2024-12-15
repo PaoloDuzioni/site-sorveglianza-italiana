@@ -89,3 +89,45 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    .block-text-box-contacts {
+        .row {
+            & > div {
+                width: 100%;
+            }
+        }
+
+        .wrap-block-contatti {
+            padding-top: 0;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .block-text-box-contacts {
+        .cta {
+            &.back {
+                margin-bottom: 3rem;
+            }
+        }
+
+        .titolo_pb {
+            &.h2 {
+                margin-bottom: 1.5rem;
+            }
+
+            &.h1 {
+                margin-bottom: 2rem;
+            }
+        }
+
+        p + ul {
+            padding-top: 0;
+        }
+    }
+}

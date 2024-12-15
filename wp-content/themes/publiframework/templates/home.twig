@@ -8,7 +8,7 @@
     
     <section class="news-archive">
         <div class="container">
-            <ul class="categories-list list-unstyled d-flex gap-5" id="top-archive">
+            <ul class="categories-list list-unstyled d-flex flex-wrap" id="top-archive">
                 <li>
                     <a href="{{ news_archive_url }}#top-archive"
                        {% if active_taxonomy_id is null %}class="active"{% endif %}>Tutte</a>
@@ -24,9 +24,9 @@
                 {% endfor %}
             </ul>
             
-            <div class="row g-4 boxes-news">
+            <div class="row gy-4 g-md-4 boxes-news">
                 {% for post in posts %}
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4">
                         <div class="box in-archive">
                             <a class="d-block" href="{{ post.link }}">
                                 <picture class="wrap-image d-block">

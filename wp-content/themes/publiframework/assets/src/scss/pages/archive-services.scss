@@ -14,18 +14,39 @@
         padding-top: var(--space-top);
     }
 
-    .tanonomy-list {
-        margin-bottom: 4rem;
+    .taxonomy-list {
+        padding-bottom: 2rem;
 
         .title {
             margin-bottom: 2rem;
-            padding: 1rem 1.5rem;
-            font-size: 2rem;
-            color: $white;
-            background: $primary;
+
+            button {
+                all: unset;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+                width: 100%;
+                padding: 1rem 1.5rem;
+                font-size: 2rem;
+                color: $white;
+                background: $primary;
+
+                &::after {
+                    content: '-';
+                }
+
+                &.collapsed::after {
+                    content: '+';
+                }
+            }
         }
 
         .list {
+            margin-bottom: 0;
+            padding-bottom: 1rem;
+
             li {
                 margin-bottom: 2rem;
             }
@@ -181,6 +202,7 @@
     }
 
     .image {
+        width: 100%;
         transition: scale 0.3s;
     }
 
@@ -201,6 +223,67 @@
 
         .image {
             scale: 1.2;
+        }
+    }
+}
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (min-width: 768px) {
+    .services-archive {
+        .taxonomy-list {
+            .title {
+                button {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+
+            .collapse {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .services-archive {
+        --space-top: 5rem;
+
+        .col-side {
+            position: relative;
+            z-index: 1;
+        }
+
+        #top-archive {
+            padding-top: calc(var(--space-top) - 2rem);
+        }
+
+        .taxonomy-list {
+            padding-bottom: 1rem;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            .title {
+                button {
+                    font-size: 1.6rem;
+                }
+            }
+
+            .list {
+                li {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        .services-list {
+            --bs-gutter-y: 1.5rem;
         }
     }
 }

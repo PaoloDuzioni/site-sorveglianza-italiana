@@ -6,6 +6,10 @@
 .block-slider-video {
     background: $light-gray;
 
+    video {
+        display: block;
+    }
+
     .iconaAudio {
         display: none;
     }

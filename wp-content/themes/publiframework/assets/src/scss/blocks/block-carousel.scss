@@ -13,6 +13,7 @@
 
     .site-carousel {
         --space-bottom: 12rem;
+
         height: calc(50rem + var(--space-bottom));
         padding-bottom: var(--space-bottom);
 
@@ -61,6 +62,29 @@
                     transform: rotate(180deg);
                 }
             }
+        }
+    }
+}
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    .block-carousel {
+        .site-carousel {
+            height: calc(30rem + var(--space-bottom));
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .block-carousel {
+        margin-left: 0 !important;
+        .site-carousel {
+            --space-bottom: 4rem;
+
+            height: auto;
         }
     }
 }

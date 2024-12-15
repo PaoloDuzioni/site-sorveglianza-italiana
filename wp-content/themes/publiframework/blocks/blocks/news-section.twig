@@ -1,8 +1,8 @@
 <div id="particles-js"></div>
 <div class="news-section">
-    <div class="row g-md-4 boxes-news">
+    <div class="row gy-4 g-md-4 boxes-news">
         {% for post in posts %}
-            <div class="col-md-4">
+            <div class="col-md-6 col-lg-4">
                 <div class="box">
                     <div>
                         <a class="category"
@@ -23,7 +23,7 @@
             </div>
         {% endfor %}
     </div>
-
+    
     <div class="text-center">
         <a class="cta" href="{{ news_url }}">
             {{ fields.testo_cta_news_section }}

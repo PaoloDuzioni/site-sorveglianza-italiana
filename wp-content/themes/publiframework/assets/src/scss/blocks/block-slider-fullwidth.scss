@@ -115,3 +115,67 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 1499px) {
+    .block-slider-fullwidth {
+        .site-slider-fullwidth {
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 3rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .block-slider-fullwidth {
+        .site-slider-fullwidth {
+            .swiper-slide {
+                padding: 4rem 0 8rem;
+
+                &::before {
+                    background: rgba($primary, 0.6);
+                }
+            }
+
+            .swiper-pagination {
+                display: none;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                top: auto;
+                bottom: 2rem;
+                transform: none;
+                width: 4rem;
+                height: 4rem !important;
+            }
+
+            .swiper-button-prev {
+                left: 40%;
+            }
+
+            .swiper-button-next {
+                right: 40%;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .block-slider-fullwidth {
+        .site-slider-fullwidth {
+            .swiper-button-prev {
+                left: 1rem;
+            }
+
+            .swiper-button-next {
+                right: 1rem;
+            }
+        }
+    }
+}

@@ -6,19 +6,13 @@
 
 // General typography rules where needed
 @mixin general-typography() {
-    h2,
-    h3,
-    h4 {
-        font-weight: $font-regular;
-    }
-
     h2 {
-        font-size: 3rem;
+        font-size: 2.4rem;
         margin-bottom: 2rem;
     }
 
     h3 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 1.5rem;
     }
 

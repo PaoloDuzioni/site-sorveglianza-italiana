@@ -52,7 +52,7 @@ export default function siteSliders() {
         },
     });
 
-    // Site Slider fullwidth
+    // Site Carousel
     const referenceElelement = document.querySelector(
         '.block-text-box-contacts > .container',
     );
@@ -66,8 +66,12 @@ export default function siteSliders() {
             //      delay: 5000,
             //    },
             speed: 700,
-            slidesPerView: 'auto',
             spaceBetween: 30,
+            breakpoints: {
+                768: {
+                    slidesPerView: 'auto',
+                },
+            },
             // Navigation arrows
             navigation: {
                 nextEl: '.swiper-button-next',

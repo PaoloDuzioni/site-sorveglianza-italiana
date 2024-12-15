@@ -800,7 +800,7 @@ function servicesFilters() {
 
         // Show clear filters button
         prefilterInput
-            .closest('.tanonomy-list')
+            .closest('.taxonomy-list')
             .querySelector('.clear-filters')
             .classList.remove('hidden');
     }
@@ -816,12 +816,12 @@ function servicesFilters() {
 
             // get checked inputs
             const inputChecked = input
-                .closest('.tanonomy-list')
+                .closest('.taxonomy-list')
                 .querySelectorAll('input:checked');
 
             // handle reset button visibility
             const resetBtn = input
-                .closest('.tanonomy-list')
+                .closest('.taxonomy-list')
                 .querySelector('.clear-filters');
             if (inputChecked.length > 0) {
                 resetBtn.classList.remove('hidden');
@@ -843,7 +843,6 @@ function servicesFilters() {
 
             // sed API call
             fetchServices();
-            topArchive.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
@@ -851,9 +850,10 @@ function servicesFilters() {
     clearFiltersBtn.forEach(btn => {
         btn.addEventListener('click', e => {
             e.preventDefault();
+            console.log('lorem');
 
             const inputElementsChecked = btn
-                .closest('.tanonomy-list')
+                .closest('.taxonomy-list')
                 .querySelectorAll('.list input:checked');
 
             inputElementsChecked.forEach(input => {
@@ -931,6 +931,7 @@ function servicesFilters() {
 
     function generateResults(data) {
         displayResultsElement.innerHTML = '';
+        topArchive.scrollIntoView({ behavior: 'smooth' });
 
         // No data response from server
         if (!data) {
@@ -1056,7 +1057,7 @@ function siteSliders() {
         },
     });
 
-    // Site Slider fullwidth
+    // Site Carousel
     const referenceElelement = document.querySelector(
         '.block-text-box-contacts > .container',
     );
@@ -1070,8 +1071,12 @@ function siteSliders() {
             //      delay: 5000,
             //    },
             speed: 700,
-            slidesPerView: 'auto',
             spaceBetween: 30,
+            breakpoints: {
+                768: {
+                    slidesPerView: 'auto',
+                },
+            },
             // Navigation arrows
             navigation: {
                 nextEl: '.swiper-button-next',

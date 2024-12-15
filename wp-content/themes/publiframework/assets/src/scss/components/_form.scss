@@ -303,10 +303,40 @@
     RESPONSIVE
 ******************************************************/
 
+@media (max-width: 767px) {
+    .wpcf7-form {
+        font-size: 1.6rem;
+
+        .wpcf7-form-control-wrap {
+            margin-bottom: 2rem;
+        }
+
+        input[type='text'],
+        input[type='email'],
+        input[type='number'],
+        input[type='tel'],
+        select {
+            height: 4rem;
+        }
+
+        textarea {
+            height: 15rem;
+        }
+
+        .wrap-select {
+            .wpcf7-form-control-wrap::after {
+                top: 20px;
+            }
+        }
+    }
+}
+
 @media (max-width: 575px) {
-    .wpcf7 {
-        .button {
-            width: 100%;
+    .wpcf7-form {
+        .wrap-submit {
+            .wp-element-button {
+                width: 100%;
+            }
         }
     }
 }

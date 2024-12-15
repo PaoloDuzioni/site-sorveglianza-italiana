@@ -1,29 +1,29 @@
-<div class="footer-content">
+<div class="footer-content text-center text-lg-start">
     <div class="container">
-        <div class="row justify-content-between">
+        <div class="row gy-6 g-lg-2 justify-content-between">
             {% if sidebar_footer_1 %}
-                <div class="col-md-auto col-{{ options.larghezza_navigazione_mobile }}-3">
+                <div class="col-md-6 col-lg-auto">
                     {{ sidebar_footer_1 }}
                 </div>
             {% endif %}
             {% if sidebar_footer_2 %}
-                <div class="link-list-with-title col-md-auto col-{{ options.larghezza_navigazione_mobile }}-3">
+                <div class="link-list-with-title col-md-6 col-lg-auto">
                     {{ sidebar_footer_2 }}
                 </div>
             {% endif %}
             {% if sidebar_footer_3 %}
-                <div class="link-list col-md-auto col-{{ options.larghezza_navigazione_mobile }}-3">
+                <div class="link-list col-md-6 col-lg-auto">
                     {{ sidebar_footer_3 }}
                 </div>
             {% endif %}
             {% if sidebar_footer_4 %}
-                <div class="link-list col-md-auto col-{{ options.larghezza_navigazione_mobile }}-3">
+                <div class="link-list col-md-6 col-lg-auto">
                     {{ sidebar_footer_4 }}
                 </div>
             {% endif %}
             {% if sidebar_footer_5 %}
-                <div class="contact-info col-md-auto col-{{ options.larghezza_navigazione_mobile }}-3">
-                    <div class="d-flex gap-3 align-items-center">
+                <div class="contact-info col-md-12 col-lg-auto">
+                    <div class="d-inline-flex d-lg-flex gap-3 align-items-center">
                         <div class="icon flex-shrink-0">
                             {% include 'partial/phone-icon.twig' %}
                         </div>
@@ -39,12 +39,12 @@
     <div class="container">
         <div class="row">
             {% if sidebar_footer_copyright_sx %}
-                <div class="col-12 col-md-8">
+                <div class="col-md-8 text-center text-md-start">
                     {{ sidebar_footer_copyright_sx }}
                 </div>
             {% endif %}
-
-            <div class="d-none d-lg-block col-12 col-md-4 text-center text-md-end">
+            
+            <div class="col-md-4 text-center text-md-end">
                 {% if sidebar_footer_copyright_dx %}{{ sidebar_footer_copyright_dx }}{% endif %}
                 {% if attiva_credits %}
                     <div class="credits d-flex justify-content-center align-items-center justify-content-md-end">
@@ -55,7 +55,7 @@
                                 <source srcset="{{ img_credits.src|towebp }}" type="image/webp">
                                 <source srcset="{{ img_credits.src }}">
                                 <img id="logo_desktop" src="{{ img_credits.src|towebp }}" alt="{{ img_credits.alt }}"
-                                     width="{{ img_credits.width }}" height="{{ img_credits.height }}" />
+                                     width="{{ img_credits.width }}" height="{{ img_credits.height }}"/>
                             </picture>
                         </a>
                     </div>

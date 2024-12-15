@@ -21,3 +21,14 @@
         margin: 0 auto;
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .block-form-section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}

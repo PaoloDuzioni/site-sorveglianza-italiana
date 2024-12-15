@@ -44,7 +44,7 @@ export default function servicesFilters() {
 
         // Show clear filters button
         prefilterInput
-            .closest('.tanonomy-list')
+            .closest('.taxonomy-list')
             .querySelector('.clear-filters')
             .classList.remove('hidden');
     }
@@ -60,12 +60,12 @@ export default function servicesFilters() {
 
             // get checked inputs
             const inputChecked = input
-                .closest('.tanonomy-list')
+                .closest('.taxonomy-list')
                 .querySelectorAll('input:checked');
 
             // handle reset button visibility
             const resetBtn = input
-                .closest('.tanonomy-list')
+                .closest('.taxonomy-list')
                 .querySelector('.clear-filters');
             if (inputChecked.length > 0) {
                 resetBtn.classList.remove('hidden');
@@ -87,7 +87,6 @@ export default function servicesFilters() {
 
             // sed API call
             fetchServices();
-            topArchive.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
@@ -95,9 +94,10 @@ export default function servicesFilters() {
     clearFiltersBtn.forEach(btn => {
         btn.addEventListener('click', e => {
             e.preventDefault();
+            console.log('lorem');
 
             const inputElementsChecked = btn
-                .closest('.tanonomy-list')
+                .closest('.taxonomy-list')
                 .querySelectorAll('.list input:checked');
 
             inputElementsChecked.forEach(input => {
@@ -175,6 +175,7 @@ export default function servicesFilters() {
 
     function generateResults(data) {
         displayResultsElement.innerHTML = '';
+        topArchive.scrollIntoView({ behavior: 'smooth' });
 
         // No data response from server
         if (!data) {

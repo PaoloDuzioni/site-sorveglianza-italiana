@@ -26,3 +26,32 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    .block-hero {
+        min-height: 25rem;
+        padding: 5rem 0;
+
+        .titolo_pb {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .block-hero {
+        min-height: 20rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .block-hero {
+        .titolo_pb {
+            font-size: 3.5rem;
+        }
+    }
+}

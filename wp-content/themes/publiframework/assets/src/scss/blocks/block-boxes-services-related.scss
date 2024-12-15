@@ -13,3 +13,18 @@
         // boxes styles in pages/archive-services.scss
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .block-boxes-services-related {
+        .section-subtitle {
+            font-size: 3rem;
+        }
+        .cta {
+            margin-top: 3rem;
+        }
+    }
+}

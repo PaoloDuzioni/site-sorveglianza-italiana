@@ -66,3 +66,21 @@
         }
     }
 }
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 767px) {
+    .block-boxes-cat-services {
+        .boxes-cat-servives {
+            padding: 5rem 0 3rem;
+        }
+        .section-subtitle {
+            font-size: 3rem;
+        }
+        .cta {
+            margin-top: 3rem;
+        }
+    }
+}
