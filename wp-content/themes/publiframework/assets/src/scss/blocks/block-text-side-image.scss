@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     min-height: 62rem;
+    overflow: hidden; // gsap animations
 
     & > .container {
         position: static;

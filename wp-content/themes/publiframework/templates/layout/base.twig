@@ -1,5 +1,5 @@
 {% block html_head_container %}
-
+    
     {% include 'partial/html-header.twig' %}
     {% block head %}
     {% endblock %}
@@ -8,9 +8,11 @@
 
 <body class="{{ body_class }} header_{% if post.meta('tipo_header') %}{{ post.meta('tipo_header') }}{% else %}chiaro{% endif %}{% if post.meta('classi_custom') %} {{ post.meta('classi_custom') }}{% endif %}"
       data-template="base.twig">
+<div class="body-loader"></div>
+
 <div id="main-wrapper">
     {% include 'layout/header.twig' %}
-
+    
     <div id="content" role="main" class="content-wrapper">
         {#        {% block breadcrumb %} #}
         {#            {% include 'partial/breadcrumb.twig' %} #}

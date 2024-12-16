@@ -4,6 +4,7 @@
 
 .block-text-section {
     padding: 7rem 0 3rem;
+    overflow: hidden; // gsap animations
 
     .titolo_pb {
         &.h1 {

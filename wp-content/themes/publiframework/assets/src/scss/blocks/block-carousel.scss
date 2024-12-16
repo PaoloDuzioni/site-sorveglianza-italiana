@@ -3,6 +3,8 @@
  ******************************************************/
 
 .block-carousel {
+    overflow: hidden; // gsap animations
+
     & > .container-fluid {
         --bs-gutter-x: 0;
 

@@ -4,6 +4,7 @@
 
 .block-banner-testo {
     padding: 7rem 0;
+    overflow: hidden; // gsap animations
 
     .titolo_pb {
         margin-bottom: 4rem;

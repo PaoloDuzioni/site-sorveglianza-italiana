@@ -175,7 +175,10 @@ export default function servicesFilters() {
 
     function generateResults(data) {
         displayResultsElement.innerHTML = '';
-        topArchive.scrollIntoView({ behavior: 'smooth' });
+
+        if (taxonomiesSectors.length > 0 || taxonomiesServices.length > 0) {
+            topArchive.scrollIntoView({ behavior: 'smooth' });
+        }
 
         // No data response from server
         if (!data) {

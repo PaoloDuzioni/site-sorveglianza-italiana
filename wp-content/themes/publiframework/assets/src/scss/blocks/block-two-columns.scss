@@ -4,6 +4,7 @@
 
 .block-two-columns {
     padding: 6rem 0;
+    overflow: hidden; // gsap animations
 
     .titolo_pb {
         margin-bottom: 4rem;

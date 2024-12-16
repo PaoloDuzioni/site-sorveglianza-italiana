@@ -3,6 +3,8 @@
  ******************************************************/
 
 .block-boxes-cat-services {
+    overflow: hidden; // gsap animations
+
     .boxes-cat-servives {
         padding: 7rem 0 5rem;
     }

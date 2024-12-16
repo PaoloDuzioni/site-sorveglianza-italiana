@@ -41,3 +41,31 @@ img {
 video {
     display: block;
 }
+
+// Body on load layer
+.body-loading {
+    overflow: hidden;
+}
+
+.body-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999999999;
+    // hide on doc ready with JS
+    &.fadeout {
+        animation: fadeLoaderOut 0.2s 0.2s linear forwards;
+    }
+}
+
+@keyframes fadeLoaderOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

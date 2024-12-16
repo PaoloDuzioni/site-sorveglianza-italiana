@@ -4,6 +4,7 @@
 
 .block-text-box-contacts {
     padding: 6rem 0;
+    overflow: hidden; // gsap animations
 
     .cta.back {
         margin-bottom: 6rem;

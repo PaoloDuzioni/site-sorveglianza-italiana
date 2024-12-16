@@ -9,39 +9,58 @@ import 'bootstrap/js/dist/modal'; // Modal: for modals
 // Particle effect as in News block
 import './js/particles';
 
+// GSAP
+import scrollAnimations from './js/scrollAnimations';
+
 // Custom functions
+import bodyLoaded from './js/bodyLoaded';
 import scrollHeader from './js/scrollHeader';
 import siteSliders from './js/sliders';
 import customSelect from './js/customSelect';
 import servicesFilters from './js/servicesFilters';
 import workWithUsForms from './js/workWithUsForms';
 
-/**
- * Check if the header is scrolled
- */
-scrollHeader();
+// CHECK IF DOCUMENT IS READY
+if (document.readyState !== 'loading') {
+    docIsReady();
+} else {
+    document.addEventListener('DOMContentLoaded', docIsReady);
+}
 
-/**
- * Site sliders
- */
-siteSliders();
+// DOCUMENT READY FUNCTION
+function docIsReady() {
+    /**
+     * Remove body onload layer
+     */
+    bodyLoaded();
 
-/**
- * Custom select input
- */
-customSelect();
+    /**
+     * Check if the header is scrolled
+     */
+    scrollHeader();
 
-/**
- * Services filters
- */
-servicesFilters();
+    /**
+     * Site sliders
+     */
+    siteSliders();
 
-/**
- * Forms for work with us
- */
-workWithUsForms();
+    /**
+     * Custom select input
+     */
+    customSelect();
 
-/**
- * Site scroll animations
- */
-// scrollAnimations();
+    /**
+     * Services filters
+     */
+    servicesFilters();
+
+    /**
+     * Forms for work with us
+     */
+    workWithUsForms();
+
+    /**
+     * Site scroll animations
+     */
+    scrollAnimations();
+} // End Document Ready
