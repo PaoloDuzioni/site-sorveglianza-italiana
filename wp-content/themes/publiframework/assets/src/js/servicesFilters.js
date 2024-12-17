@@ -115,6 +115,8 @@ export default function servicesFilters() {
 
             // sed API call
             fetchServices();
+
+            topArchive.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
@@ -123,6 +125,7 @@ export default function servicesFilters() {
         if (page > 1) {
             page--;
             fetchServices();
+            topArchive.scrollIntoView({ behavior: 'smooth' });
         }
     });
 
@@ -130,6 +133,7 @@ export default function servicesFilters() {
         if (page < totalPages) {
             page++;
             fetchServices();
+            topArchive.scrollIntoView({ behavior: 'smooth' });
         }
     });
 

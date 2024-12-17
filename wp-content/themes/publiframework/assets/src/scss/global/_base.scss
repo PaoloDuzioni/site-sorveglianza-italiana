@@ -4,6 +4,8 @@
 
 html {
     font-size: $base-font;
+    // smooth conflicts with GSAP
+    scroll-behavior: unset;
 }
 
 body {

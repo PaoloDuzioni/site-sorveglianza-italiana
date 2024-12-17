@@ -169,6 +169,8 @@
 @media (max-width: 575px) {
     .block-slider-fullwidth {
         .site-slider-fullwidth {
+            height: calc(100svh - var(--header-scrolled-height));
+
             .swiper-button-prev {
                 left: 1rem;
             }

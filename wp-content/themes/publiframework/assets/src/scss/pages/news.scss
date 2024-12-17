@@ -86,6 +86,7 @@
 // Single
 .single-news-content {
     padding-top: 8rem;
+    overflow: hidden; // gsap animation
 
     .wp-block-post-date {
         margin-bottom: 3rem;

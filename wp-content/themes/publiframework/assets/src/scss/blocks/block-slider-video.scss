@@ -4,7 +4,17 @@
 
 // Class for the block in admin
 .block-slider-video {
+    position: relative;
     background: $light-gray;
+
+    // overlay
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: rgba($black, 0.4);
+    }
 
     video {
         display: block;
@@ -22,14 +32,6 @@
             display: flex;
             align-items: center;
             padding: 4rem 0;
-
-            // overlay
-            &::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: rgba($black, 0.4);
-            }
 
             .container {
                 position: relative;
@@ -102,7 +104,7 @@
 @media (max-width: 575px) {
     .block-slider-video {
         .site-slider-video {
-            height: calc(100svh - var(--header-height));
+            height: 35rem;
 
             .swiper-slide {
                 .button {

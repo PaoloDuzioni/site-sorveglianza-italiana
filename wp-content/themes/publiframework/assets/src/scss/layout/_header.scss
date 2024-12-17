@@ -251,7 +251,6 @@
 
         .navbar-collapse {
             padding: 1rem 0 2rem;
-            height: calc(100svh - 7.9rem);
 
             .navbar-nav {
                 width: 100%;
@@ -264,8 +263,11 @@
                 & > li {
                     & > a {
                         padding: 1rem 0;
-                        font-size: 1.6rem;
+                        font-size: 2rem;
                         border-bottom: 0;
+                        // remove bootstrap default blue ring
+                        outline: none !important;
+                        box-shadow: none;
                     }
                     &.current-menu-ancestor,
                     &.current-menu-item {
@@ -281,7 +283,7 @@
                         .dropdown-item {
                             padding: 1rem;
                             font-weight: $font-bold;
-                            font-size: 1.4rem;
+                            font-size: 1.8rem;
 
                             &:hover,
                             &:focus-visible,

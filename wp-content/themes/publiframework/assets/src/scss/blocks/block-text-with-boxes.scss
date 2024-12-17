@@ -4,6 +4,7 @@
 
 .block-text-with-boxes {
     padding: 7rem 0 5rem;
+    overflow: hidden; // gsap animation
 
     .titolo_pb {
         margin-bottom: 6rem;
