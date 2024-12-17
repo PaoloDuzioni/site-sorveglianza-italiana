@@ -14,6 +14,15 @@
 @import './scss/global/typography';
 @import './scss/global/utilities';
 
+// Pages
+@import './scss/pages/archive-services';
+@import 'scss/pages/news';
+@import 'scss/pages/internals';
+
+// Layout
+@import './scss/layout/header.scss';
+@import './scss/layout/footer.scss';
+
 // Components
 @import './scss/components/buttons';
 @import './scss/components/form';
@@ -38,13 +47,3 @@
 @import 'scss/blocks/block-work-application';
 @import 'scss/blocks/block-text-section';
 @import 'scss/blocks/block-two-columns';
-
-// Pages
-//@import './scss/pages/home';
-@import './scss/pages/archive-services';
-@import 'scss/pages/news';
-@import 'scss/pages/internals';
-
-// Layout
-@import './scss/layout/header.scss';
-@import './scss/layout/footer.scss';
