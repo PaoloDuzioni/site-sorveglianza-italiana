@@ -1,0 +1,116 @@
+/******************************************
+    SITE SLIDERS
+ ******************************************/
+
+// Class for the block in admin
+.block-slider-video {
+    position: relative;
+    background: $light-gray;
+
+    // overlay
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: rgba($black, 0.4);
+    }
+
+    video {
+        display: block;
+    }
+
+    .iconaAudio {
+        display: none;
+    }
+
+    .site-slider-video {
+        height: 65rem;
+
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+
+            .container {
+                position: relative;
+            }
+
+            .image {
+                width: 100%;
+            }
+
+            .section-title {
+                @include section-title('large');
+                margin-bottom: 5rem;
+            }
+
+            .button {
+                min-width: 31rem;
+            }
+        }
+
+        // Pagination
+        .swiper-pagination-bullets {
+            bottom: 5rem;
+
+            .swiper-pagination-bullet {
+                width: 1.6rem;
+                height: 1.6rem;
+                margin: 0 0.5rem;
+                background: transparent;
+                border: 1px solid $white;
+                opacity: 1;
+                outline: none;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: $white;
+            }
+        }
+    }
+}
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 991px) {
+    .block-slider-video {
+        .site-slider-video {
+            height: 50rem;
+
+            .swiper-slide {
+                .button {
+                    min-width: initial;
+                }
+            }
+
+            // Pagination
+            .swiper-pagination-bullets {
+                bottom: 3rem;
+
+                .swiper-pagination-bullet {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .block-slider-video {
+        .site-slider-video {
+            height: 40rem;
+
+            .swiper-slide {
+                .button {
+                    min-width: initial;
+                }
+            }
+        }
+    }
+}

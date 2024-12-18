@@ -1,0 +1,73 @@
+/***************************************************
+    APP BASE STYLES
+ ***************************************************/
+
+html {
+    font-size: $base-font;
+    // disable smooth scroll behavior
+    scroll-behavior: unset;
+}
+
+body {
+    display: flex;
+    flex-direction: column; // Sticky footer
+    min-height: 100vh;
+    font-family: $main-font;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: var(--body-font-size);
+    color: $font-col;
+    background: $back-col;
+}
+
+// Sticky footer
+#main-wrapper {
+    padding-top: var(--header-height);
+    flex-grow: 1;
+}
+
+::selection {
+    color: $white;
+    background: $primary;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+video {
+    display: block;
+}
+
+// Body on load layer
+.body-loading {
+    overflow: hidden;
+}
+
+.body-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999999999;
+    // hide on doc ready with JS
+    &.fadeout {
+        animation: fadeLoaderOut 0.2s 0.2s linear forwards;
+    }
+}
+
+@keyframes fadeLoaderOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

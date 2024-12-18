@@ -1,0 +1,183 @@
+/******************************************************
+    BLOCK SLIDER FULLWIDTH
+ ******************************************************/
+// Class for the block in admin
+.block-slider-fullwidth {
+    background: $light-gray;
+
+    & > .container-fluid {
+        --bs-gutter-x: 0;
+
+        & > .row {
+            --bs-gutter-x: 0;
+        }
+    }
+
+    .site-slider-fullwidth {
+        height: calc(100vh - var(--header-scrolled-height));
+
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+
+            // overlay
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    $primary 0%,
+                    transparent 100%
+                );
+            }
+
+            .container {
+                position: relative;
+                z-index: 2;
+            }
+
+            .image {
+                @include image-fit(true);
+            }
+
+            .content {
+                max-width: 64rem;
+            }
+
+            .section-title {
+                margin-top: 3rem;
+                margin-bottom: 5rem;
+            }
+        }
+
+        // Pagination
+        .container-pagination {
+            position: absolute;
+            z-index: 2;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .swiper-pagination-bullets {
+            position: static;
+            text-align: left;
+
+            .swiper-pagination-bullet {
+                width: 1.6rem;
+                height: 1.6rem;
+                margin: 0 0.5rem;
+                background: transparent;
+                border: 1px solid $white;
+                opacity: 1;
+                outline: none;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: $white;
+            }
+        }
+
+        // Navigation
+        .swiper-button-prev,
+        .swiper-button-next {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6.9rem;
+            height: 27rem;
+            margin-top: 0;
+            background: rgba($white, 0.5);
+            transition: height 0.2s linear;
+
+            &:hover {
+                height: 30rem;
+            }
+
+            &::after {
+                font-size: 30px;
+                color: white;
+            }
+        }
+
+        .swiper-button-prev {
+            left: 0;
+        }
+
+        .swiper-button-next {
+            right: 0;
+        }
+    }
+}
+
+/******************************************************
+    RESPONSIVE
+ ******************************************************/
+
+@media (max-width: 1499px) {
+    .block-slider-fullwidth {
+        .site-slider-fullwidth {
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 3rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .block-slider-fullwidth {
+        .site-slider-fullwidth {
+            .swiper-slide {
+                padding: 4rem 0 8rem;
+
+                &::before {
+                    background: rgba($primary, 0.6);
+                }
+            }
+
+            .swiper-pagination {
+                display: none;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                top: auto;
+                bottom: 2rem;
+                transform: none;
+                width: 4rem;
+                height: 4rem !important;
+            }
+
+            .swiper-button-prev {
+                left: 40%;
+            }
+
+            .swiper-button-next {
+                right: 40%;
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .block-slider-fullwidth {
+        .site-slider-fullwidth {
+            height: calc(100svh - var(--header-scrolled-height));
+            
+            .swiper-button-prev {
+                left: 1rem;
+            }
+
+            .swiper-button-next {
+                right: 1rem;
+            }
+        }
+    }
+}
